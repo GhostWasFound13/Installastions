@@ -1,4 +1,8 @@
 module.exports = {
+    lastblacklist: "Nobody",
+rblacklist: "",
+blacklist: "false",
+lastunblacklist: "No one",
     warn: 0,
   cases: "{}",
     ServerId: "Null",
