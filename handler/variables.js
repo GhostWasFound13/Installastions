@@ -1,5 +1,6 @@
-module.exports = (bot) => {
-  bot.variables({
+module.exports = {
+    warn: 0,
+  cases: "{}",
     ServerId: "Null",
     RankLimit: "39",
     Cookie: "Null",
@@ -28,6 +29,5 @@ module.exports = (bot) => {
     button_name: "Open ticket",
     ch_name: "tick",
     auto_tran: "false"
-})
 
 }
