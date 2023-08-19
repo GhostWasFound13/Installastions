@@ -1,6 +1,6 @@
 {
-    "name": "-asdf",
-    "version": "1.0.0",
+    "name": "installastions-dogeBot",
+    "version": "0.2.1-dogeBeta",
     "description": "",
     "main": "index.js",
     "scripts": {
