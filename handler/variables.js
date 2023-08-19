@@ -1,4 +1,7 @@
 module.exports = {
+    lvl: "0",
+xp: "0",
+reqxp: "300",
     lastblacklist: "Nobody",
 rblacklist: "",
 blacklist: "false",
