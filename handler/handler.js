@@ -36,7 +36,7 @@ r.push(`         ${config.green}Ready${end}: ${config.skyBlue}true${config.end}`
 r.push(`         ${config.green}Bot Creator${end}: ${config.red}${(await c.application.fetch()).owner.username + '#' + (await c.application.fetch()).owner.discriminator}${config.end}`)
 r.push(`         ${config.green}Guilds${end}: ${config.gray}${this.bot.guilds.cache.size}${config.end}`)
 r.push(`         ${config.green}Commands loaded${end}: ${config.gray}${this.bot.cmd.default.size}${config.end}`)
-r.push(`      ─━━━${config.whiteBg}Created by ahoemi${end}━━━━─`)
+r.push(`      ─━━━${config.whiteBg}Created by Ghost${end}━━━━─`)
 
 console.log(r.join('\n'))
     }, 1500)

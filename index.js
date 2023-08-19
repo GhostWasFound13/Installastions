@@ -67,7 +67,7 @@ handler.loadCommands(`./commands`);
 handler.loadVariables(`./handler/variables.js`);
 //handler.loadEvents(`./events`);
 handler.loadStatus(`./handler/status.js`);
-handler.loadFunctions(`./handler/functions`);
+handler.loadFunctions(`./functions`);
 
   
 
