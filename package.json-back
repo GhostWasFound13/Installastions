@@ -1,0 +1,31 @@
+{
+    "name": "-asdf",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "node test.js"
+    },
+    "engines": {
+        "node": "16.x"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "discord-html-transcripts": "^3.1.5",
+      "bad-words-next": "^2.2.1",
+        "@akarui/aoi.db": "^1.0.0",
+        "@akarui/aoi.panel": "^0.0.5",
+        "@akarui/aoi.parser": "^1.0.1",
+        "aoi.db": "^1.1.0",
+        "aoi.js": "github:akaruidevelopment/aoi.js#v6",
+        "aoi.parser": "^1.2.6",
+        "axios": "^1.4.0",
+        "bcrypt": "^5.1.0",
+        "bottleneck": "^2.19.5",
+        "cryptr": "^6.2.0",
+        "dotenv": "^16.0.3",
+        "noblox.js": "^4.13.1"
+    }
+}
