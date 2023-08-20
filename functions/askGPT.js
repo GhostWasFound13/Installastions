@@ -121,5 +121,4 @@ module.exports = async (d) => {
           code: d.util.setCode(data)
         };
       }
-    };
-  }
+    
