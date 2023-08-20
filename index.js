@@ -5,12 +5,13 @@ setup(aoijs.Util);
 require('dotenv').config();
 //const {Panel} = require("@akarui/aoi.panel")
 
+const config = require("./bot/config.js");
 const { Handler } = require("./handler/handler.js");
 const bot = new aoijs.AoiClient({
-token: process.env.token,
-prefix: "-",
-intents: ["MessageContent", "Guilds", "GuildMessages", "GuildMembers", "GuildBans"],
-events : ["onMessage", "onInteractionCreate", "onGuildJoin", "onJoin", "onMessageDelete", "onBanAdd" ],
+  token: config.token,
+  prefix: config.prefix,
+  events: config.events,
+  intents: config.intents,
 sharding: true,
 aoiLogs: true,
 database : {
