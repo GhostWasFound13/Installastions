@@ -1,4 +1,5 @@
 module.exports = {
+    prefix: "a!",
     lvl: "0",
 xp: "0",
 reqxp: "300",
