@@ -5,17 +5,26 @@ module.exports = [{
     category: "moderation",
     code: `
 
-$sendMessage[{newEmbed:{title:Role info}{description:**Name#COLON#** $roleName[$get[role]] (<@&$get[role]>)\n**Color#COLON#** $get[color]\n**Members Count#COLON#** $roleMembersCount[$get[role]]\n**Created on#COLON#** <t:$truncate[$divide[$creationDate[$get[role];ms];1000]]:f>\n**Position#COLON#** $rolePosition[$get[role]]\n**Hoisted?** $toLocaleUpperCase[$isHoisted[$get[role]]]\n**Editable?** $toLocaleUpperCase[$isRoleEditable[$get[role]]]}{footer:ID#COLON# $get[role]}{color:$get[color]}}]
+$sendMessage[{newEmbed:{title:Role info}{field:Name:\`$roleName[$get[role]]\`}
+{field:Role Color:\`$get[color]\`}
+{field:Created on:<t:$djsEval[Math.floor(d.guild.roles.cache.get('$get[role]').createdAt.getTime() /1000);true]:f>}{field:Position - Ascending:\`$rolePosition[$get[role]]\`}{field:Hoisted:\`$toLocaleUpperCase[$isHoisted[$get[role]]]\`}{field:Editable:\`$toLocaleUpperCase[$isRoleEditable[$get[role]]]\`}{field:Key Permissions:$if[$get[perms]==;Default;$get[perms]]}{footer:ID#COLON# $get[role]}{color:$get[color]}}]
+
+$let[perms;\`$djsEval[ const c = d.guild.roles.cache.get('892980915121311764').permissions.toArray();
+const e = ['KickMembers', 'BanMembers', 'Administrator', 'ManageChannels', 'ManageGuild', 'ViewAuditLog', 'MentionEveryone', 'ManageRoles'];
+
+const filteredPermissions = c.filter(perm => e.includes(perm));
+
+filteredPermissions.join('\`, \`');true]\`]
 
 $onlyIf[$get[role]!=;{newEmbed:{description:Please mention or provide id of the role you want to be added to the given user.}{color:Red}}]
 
 $onlyIf[$roleExists[$get[role]]==true;{newEmbed:{description:The entered role doesn't exists within the server.}{color:Red}}]
 
-$let[color;$getRoleColor[$get[role]]]
+$let[color;$nonEscape[$getRoleColor[$get[role]]]]
 
 $let[role;$findRole[$message[1]]]
 
-$suppressErrors[Something went wrong!]
+
 
 `
 }]
