@@ -1,6 +1,6 @@
 {
     "name": "installastions-dogeBot",
-    "version": "0.2.1-dogeBeta",
+    "version": "0.2.4-dogeBeta",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -18,7 +18,7 @@
         "@akarui/aoi.panel": "^0.0.5",
         "@akarui/aoi.parser": "^1.0.1",
         "aoi.db": "^1.1.0",
-        "aoi.js": "github:akaruidevelopment/aoi.js#v6",
+        "aoi.js": "^6.4.0",
         "aoi.parser": "^1.2.6",
         "axios": "^1.4.0",
         "bcrypt": "^5.1.0",
