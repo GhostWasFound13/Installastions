@@ -1,4 +1,4 @@
-# Installastions
+<h6>installastions</h6> 
 installastions is discord bot knows as old bot doge bot going scratch making it
 this will alot of work soon
 
@@ -16,7 +16,7 @@ this will alot of work soon
 <kbd>✔</kbd> ticket command support<br>
 <kbd>✔</kbd> handler support
 </p>
-# setup 
+<h6>setting up with the bot get started it</h6>  
 **[ put your token to bot/config
 js ]**
 for prefix go to handler/variables to changed prefix or add more?
