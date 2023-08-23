@@ -8,7 +8,7 @@ this will alot of work soon
 <kbd>🛠️</kbd> custom functions support <br>
 <kbd>🛠️</kbd> Server Management<br>
 <kbd>🛠️</kbd> Utility stuff<br>
-<kbd>𐄂</kbd> Economy<br>
+<kbd>🛠️</kbd> Economy<br>
 <kbd>🛠️</kbd> Image Manipulation commands<br>
 <kbd>🛠️</kbd> Event based features (welcoming etc...)<br>
 <kbd>✔</kbd>verify command support<br>
