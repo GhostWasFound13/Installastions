@@ -1,6 +1,13 @@
 const aoijs = require("aoi.js")
 const noblox = require('noblox.js')
 const { setup } = require('@akarui/aoi.parser');
+const {
+  AoiVoice,
+  PlayerEvents,
+  PluginName,
+  Cacher,
+  Filter,
+} = require(`@akarui/aoi.music`);
 setup(aoijs.Util);
 require('dotenv').config();
 //const {Panel} = require("@akarui/aoi.panel")
@@ -24,6 +31,31 @@ database : {
   }
 },
 })
+
+const voice = new AoiVoice(bot, {
+  requestOptions: {
+    offsetTimeout: 0,
+    soundcloudLikeTrackLimit: 200,
+  },
+  searchOptions: {
+    soundcloudClientId: config.soundcloudClientId,
+
+  },
+
+});
+
+voice.bindExecutor(bot.functionManager.interpreter);
+voice.addEvent(PlayerEvents.TRACK_START);
+voice.addEvent(PlayerEvents.TRACK_END);
+voice.addEvent(PlayerEvents.QUEUE_END);
+voice.addEvent(PlayerEvents.QUEUE_START);
+voice.addEvent(PlayerEvents.AUDIO_ERROR);
+voice.addEvent(PlayerEvents.TRACK_PAUSE);
+voice.addEvent(PlayerEvents.TRACK_RESUME);
+voice.addPlugin(PluginName.Cacher, new Cacher("disk" /* or "memory" */));
+voice.addPlugin(PluginName.Filter, new Filter({
+  filterFromStart: false,
+}));
 const handler = new Handler({
   bot: bot,
   readyLog: true // To log ready or not
