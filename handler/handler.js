@@ -118,7 +118,7 @@ console.log(`───────── Loaded ${i - 1} Statuses in ${Date.now(
 
 loadVoice(path) {
 const exPath = resolve(this.basePath, path) + '/'
-  const validTypes = Object.getOwnPropertyNames(this.bot.cmd);
+  const validTypes = Object.getOwnPropertyNames(this.voice.cmds);
   const folders = readdirSync(exPath, { withFileTypes: true })
     .map((dirent) => dirent.name);
 
