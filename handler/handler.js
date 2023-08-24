@@ -114,8 +114,118 @@ console.log(`───────── Loaded ${i - 1} Statuses in ${Date.now(
   
   }
 
+// VOICE COMMAND client
+
+loadVoice(path) {
+const exPath = resolve(this.basePath, path) + '/'
+  const validTypes = Object.getOwnPropertyNames(this.bot.cmd);
+  const folders = readdirSync(exPath, { withFileTypes: true })
+    .map((dirent) => dirent.name);
+
+  console.log(`──────────────\u001b\[7mLoading Commands${end}────────────────`);
+
+  let startTime = Date.now();
+  let output = [];
+  let total = 0;
 
 
+  for (let folder of folders) {
+    if (folder.endsWith('.js')) {
+      output.push(`┌──── \x1b[38;2;0;255;255mLoading '${path}'${end} ${'─'.repeat(28 - path.length)}┐`);
+      const cmdPath = exPath + folder;
+      let command;
+
+      try {
+        command = require(cmdPath);
+        output.push(`│                                            │\n│     \x1b[38;2;0;255;255m• Loading ${folder}${end}${(' ').repeat(29 - folder.length)}│`);
+      } catch (e) {
+        let pathh = `'${path}${folder}'`;
+        output.push(`│     ${failed} ${pathh}${end}${(' ').repeat(30 - (path + folder).length)}│`);
+        continue;
+      }
+
+      if (!command) {
+        continue;
+      }
+
+      command = Array.isArray(command) ? command : [command];
+
+      for (let cmd of command) {
+        if (!("type" in cmd)) cmd.type = "default";
+        const valid = validTypes.includes(cmd.type);
+
+        if (!valid) {
+          output.push(`│     ${loaded} ${cmd.name}${end}${(' ').repeat(30 - (cmd.name).length)}│`);
+          continue;
+        }
+
+        try {
+          this.voice.cmds.createCommand(cmd);
+          output.push(`│       ${loaded} ${cmd.name}${end}${(' ').repeat(28 - (cmd.name).length)}│`);
+          total += 1;
+        } catch (e) {
+          output.push(`│       ${failed} ${cmd.name}${end}${(' ').repeat(28 - (cmd.name ? cmd.name : 'undefined').length)}│`);
+        }
+      }
+      output.push("│                                            │\n└────────────────────────────────────────────┘");
+      
+    } else {
+      let pathh = `'${path}${folder}'`;
+
+      output.push(`┌──── \x1b[38;2;0;255;255mLoading ${pathh}${end} ${'─'.repeat(30 - pathh.length)}┐`);
+
+      const files = readdirSync(exPath + folder);
+
+      if (files.length === 0) {
+        output.push(`│     \u001b[38;2;255;0;0mNo files found in this folder${end}${(' ').repeat(10)}│`);
+        output.push("│                                            │\n└────────────────────────────────────────────┘");
+        continue;
+      }
+
+      for (let file of files) {
+        const cmdPath = exPath + folder + "/" + file;
+
+        let command;
+        try {
+          command = require(cmdPath);
+          output.push(`│                                            │\n│     \x1b[38;2;0;255;255m• Loading ${file}${end}${(' ').repeat(29 - file.length)}│`);
+        } catch (e) {
+          let pathh = `'${path}${file}'`;
+          output.push(`│     ${failed} ${pathh}${end}${(' ').repeat(30 - pathh.length)}│`);
+          continue;
+        }
+
+        if (!command) {
+          continue;
+        }
+
+        command = Array.isArray(command) ? command : [command];
+
+        for (let cmd of command) {
+          if (!("type" in cmd)) cmd.type = "default";
+          const valid = validTypes.includes(cmd.type);
+
+          if (!valid) {
+            output.push(`│     ${loaded} ${cmd.name}${end}${(' ').repeat(30 - (cmd.name).length)}│`);
+            continue;
+          }
+
+          try {
+            this.voice.cmds.createCommand(cmd);
+            output.push(`│       ${loaded} ${cmd.name}${end}${(' ').repeat(28 - (cmd.name ? cmd.name : 'undefined').length)}│`);
+            total += 1;
+          } catch (e) {
+            output.push(`│       ${failed} ${cmd.name}${end}${(' ').repeat(28 - (cmd.name ? cmd.name : 'undefined').length)}│`);
+          }
+        }
+      }
+      output.push("│                                            │\n└────────────────────────────────────────────┘");
+    }
+  }
+
+console.log(output.join("\n"));
+console.log(`──── Loaded ${total} successful client music in ${Date.now() - startTime}ms ${'─'.repeat(40 - (`Loaded ${total} successful commands in ${Date.now() - startTime}ms`).length)}\n\n`);
+}
   
 // COMMANDS //
 loadCommands(path) {
@@ -124,7 +234,7 @@ const exPath = resolve(this.basePath, path) + '/'
   const folders = readdirSync(exPath, { withFileTypes: true })
     .map((dirent) => dirent.name);
 
-  console.log(`──────────────\u001b\[7mLoading Commands${end}────────────────`);
+  console.log(`──────────────\u001b\[7mLoading COMMAND${end}────────────────`);
 
   let startTime = Date.now();
   let output = [];
