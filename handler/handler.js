@@ -151,20 +151,20 @@ const exPath = resolve(this.basePath, path) + '/'
       command = Array.isArray(command) ? command : [command];
 
       for (let cmd of command) {
-        if (!("type" in cmd)) cmd.type = "default";
-        const valid = validTypes.includes(cmd.type);
+        if (!("type" in cmds)) cmds.type = "default";
+        const valid = validTypes.includes(cmds.type);
 
         if (!valid) {
-          output.push(`│     ${loaded} ${cmd.name}${end}${(' ').repeat(30 - (cmd.name).length)}│`);
+          output.push(`│     ${loaded} ${cmds.name}${end}${(' ').repeat(30 - (cmds.name).length)}│`);
           continue;
         }
 
         try {
-          this.voice.cmds.createCommand(cmd);
-          output.push(`│       ${loaded} ${cmd.name}${end}${(' ').repeat(28 - (cmd.name).length)}│`);
+          this.voice.cmds.createCommand(cmds);
+          output.push(`│       ${loaded} ${cmds.name}${end}${(' ').repeat(28 - (cmds.name).length)}│`);
           total += 1;
         } catch (e) {
-          output.push(`│       ${failed} ${cmd.name}${end}${(' ').repeat(28 - (cmd.name ? cmd.name : 'undefined').length)}│`);
+          output.push(`│       ${failed} ${cmds.name}${end}${(' ').repeat(28 - (cmds.name ? cmds.name : 'undefined').length)}│`);
         }
       }
       output.push("│                                            │\n└────────────────────────────────────────────┘");
@@ -183,7 +183,7 @@ const exPath = resolve(this.basePath, path) + '/'
       }
 
       for (let file of files) {
-        const cmdPath = exPath + folder + "/" + file;
+        const cmdsPath = exPath + folder + "/" + file;
 
         let command;
         try {
@@ -201,21 +201,21 @@ const exPath = resolve(this.basePath, path) + '/'
 
         command = Array.isArray(command) ? command : [command];
 
-        for (let cmd of command) {
-          if (!("type" in cmd)) cmd.type = "default";
-          const valid = validTypes.includes(cmd.type);
+        for (let cmds of command) {
+          if (!("type" in cmds)) cmds.type = "default";
+          const valid = validTypes.includes(cmds.type);
 
           if (!valid) {
-            output.push(`│     ${loaded} ${cmd.name}${end}${(' ').repeat(30 - (cmd.name).length)}│`);
+            output.push(`│     ${loaded} ${cmds.name}${end}${(' ').repeat(30 - (cmds.name).length)}│`);
             continue;
           }
 
           try {
-            this.voice.cmds.createCommand(cmd);
-            output.push(`│       ${loaded} ${cmd.name}${end}${(' ').repeat(28 - (cmd.name ? cmd.name : 'undefined').length)}│`);
+            this.voice.cmds.createCommand(cmds);
+            output.push(`│       ${loaded} ${cmds.name}${end}${(' ').repeat(28 - (cmds.name ? cmds.name : 'undefined').length)}│`);
             total += 1;
           } catch (e) {
-            output.push(`│       ${failed} ${cmd.name}${end}${(' ').repeat(28 - (cmd.name ? cmd.name : 'undefined').length)}│`);
+            output.push(`│       ${failed} ${cmds.name}${end}${(' ').repeat(28 - (cmds.ame ? cmds.name : 'undefined').length)}│`);
           }
         }
       }
