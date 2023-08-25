@@ -1,4 +1,8 @@
 module.exports = {
+      color: "00ffbe",
+            timeouttime: "10m", // you can change time out time from here :)
+            tm: "NONE", // 💀DONT TUCHE THIS PART DANGER 💀
+            reason: "NONE",
     prefix: "a!",
     lvl: "0",
 xp: "0",
