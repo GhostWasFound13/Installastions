@@ -6,6 +6,7 @@ this will alot of work soon
 <kbd>✔</kbd> client setup<br>
 <kbd>🛠️</kbd> Moderation command support<br>
 <kbd>🛠️</kbd> custom functions support <br>
+<kbd>🛠️</kbd> advanced music command <br>
 <kbd>🛠️</kbd> Server Management<br>
 <kbd>🛠️</kbd> Utility stuff<br>
 <kbd>🛠️</kbd> Economy<br>
