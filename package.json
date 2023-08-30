@@ -16,7 +16,7 @@
         "captcha-generator-alphanumeric": "^1.0.1",
         "discord-html-transcripts": "^3.1.5",
         "bad-words-next": "^2.2.1",
-        "axios": "^0.21.1",  // axios version corrected
+        "axios": "^1.4.0",  
         "@akarui/aoi.panel": "^0.0.5",
         "@akarui/aoi.parser": "^1.0.1",
         "aoi.db": "^1.1.0",
@@ -24,7 +24,7 @@
         "bcrypt": "^5.1.0",
         "bottleneck": "^2.19.5",
         "cryptr": "^6.2.0",
-        "dotenv": "^10.0.0",  // dotenv version corrected
+        "dotenv": "^16.0.3",
         "noblox.js": "^4.13.1",
         "discord-gamecord": "^4.4.0",
         "@nottca/weky": "^4.0.5"
