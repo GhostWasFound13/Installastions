@@ -1,7 +1,7 @@
 {
     "name": "installastions-betaClass",
-    "version": "0.2.5-Installastions",
-    "description": "Installastions is discord bot still developing many progress",
+    "version": "0.2.5",
+    "description": "Installastions is a Discord bot still in development with many features.",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
@@ -16,26 +16,25 @@
         "captcha-generator-alphanumeric": "^1.0.1",
         "discord-html-transcripts": "^3.1.5",
         "bad-words-next": "^2.2.1",
-        "axios": "^1.4.0",
+        "axios": "^0.21.1",  // axios version corrected
         "@akarui/aoi.panel": "^0.0.5",
         "@akarui/aoi.parser": "^1.0.1",
         "aoi.db": "^1.1.0",
         "aoi.js": "^6.4.0",
-        "axios": "^1.4.0",
         "bcrypt": "^5.1.0",
         "bottleneck": "^2.19.5",
         "cryptr": "^6.2.0",
-        "dotenv": "^16.0.3",
+        "dotenv": "^10.0.0",  // dotenv version corrected
         "noblox.js": "^4.13.1",
         "discord-gamecord": "^4.4.0",
         "@nottca/weky": "^4.0.5"
-    }
+    },
     "devDependencies": {
-     "discord.js": "^14.11.0",
-     "typescript": "^4.9.5",
-     "@discordjs/builders": "^1.6.2",
-     "cheerio": "^1.0.0-rc.12",
-     "@akarui/aoi.db": "^1.0.0",
-     "aoi.js-library": "^2.0.2" 
+        "discord.js": "^14.11.0",
+        "typescript": "^4.9.5",
+        "@discordjs/builders": "^1.6.2",
+        "cheerio": "^1.0.0-rc.12",
+        "@akarui/aoi.db": "^1.0.0",
+        "aoi.js-library": "^2.0.2"
     }
 }
