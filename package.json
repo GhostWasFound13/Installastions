@@ -21,7 +21,6 @@
         "@akarui/aoi.parser": "^1.0.1",
         "aoi.db": "^1.1.0",
         "aoi.js": "^6.4.0",
-        "aoi.parser": "^1.2.6",
         "axios": "^1.4.0",
         "bcrypt": "^5.1.0",
         "bottleneck": "^2.19.5",
