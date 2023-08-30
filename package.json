@@ -13,7 +13,7 @@
     "author": "ghost_Installastions",
     "license": "ISC",
     "dependencies": {
-        "captcha-generator-alphanumeric": "^1.0.1",
+        "captcha-generator-alphanumeric": "^1.10.1",
         "discord-html-transcripts": "^3.1.5",
         "bad-words-next": "^2.2.1",
         "axios": "^1.4.0",  
