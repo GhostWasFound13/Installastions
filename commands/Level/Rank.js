@@ -2,7 +2,7 @@ module.exports = [{
   name: "level",
   code: `$author[👍| your levels;$userAvatar[$authorID]]
   $description[> Level: $getUserVar[lvl;$mentioned[1;true]]
-  > xp: $getUSerVar[xp;$mentioned[1;true]]
+  > xp: $getUserVar[xp;$mentioned[1;true]]
   > requirement: $getUserVar[xp;$mentioned[1;true]]/$getUserVar[reqxp;$mentioned[1;true]]
   ]
   $color[Random]`

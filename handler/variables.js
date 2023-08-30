@@ -1,12 +1,17 @@
 module.exports = {
+  
       color: "00ffbe",
             timeouttime: "10m", // you can change time out time from here :)
             tm: "NONE", // 💀DONT TUCHE THIS PART DANGER 💀
             reason: "NONE",
     prefix: "a!",
   originalprefix: "a!",
+  msglogdeletedchannel: "none",
+  msglogeditchannel: "none",
+  afk: "",
+  afkr: "",
     lvl: "0",
-xp: "0",
+  xp: "0",
 reqxp: "300",
     lastblacklist: "Nobody",
 rblacklist: "",

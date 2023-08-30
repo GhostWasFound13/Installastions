@@ -41,4 +41,5 @@ module.exports = [{
                    $endif
                    $endelseif
                    $endif
-$wait[1ms] ` }]
+$wait[1ms] `
+                  }]

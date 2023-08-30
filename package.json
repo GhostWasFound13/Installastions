@@ -13,28 +13,30 @@
     "author": "ghost_Installastions",
     "license": "ISC",
     "dependencies": {
-        "captcha-generator-alphanumeric": "^1.10.1",
-        "discord-html-transcripts": "^3.1.5",
-        "bad-words-next": "^2.2.1",
-        "axios": "^1.4.0",  
+        "@akarui/aoi.music": "^2.3.1",
         "@akarui/aoi.panel": "^0.0.5",
         "@akarui/aoi.parser": "^1.0.1",
+        "@nottca/weky": "^4.0.5",
         "aoi.db": "^1.1.0",
         "aoi.js": "^6.4.0",
+        "axios": "^1.4.0",
+        "bad-words-next": "^2.2.1",
         "bcrypt": "^5.1.0",
         "bottleneck": "^2.19.5",
+        "captcha-generator-alphanumeric": "^1.10.1",
         "cryptr": "^6.2.0",
-        "dotenv": "^16.0.3",
-        "noblox.js": "^4.13.1",
         "discord-gamecord": "^4.4.0",
-        "@nottca/weky": "^4.0.5"
+        "discord-html-transcripts": "^3.1.5",
+        "dotenv": "^16.0.3",
+        "jimp": "^0.22.10",
+        "noblox.js": "^4.13.1"
     },
     "devDependencies": {
-        "discord.js": "^14.11.0",
-        "typescript": "^4.9.5",
-        "@discordjs/builders": "^1.6.2",
-        "cheerio": "^1.0.0-rc.12",
         "@akarui/aoi.db": "^1.0.0",
-        "aoi.js-library": "^2.0.2"
+        "@discordjs/builders": "^1.6.2",
+        "aoi.js-library": "^2.0.2",
+        "cheerio": "^1.0.0-rc.12",
+        "discord.js": "^14.11.0",
+        "typescript": "^4.9.5"
     }
 }

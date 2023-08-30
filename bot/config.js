@@ -12,7 +12,7 @@ module.exports = {
       - aoi.js setup (complicated) -
 */
     "token": process.env.token, // Your super secret client token, when using replit use token: process.env.token and create a secret with your token in it instead for safety purposes.
-    "prefix": "$getGuildVar[prefix;$guildID;main]",// The prefix your bot will respond to, can be multiple for example ["!", "?"], so the bot would respond to ?ping and !ping
+    "prefix": "$getGuildVar[prefix]",// The prefix your bot will respond to, can be multiple for example ["!", "?"], so the bot would respond to ?ping and !ping
    "intents": ["MessageContent",
     "Guilds", "GuildMessages", "GuildMembers", "GuildBans", "GuildEmojisAndStickers", "GuildIntegrations", "GuildWebhooks", "GuildInvites", "GuildVoiceStates", "GuildPresences", "GuildMessageReactions", "GuildMessageTyping", "DirectMessages", "DirectMessageReactions", "DirectMessageTyping",
             ],
