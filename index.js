@@ -1,4 +1,6 @@
-const aoijs = require("aoi.js")
+const { AoiClient, Util } = require("aoi.js");
+const { PluginManager } = require("aoi.js-library");
+
 const noblox = require('noblox.js')
 const { setup } = require('@akarui/aoi.parser');
 const {
@@ -14,7 +16,7 @@ require('dotenv').config();
 
 const config = require("./bot/config.js");
 const { Handler } = require("./handler/handler.js");
-const bot = new aoijs.AoiClient({
+const bot = new AoiClient({
   token: config.token,
   prefix: config.prefix,
   events: config.events,
@@ -101,8 +103,19 @@ handler.loadVariables(`./handler/variables.js`);
 //handler.loadEvents(`./events`);
 handler.loadStatus(`./handler/status.js`);
 handler.loadFunctions(`./functions`);
-
-  
+// Plugins (testing, for now)
+new PluginManager(bot).loadPlugins(
+    "fafa/fetchinvite",
+    "jollyjolli/encodebase64",
+    "jollyjolli/decodebase64"
+)
+ 
+ 
+Util.parsers.ErrorHandler = parse;
+ 
+Util.parsers.OptionsParser = (data) => {
+    return createAst(data).children.map(parseExtraOptions);
+} 
 
 
 bot.functionManager.createFunction(
