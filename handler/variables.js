@@ -4,6 +4,7 @@ module.exports = {
             tm: "NONE", // 💀DONT TUCHE THIS PART DANGER 💀
             reason: "NONE",
     prefix: "a!",
+  originalprefix: "a!",
     lvl: "0",
 xp: "0",
 reqxp: "300",
