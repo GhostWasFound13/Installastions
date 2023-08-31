@@ -118,12 +118,11 @@ new PluginManager(bot).loadPlugins(
     "jollyjolli/decodebase64"
 )
  
- 
-aoijs.Util.parsers.ErrorHandler = parse;
-aoijs.Util.parsers.OptionsParser = ( data ) => {
+ Util.parsers.ErrorHandler = parse;
+Util.parsers.OptionsParser = ( data ) => {
      return createAst( data ).children.map( parseExtraOptions );
 };
-aoijs.Util.parsers.ComponentParser = ( data ) => {
+Util.parsers.ComponentParser = ( data ) => {
      return createAst( data ).children.map( parseComponents );
 };
 
