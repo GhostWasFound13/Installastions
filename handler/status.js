@@ -1,11 +1,11 @@
 module.exports = {
   time: 12,
   statuses:[{
-    text: "Emi's heartbeat ❤️", 
+    text: "installastions under developing", 
     type: "LISTENING",
     presence: "dnd"
   },{
-    text: "Emi's Emotions 🥺", 
+    text: "in progress my prefix:$getGuildVar[prefix]", 
     type: "PLAYING",
     presence: "idle"
   }]
