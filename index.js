@@ -33,7 +33,14 @@ database : {
   }
 },
 })
+// giveaway command functions \\
+const fs = require('fs');
 
+        const filename = 'giveaways.sql'; 
+          if (!fs.existsSync(filename)) {
+            fs.writeFileSync(filename, '{}', 'utf-8')}
+    }
+// music functions \\
 const voice = new AoiVoice(bot, {
   requestOptions: {
     offsetTimeout: 0,
@@ -58,6 +65,7 @@ voice.addPlugin(PluginName.Cacher, new Cacher("disk" /* or "memory" */));
 voice.addPlugin(PluginName.Filter, new Filter({
   filterFromStart: false,
 }));
+// control of handler in /handler/handler.js \\
 const handler = new Handler({
   bot: bot,
   readyLog: true // To log ready or not
