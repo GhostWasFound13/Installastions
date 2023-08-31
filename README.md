@@ -2,6 +2,11 @@
 its time to test the code will be fixing alot of bug oh yeah i still have alot package are not import it lets just fix package.json 
 
 beta testing [progress]
+
+variable somehow complete got pretty buggy i have to clean thay first too many bug 
+
+
+ton of progress of music still not done 
 <h6>installastions</h6> 
 installastions is discord bot knows as old bot doge bot going scratch making it
 this will alot of work soon
