@@ -2,11 +2,11 @@ module.exports = {
   time: 12,
   statuses:[{
     text: "installastions under developing", 
-    type: "LISTENING",
-    presence: "dnd"
+    type: "WATCHING",
+    presence: "idle"
   },{
     text: "in progress my prefix:$getGuildVar[prefix]", 
-    type: "PLAYING",
+    type: "WATCHING",
     presence: "idle"
   }]
 }
