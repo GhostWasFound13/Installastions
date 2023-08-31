@@ -120,11 +120,12 @@ new PluginManager(bot).loadPlugins(
  
  
 aoijs.Util.parsers.ErrorHandler = parse;
- 
-aoijs.Util.parsers.OptionsParser = (data) => {
-    return createAst(data).children.map(parseExtraOptions);
-} 
-
+aoijs.Util.parsers.OptionsParser = ( data ) => {
+     return createAst( data ).children.map( parseExtraOptions );
+};
+aoijs.Util.parsers.ComponentParser = ( data ) => {
+     return createAst( data ).children.map( parseComponents );
+};
 
 bot.functionManager.createFunction(
     {
