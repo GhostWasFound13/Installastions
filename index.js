@@ -2,7 +2,9 @@
 const { PluginManager } = require("aoi.js-library");
 const aoijs = require("aoi.js")
 const noblox = require('noblox.js')
-const { setup } = require('@akarui/aoi.parser');
+const { setup, parse, createAst } = require("@akarui/aoi.parser");
+const { parseExtraOptions, parseComponents } = require("@akarui/aoi.parser/components");
+
 const {
   AoiVoice,
   PlayerEvents,
