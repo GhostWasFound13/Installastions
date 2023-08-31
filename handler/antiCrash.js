@@ -1,4 +1,4 @@
-const logger = require("../logger.js")
+const logger = require("./logger.js")
 module.exports = (bot) => {
     process.on('unhandledRejection', (reason, p) => {
         client.logger.warn(' [antiCrash] :: Unhandled Rejection/Catch');
