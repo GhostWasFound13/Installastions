@@ -4,14 +4,10 @@ const aoijs = require("aoi.js")
 const noblox = require('noblox.js')
 const { setup, parse, createAst } = require("@akarui/aoi.parser");
 const { parseExtraOptions, parseComponents } = require("@akarui/aoi.parser/components");
+// kazagumo testing \\
+const { Connectors } = require("shoukaku");
+const { Kazagumo, Plugins } = require("kazagumo");
 
-const {
-  AoiVoice,
-  PlayerEvents,
-  PluginName,
-  Cacher,
-  Filter,
-} = require(`@akarui/aoi.music`);
 setup(aoijs.Util);
 require('dotenv').config();
 //const {Panel} = require("@akarui/aoi.panel")
@@ -42,31 +38,18 @@ const fs = require('fs');
           if (!fs.existsSync(filename)) {
             fs.writeFileSync(filename, '{}', 'utf-8')}
     }
-// music functions \\
-const voice = new AoiVoice(bot, {
-  requestOptions: {
-    offsetTimeout: 0,
-    soundcloudLikeTrackLimit: 200,
-  },
-  searchOptions: {
-    soundcloudClientId: config.soundcloudClientId,
+// kazagumo  \\
 
-  },
+bot.manager = new Kazagumo({
+    defaultSearchEngine: client.config.SEARCH_ENGINE, // 'youtube' | 'soundcloud' | 'youtube_music'
+    plugins: [new Plugins.PlayerMoved(client)],
+    send: (guildId, payload) => {
+        const guild = client.guilds.cache.get(guildId);
+        if (guild) guild.shard.send(payload);
+    }
+}, new Connectors.DiscordJS(client), client.config.NODES);
 
-});
 
-voice.bindExecutor(bot.functionManager.interpreter);
-voice.addEvent(PlayerEvents.TRACK_START);
-voice.addEvent(PlayerEvents.TRACK_END);
-voice.addEvent(PlayerEvents.QUEUE_END);
-voice.addEvent(PlayerEvents.QUEUE_START);
-voice.addEvent(PlayerEvents.AUDIO_ERROR);
-voice.addEvent(PlayerEvents.TRACK_PAUSE);
-voice.addEvent(PlayerEvents.TRACK_RESUME);
-voice.addPlugin(PluginName.Cacher, new Cacher("disk" /* or "memory" */));
-voice.addPlugin(PluginName.Filter, new Filter({
-  filterFromStart: false,
-}));
 // control of handler in /handler/handler.js \\
 const handler = new Handler({
   bot: bot,
