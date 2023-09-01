@@ -13,8 +13,8 @@ this will alot of work soon
 
 <h6>What feature does installastions has?</h6>
 <kbd>✔</kbd> client setup<br>
-<kbd>🛠️</kbd> Moderation command support<br>
-<kbd>🛠️</kbd> custom functions support <br>
+<kbd>🛠️[89/100]</kbd> Moderation command support<br>
+<kbd>✔</kbd> custom functions support <br>
 <kbd>🛠️</kbd> advanced music command <br>
 <kbd>🛠️</kbd> Server Management<br>
 <kbd>🛠️</kbd> Utility stuff<br>
