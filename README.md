@@ -1,9 +1,9 @@
 <h6>began testing on replit</h6>
-its time to test the code will be fixing alot of bug oh yeah i still have alot package are not import it lets just fix package.json 
+v0.2.4 beta 
+fix some bug still not done
+Epic music command
 
 beta testing [progress]
-
-variable somehow complete got pretty buggy i have to clean thay first too many bug 
 
 
 ton of progress of music still not done 
