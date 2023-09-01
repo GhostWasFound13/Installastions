@@ -1,8 +1,7 @@
 <h6>began testing on replit</h6>
-v0.2.4 beta 
-fix some bug still not done
-Epic music command
+using kazagumo began testinh soon
 
+.
 beta testing [progress]
 
 
