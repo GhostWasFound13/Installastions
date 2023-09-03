@@ -109,7 +109,7 @@ async function startApp () {
   startApp()
 */
 bot.variables(require("./handler/variables.js"));
-
+handler.loadMusicHandler(`./handler/voice`);
 handler.loadCommands(`./commands`);
 //handler.loadVariables(`./handler/variables.js`); // not working ....
 //handler.loadEvents(`./events`);
