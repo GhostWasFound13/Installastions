@@ -20,5 +20,7 @@ module.exports ={
     $description [The music repeat mode has been successfully disabled✅]
     $color[$getVar[color]]
     $endif
+    $onlyIf[$hasPlayer!=false;$getVar[errorqueue]]
+    $onlyIf[$hasPlayer!=false;$getVar[errorqueue]]
     `
 }
