@@ -1,4 +1,11 @@
 module.exports = {
+  //Customize Property For Message */
+  pause: "⏸️ Paused.",
+  resume: "▶️ Resumed!",
+  skip: "⏩ Skipped!",  //Available {song}
+  stop: "⏹ Stopped.",  
+  remove: "Removed song on {d-amount}.", //Available {d-amount}
+  shuffle: "Shuffle Queue.",
 /* music error */
   errorjoin: "\`❌ You're not in a voice channel.\`",
   errorqueue: "\`❌ There no song was playing.\`",
