@@ -1,5 +1,8 @@
 module.exports = {
-  
+
+  trivia_type: "multiple",
+  trivia_difficulty: "medium",
+  flood_difficulty: 13,
  color: "00ffbe",
  timeouttime: "10m", // you can change time out time from here :)
  tm: "NONE", // 💀DONT TUCHE THIS PART DANGER 💀
