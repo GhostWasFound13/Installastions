@@ -41,7 +41,7 @@ const fs = require('fs');
         const filename = 'giveaways.sql'; 
           if (!fs.existsSync(filename)) {
             fs.writeFileSync(filename, '{}', 'utf-8')}
-    }
+    
 // music functions \\
 const voice = new AoiVoice(bot, {
   requestOptions: {
@@ -108,8 +108,10 @@ async function startApp () {
   }
   startApp()
 */
+bot.variables(require("./handler/variables.js"));
+
 handler.loadCommands(`./commands`);
-handler.loadVariables(`./handler/variables.js`);
+//handler.loadVariables(`./handler/variables.js`); // not working ....
 //handler.loadEvents(`./events`);
 handler.loadStatus(`./handler/status.js`);
 handler.loadFunctions(`./functions`);
