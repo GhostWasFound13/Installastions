@@ -1,14 +1,25 @@
 module.exports = {
-
+/* music error */
+  errorjoin: "\`❌ You're not in a voice channel.\`",
+  errorqueue: "\`❌ There no song was playing.\`",
+  errorloop: "Only have {amount} song.", //Available {amount}
+  erroruser: "{newEmbed:{title:❌ You cant use this command} {color:$getVar[color]}}",
+  errorsameuser: "You must same in {voice} to use this command.", //Available {voice}
+  errorbutton: "You cant use this.",
+  customerror: "Something just happened.", //Custom $suppressErrors
+/* game vatiables */
   trivia_type: "multiple",
   trivia_difficulty: "medium",
   flood_difficulty: 13,
+  /* other variables */
  color: "00ffbe",
  timeouttime: "10m", // you can change time out time from here :)
  tm: "NONE", // 💀DONT TUCHE THIS PART DANGER 💀
  reason: "NONE",
+  /* prefix variables */
  prefix: "a!",
  originalprefix: "a!",
+  //
  msglogdeletedchannel: "none",
  msglogeditchannel: "none",
  afk: "",
