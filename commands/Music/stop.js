@@ -2,7 +2,8 @@ module.exports = {
     name: "stop",
     aliases: "st",
     code: `
-    $title[Music stopped successfully✅]
+    $reply[$messageID;no]
+    $title[$getVar[stop]]
     $color[$getVar[color]]
     $stopTrack
       $onlyIf[$voiceId!=;$getVar[errorjoin]]
