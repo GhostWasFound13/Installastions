@@ -25,6 +25,7 @@ const bot = new aoijs.AoiClient({
   intents: config.intents,
 sharding: true,
 aoiLogs: true,
+aoiWarning: false, 
 database : {
   type: "aoi.db",
   db: require("@akarui/aoi.db"),
@@ -34,6 +35,7 @@ database : {
       dbType: "KeyValue",
   }
 },
+ disableFunctions: ["$clientToken"]
 })
 // giveaway command functions \\
 const fs = require('fs');
