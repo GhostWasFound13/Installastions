@@ -14,7 +14,7 @@ const {
 } = require(`@akarui/aoi.music`);
 setup(aoijs.Util);
 require('dotenv').config();
-//const {Panel} = require("@akarui/aoi.panel")
+const {Panel} = require("@akarui/aoi.panel")
 
 const config = require("./bot/config.js");
 const { Handler } = require("./handler/handler.js");
@@ -74,7 +74,7 @@ const handler = new Handler({
 },
   __dirname
 );
-/*
+
 const panel = new Panel({
   port:3000,
   client:bot
@@ -85,10 +85,10 @@ panel.loadAPI({
 })
 
 panel.loadGUI({
-  username:["GhostMaster1","username 2"],
-  password:["MrGhostBG13","Password 2"],
+  username:config.username,
+  password: config.password,
 })
-*/
+
 bot.guildJoinCommand({//command
   channel: "",//the channel where <code> will be sent to
   code: `$cacheMembers[$guildID;no]`//message sent to <channel>
