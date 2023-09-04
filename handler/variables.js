@@ -6,6 +6,8 @@ module.exports = {
   stop: "⏹ Stopped.",  
   remove: "Removed song on {d-amount}.", //Available {d-amount}
   shuffle: "Shuffle Queue.",
+  /* music event */
+  dc: "Disconnected.",
 /* music error */
   errorjoin: "\`❌ You're not in a voice channel.\`",
   errorqueue: "\`❌ There no song was playing.\`",
