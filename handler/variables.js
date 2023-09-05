@@ -63,6 +63,27 @@ module.exports = {
     blacklist: "false",
     blacklistreason: "No Reason Given.",
     salt: "10",
+  // logs
+  alllogs: "",
+  modlogs: "",
+// premium
+  premium: "",
+  spremium: "",
+// antispam
+  msgspam: "0",
+  antispam: "off",
+  spamtime: "3",
+// antilink
+  antilink: "off",
+// antibot
+  antibot: "off",
+  actionab: "kick",
+// antiraid
+  antiraid: "off",
+  raidspam: "0",
+  antiraidcount: "4",
+  timeraid: "5",
+  // ticket
     tick_e: "false",
     tick_r: "",
     tick: "false",
