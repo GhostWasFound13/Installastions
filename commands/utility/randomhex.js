@@ -9,5 +9,6 @@ $onlyIf[$getObjectProperty[hex]!=undefined;Couldn't generate a hex code. Please 
 $onlyIf[$getObjectProperty[image]!=undefined;Couldn't embed the upcoming hex code as the image. Try running the command again instead.]
 $createObject[$jsonRequest[https://api.popcat.xyz/randomcolor]]
 $cooldown[5s;slow down, don't spam the command]
+  $onlyif[$getglobaluservar[blacklist]==false;I have detected that you are on the bot's blacklist for the following reason reason: **$getglobaluservar[rblacklist]** If you think it was a mistake, contact an **administrator**.] 
 `
 }
