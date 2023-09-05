@@ -44,8 +44,11 @@ module.exports = {
  vcCount: "",  
  blacklist: "false",
  lastunblacklist: "No one",
- warn: 0,
- cases: "{}",
+  // * warn system */
+user_warnings: {},
+        user_warningscount: 0,
+        guild_warnings: {},
+        guild_casecount: 0,
   //  variables list 2
     ServerId: "Null",
     RankLimit: "39",
