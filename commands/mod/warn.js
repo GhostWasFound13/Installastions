@@ -5,31 +5,28 @@ module.exports = {
   usage: "{prefix}warn @user reason",
   code:`
 
-$description[$username[$get[user]] has been warned.]
-$color[Green]
+  $title[Warned!]
+  $description[Warned <@$get[user]> for \`$get[r]\`]
+  $addTimeStamp
+  $reply
+  $color[$getVar[color]]
+  $footer[$username - $authorID]
 
-$setGuildVar[cases;$getObject]
-$addObjectProperty[c$toLowercase[$randomString[3]];$nonEscape[$get[case]]]
-$createObject[$getGuildVar[cases]]
-
-$setUserVar[cases;$getObject;$get[user]]
-$addObjectProperty[c$toLowercase[$randomString[3]];$nonEscape[$get[case]]]
-$createObject[$getUserVar[cases;$get[user]]]
-
-$let[case;{"moderator": "$authorID", "user": "$get[user]", "reason": "$messageSlice[1]", "time": "$dateStamp"}]
-
-$setGuildVar[warn;$math[$getGuildVar[warn]+1]]
-$setUserVar[warn;$math[$getUserVar[warn;$get[user]]+1];$get[user]]
-
-
-$onlyIf[$rolePosition[$userHighestRole[$authorId;$guildID;id]]<$rolePosition[$userHighestRole[$get[user];$guildID;id]];{newEmbed:{description:Given user has higher position than you. Cannot warn!}{color:Red}}]
-
-$onlyIf[$authorID!=$get[user];{newEmbed:{description:You cannot warn yourself.}{color:Red}}]
-
-$onlyIf[$get[user]!=;{newEmbed:{description:Please mention or provide id of user you want to warn.}{color:Red}}]
-  $onlyIf[$hasPerms[$guildId;$authorID;manageguild]==true;{newEmbed:{description:You need \`Manager Server\` permission to do so.}{color:Red}}]
-
-$let[user;$findMember[$message[1];false]]
-  
+  $setGuildVar[guild_warnings;$getObject[true]]
+  $let[gobj;$getObject[true]]
+  $addObjectProperty[case_warning_$getGuildVar[guild_casecount];{ "moderator" : "$authorID", "user" : "$get[user]", "reason" : "$get[r]", "datestamp" : "$dateStamp", "deleted" : false, "msg": "$messageURL[$messageID;$channelID]" }]
+  $createObject[$getGuildVar[guild_warnings]]
+  $setUserVar[user_warnings;$getObject[true];$get[user]]
+  $let[uobj;$getObject[true]]
+  $setGuildVar[guild_casecount;$sum[$getGuildVar[guild_casecount];1]]
+  $setUserVar[user_warningscount;$sum[$getUserVar[user_warningscount;$get[user]];1];$get[user]]
+  $addObjectProperty[case_warning_$sum[$getUserVar[user_warningscount;$get[user]];1];{ "moderator" : "$authorID", "user" : "$get[user]", "reason" : "$get[r]", "datestamp" : "$dateStamp", "deleted" : false, "msg": "$messageURL[$messageID;$channelID]" }]
+  $createObject[$getUserVar[user_warnings;$get[user]]]
+  $let[r;$replaceText[$replaceText[$checkCondition[$message[2]==];true;No reason provided.];false;$replaceText[$replaceText[$replaceText[$message;$get[user];;1];<@;;1];> ;;1]]]
+  $onlyIf[$clientID!=$get[user];After all I've done for you.. wow..]
+  $onlyIf[$memberExists[$get[user]]==true;I was unable to find that user.]
+  $let[user;$findUser[$message[1];false]]
+  $onlyIf[$hasAnyPerm[$guildID;$authorID;moderatemembers;manageguild;administrator]==true;You require the \`moderatemembers\` permissions to use this command.]`
+  }]
 `
 }
