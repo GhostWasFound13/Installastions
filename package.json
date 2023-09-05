@@ -1,6 +1,6 @@
 {
     "name": "installastions-betaClass",
-    "version": "0.2.5",
+    "version": "0.2.9",
     "description": "Installastions is a Discord bot still in development with many features.",
     "main": "index.js",
     "scripts": {
