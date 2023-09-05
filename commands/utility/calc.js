@@ -15,5 +15,6 @@ await Calculator({
   invalidQuery: "The provided equation is invalid!",
   othersMessage: "Only <@{{author}}> can use the buttons!",
 })
-})();false]`
+})();false]
+  $onlyif[$getglobaluservar[blacklist]==false;I have detected that you are on the bot's blacklist for the following reason reason: **$getglobaluservar[rblacklist]** If you think it was a mistake, contact an **administrator**.] `
 }
