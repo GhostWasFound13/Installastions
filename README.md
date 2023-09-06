@@ -28,6 +28,9 @@ this will alot of work soon
 <kbd>✔</kbd> roblox command support <br>
 <kbd>✔</kbd> handler support
 </p>
+<h6> music support </h6>
+<kbd>✔</kbd> youtube support <br>
+<kbd>✔</kbd> soundcloud support </p>
 <h6>setting up with the bot get started it</h6>  
 **[ put your token to bot/config
 js ]**
