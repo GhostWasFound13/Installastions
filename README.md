@@ -25,6 +25,7 @@ this will alot of work soon
 <kbd>🛠️</kbd> Embed Building<br>
 <kbd>✔</kbd>giveaway command support<br>
 <kbd>✔</kbd> ticket command support<br>
+<kbd>✔</kbd> roblox command support <br>
 <kbd>✔</kbd> handler support
 </p>
 <h6>setting up with the bot get started it</h6>  
