@@ -142,8 +142,8 @@ async function googleCustomSearch(query, limit) {
   try {
     const response = await customsearch.cse.list({
       q: query,
-      cx: "YOUR_SEARCH_ENGINE_ID",
-      auth: "YOUR_API_KEY",
+      cx: config.cx,
+      auth: "config.auth,
       num: limit
     });
 
