@@ -131,7 +131,31 @@ Util.parsers.OptionsParser = ( data ) => {
 Util.parsers.ComponentParser = ( data ) => {
      return createAst( data ).children.map( parseComponents );
 };
-
+bot.functionManager.createFunction({
+  name: "$callAwaited",
+  type: "djs",
+  code: async function(d) {
+    const data = d.util.aoiFunc(d);
+    if (data.err) return d.error(data.err);
+    let [command] = data.inside.splits;
+    if (command == undefined) return d.aoiError.fnError(d, "custom", {}, "Missing awaited command provided.",)
+    const cmd = d.client.cmd.awaited.find((x) => x.name.toLowerCase() === command.toLowerCase());
+    if (!cmd) return d.aoiError.fnError(d, "custom", {},  `Invalid awaited command: '${command}' provided.`,);
+    await d.interpreter(
+      d.client,
+      d.message,
+      d.args,
+      cmd,
+      d.client.db,
+      false,
+      undefined,
+      d.data,
+    );
+    return {
+      code: d.util.setCode(data),
+    };
+  }
+});
 bot.functionManager.createFunction(
     {
       name: "$lockThread",
