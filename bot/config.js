@@ -21,4 +21,6 @@ module.exports = {
   soundcloudClientId: "", //soundcloud id client put it
   username: ["GhostMaster1","mod_Installastins"],
   password: ["MrGhostBG13","CLASS_123"],
+  cx: "YOUR_SEARCH_ENGINE_ID",
+      auth: "YOUR_API_KEY",
 };
