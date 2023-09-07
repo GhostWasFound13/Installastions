@@ -131,6 +131,127 @@ Util.parsers.OptionsParser = ( data ) => {
 Util.parsers.ComponentParser = ( data ) => {
      return createAst( data ).children.map( parseComponents );
 };
+
+
+/* functions */
+const { google } = require("googleapis");
+
+async function googleCustomSearch(query, limit) {
+  const customsearch = google.customsearch("v1");
+
+  try {
+    const response = await customsearch.cse.list({
+      q: query,
+      cx: "YOUR_SEARCH_ENGINE_ID",
+      auth: "YOUR_API_KEY",
+      num: limit
+    });
+
+    return response.data;
+  } catch (error) {
+    return { error: error.message };
+  }
+}
+
+bot.functionManager.createFunction({
+  name: "$netSearch",
+  type: "djs",
+  code: async (d) => {
+    const data = d.util.aoiFunc(d);
+    const [query, format = "{title} - {link}", limit = 5] = data.inside.splits;
+
+    const searchResults = await googleCustomSearch(query, limit);
+
+    if (searchResults.error) {
+      data.result = `An error occurred while performing the search: ${searchResults.error}`;
+      return {
+        code: d.util.setCode(data)
+      };
+    }
+
+    if (searchResults.items.length === 0) {
+      data.result = "No results found for the given query!";
+      return {
+        code: d.util.setCode(data)
+      };
+    }
+
+    const formattedResults = searchResults.items.map((item) => {
+      let formattedResult = format;
+
+      const placeholders = {
+        "{title}": item.title,
+        "{link}": item.link,
+        "{snippet}": item.snippet
+      };
+
+      for (const placeholder in placeholders) {
+        formattedResult = formattedResult.replace(
+          new RegExp(placeholder, "g"),
+          placeholders[placeholder]
+        );
+      }
+
+      return formattedResult;
+    });
+
+    data.result = formattedResults.join("\n");
+
+    return {
+      code: d.util.setCode(data)
+    };
+  }
+});
+bot.functionManager.createFunction({
+  name: `$isFileEmpty`,
+  type: "djs",
+  code: async d => {
+    const data = d.util.aoiFunc(d);
+    const [filePath] = data.inside.splits;
+
+    const isFileEmpty = filePath => {
+      try {
+        const stats = fs.statSync(filePath);
+        return stats.size === 0;
+      } catch (error) {
+        // Handle file not found or other errors
+        console.error('Error:', error);
+        return false;
+      }
+    }
+
+    data.result = isFileEmpty(filePath);
+
+    return {
+      code: d.util.setCode(data)
+    };
+  }
+});
+bot.functionManager.createFunction({
+  name: "$msgAfter",
+  type: "djs",
+  code: async (d) => {
+    const data = d.util.aoiFunc(d);
+    const [i, split = " "] = data.inside.splits;
+    
+    const argse = d.args
+      
+    function hiFunction(index) { 
+      if (index <= 0 || index > argse.length) { 
+        return [];
+      } 
+
+      return argse.slice(index).join(split);
+    }
+      
+    data.result = hiFunction(i)
+
+    return {
+      code: d.util.setCode(data)
+    };
+  }
+});
+
 bot.functionManager.createFunction({
   name: "$callAwaited",
   type: "djs",
@@ -221,6 +342,7 @@ bot.functionManager.createFunction(
         }
       },
     });
+/* setup? Noblox.js */
 bot.awaitedCommand({
   name: "null",
   code: `$setGuildVar[auth;Null]
