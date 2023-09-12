@@ -3,6 +3,13 @@ module.exports = {
   description: "Warns a user in the guild.",
   category: "moderation",
   usage: "{prefix}warn @user reason",
+  info: {
+        usage: "warn <user> [reason]",
+        aliases: ["w"],
+        description: "Warns a user if they have broken the rules",
+        user_permissions: ["kickmembers", "administrator", "manageguild", "manageroles"],
+        bot_permissions: ["sendmessages", "viewchannel", "embedlinks", "manageroles"]
+    },
   code:`
 
   $title[Warned!]
