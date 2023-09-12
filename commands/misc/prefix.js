@@ -1,6 +1,13 @@
 module.exports = [{
   name: "prefix",
   executeAt: "guild",
+  info: {
+        usage: "set-prefix <newPrefix>",
+        aliases: ["ser-prefix"],
+        description: "Set a new prefix for your server",
+        user_permissions: ["administrator", "manageguild"],
+        bot_permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
   code: `
   $setGuildVar[prefix;$message]
   Changed prefix from \`$get[oldprefix]\` to \`$get[newprefix]\`.
@@ -18,6 +25,13 @@ Usage to change prefix: \`$getGuildVar[prefix]prefix < new prefix here> \`]
     name: "prefix-reset",
     executeAt: "guild",
     aliases: "reset-prefix",
+  info: {
+        usage: "reset-prefix [return reseting the prefix]",
+        aliases: ["reset-p", "resetprefix"],
+        description: "Set a new prefix for your server",
+        user_permissions: ["administrator", "manageguild"],
+        bot_permissions: ["sendmessages", "viewchannel", "embedlinks"]
+    },
     code: ` $setGuildVar[prefix;]
 The prefix has been successfully resetted. <3
 $cooldown[2s;slow down, don't spam the command]
