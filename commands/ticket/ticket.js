@@ -1,5 +1,12 @@
 module.exports = [{
     name: "panel", 
+    info: {
+        usage: "{prefix}panel",
+        aliases: ["Panel","p"],
+        description: "setup panel ",
+        user_permissions: ["administrator", "manageguild", "manageroles"],
+        bot_permissions: ["sendmessages", "viewchannel", "embedlinks", "manageroles", "administrator"],
+    },
     code: `
 $title[1;Support Buttons] $description[1;Here is the ticket panel for support Team] $color[1;Blue] 
 $addButton[1;Transcript;primary;transcript;false]
@@ -9,7 +16,13 @@ $onlyif[$advancedTextSplit[$getChannelVar[tick];-;1]==true;{newEmbed:{title:Erro
 $suppressErrors[Something went wrong!{extraOptions:{delete:5s}}]`
 },{
     name: "set-role", 
-    aliases: ['ticket-role','tick-role'], 
+    info: {
+        usage: "setrole  [ticket role]",       
+        aliases: ['ticket-role','tick-role'], 
+        description: "this will set the ticket role",
+        user_permissions: [ "administrator", "manageguild", "manageroles"],
+        bot_permissions: ["sendmessages", "viewchannel", "embedlinks", "manageroles", "administrator"],
+    },
     code: `
 $setGuildVar[tick_r;$findRole[$message[1]]] I set $roleName[$findRole[$message[1]]] as a ticket role 
 $onlyif[$roleExists[$findRole[$message[1]]]==true;Please provide a valid role] 
