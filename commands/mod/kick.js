@@ -1,6 +1,12 @@
 module.exports = [{
     name: "kick",
-    aliases: ["KICK", "Kick"],
+    info: {
+        usage: "kick <user> [reason]",
+        aliases: ["KICK","Kick"],
+        description: "kick a member that broken the rules",
+        user_permissions: ["kickmembers", "administrator", "manageguild", "manageroles"],
+        bot_permissions: ["sendmessages", "viewchannel", "embedlinks", "manageroles", "administrator", "kickmembers"],
+    },
     code: `
   $kick[$guildID;$findMember[$message[1];false];$replaceText[$replaceText[$checkCondition[$messageSlice[1]==];true;No reason provided.];false;$messageSlice[1]]]
   $sendMessage[<@$findMember[$message[1];false]> has been **kicked.** Reason: $replaceText[$replaceText[$checkCondition[$messageSlice[1]==];true;No reason provided];false;$messageSlice[1]]{newEmbed:{footer:Moderator#COLON# $username:$userAvatar[$authorID]}{timestamp}}
