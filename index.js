@@ -110,11 +110,11 @@ async function startApp () {
   }
   startApp()
 */
-bot.variables(require("./handler/variables.js"));
-handler.loadMusicHandler(`./handler/voice`);
+
+handler.loadMusic(`./handler/voice`);
 handler.loadCommands(`./commands`);
-//handler.loadVariables(`./handler/variables.js`); // not working ....
-//handler.loadEvents(`./events`);
+handler.loadVariables(`./handler/variables.js`); // not working ....
+handler.loadEvents(`./events`);
 handler.loadStatus(`./handler/status.js`);
 handler.loadFunctions(`./functions`);
 // Plugins (testing, for now)
