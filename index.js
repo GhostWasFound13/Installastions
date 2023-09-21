@@ -1,6 +1,6 @@
  
 const { PluginManager } = require("aoi.js-library");
-const aoijs = require("aoi.js")
+const { Util, AoiClient } = require("aoi.js")
 const noblox = require('noblox.js')
 const { setup, parse, createAst } = require("@akarui/aoi.parser");
 const { parseExtraOptions, parseComponents } = require("@akarui/aoi.parser/components");
@@ -12,13 +12,13 @@ const {
   Cacher,
   Filter,
 } = require(`@akarui/aoi.music`);
-setup(aoijs.Util);
+setup(Util);
 require('dotenv').config();
 const {Panel} = require("@akarui/aoi.panel")
 
 const config = require("./bot/config.js");
 const { Handler } = require("./handler/handler.js");
-const bot = new aoijs.AoiClient({
+const client = new AoiClient({
   token: config.token,
   prefix: config.prefix,
   events: config.events,
@@ -45,7 +45,7 @@ const fs = require('fs');
             fs.writeFileSync(filename, '{}', 'utf-8')}
     
 // music functions \\
-const voice = new AoiVoice(bot, {
+const voice = new AoiVoice(client, {
   requestOptions: {
     offsetTimeout: 0,
     soundcloudLikeTrackLimit: 200,
@@ -71,7 +71,7 @@ voice.addPlugin(PluginName.Filter, new Filter({
 }));
 // control of handler in /handler/handler.js \\
 const handler = new Handler({
-  bot: bot,
+  bot: client,
   readyLog: true // To log ready or not
 },
   __dirname
@@ -79,7 +79,7 @@ const handler = new Handler({
 
 const panel = new Panel({
   port:3000,
-  client:bot
+  client:client
 })
 
 panel.loadAPI({
@@ -91,13 +91,13 @@ panel.loadGUI({
   password: config.password,
 })
 
-bot.guildJoinCommand({//command
+client.guildJoinCommand({//command
   channel: "",//the channel where <code> will be sent to
   code: `$cacheMembers[$guildID;no]`//message sent to <channel>
   });
 
   
-  bot.joinCommand({ //command
+  client.joinCommand({ //command
     channel: "", //channel where it will log
     code: `$cacheMembers[$guildID;no]` //Message sent to <channel>
     })
@@ -118,7 +118,7 @@ handler.loadEvents(`./events`);
 handler.loadStatus(`./handler/status.js`);
 handler.loadFunctions(`./functions`);
 // Plugins (testing, for now)
-new PluginManager(bot).loadPlugins(
+new PluginManager(client).loadPlugins(
     "fafa/fetchinvite",
     "jollyjolli/encodebase64",
     "jollyjolli/decodebase64"
@@ -153,7 +153,7 @@ async function googleCustomSearch(query, limit) {
   }
 }
 
-bot.functionManager.createFunction({
+client.functionManager.createFunction({
   name: "$netSearch",
   type: "djs",
   code: async (d) => {
@@ -202,7 +202,7 @@ bot.functionManager.createFunction({
     };
   }
 });
-bot.functionManager.createFunction({
+client.functionManager.createFunction({
   name: `$isFileEmpty`,
   type: "djs",
   code: async d => {
@@ -227,7 +227,7 @@ bot.functionManager.createFunction({
     };
   }
 });
-bot.functionManager.createFunction({
+client.functionManager.createFunction({
   name: "$msgAfter",
   type: "djs",
   code: async (d) => {
@@ -252,7 +252,7 @@ bot.functionManager.createFunction({
   }
 });
 
-bot.functionManager.createFunction({
+client.functionManager.createFunction({
   name: "$callAwaited",
   type: "djs",
   code: async function(d) {
@@ -277,7 +277,7 @@ bot.functionManager.createFunction({
     };
   }
 });
-bot.functionManager.createFunction(
+client.functionManager.createFunction(
     {
       name: "$lockThread",
       type: "djs",
@@ -343,13 +343,13 @@ bot.functionManager.createFunction(
       },
     });
 /* setup? Noblox.js */
-bot.awaitedCommand({
+client.awaitedCommand({
   name: "null",
   code: `$setGuildVar[auth;Null]
 `
 });
 
-  bot.command({
+  client.command({
     name: "deletedata",
     code: `
   $awaitMessages[$channelID;$authorID;15s;deletemydata;awaitedcommandexample;Time has ended] 
@@ -359,7 +359,7 @@ $color[1;#FF0000]
 $onlyForIDs[964024743172915220;Not owner]`
 });
 
-bot.awaitedCommand({
+ client.awaitedCommand({
     name: "awaitedcommandexample",
     code: `$djsEval[message.guild.leave();]
     $wait[2s]
