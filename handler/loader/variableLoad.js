@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 const config = require('../config.js');
 
-const loadVariables = async (bot, basePath, path) => {
+const loadVariables = async (client, basePath, path) => {
   let variables = require(resolve(basePath, path));
   let startTime = Date.now();
   let output = [];
@@ -21,7 +21,7 @@ const loadVariables = async (bot, basePath, path) => {
 
   output.push("│                                            │\n└────────────────────────────────────────────┘");
 
-  bot.variables(variables);
+  client.variables(variables);
   console.log(output.join("\n"));
 
   console.log(`───────── Loaded ${total} Variables in ${Date.now() - startTime}ms ${'─'.repeat(35 - (`Loaded ${total} Variables in ${Date.now() - startTime}ms`).length)}\n\n`);
