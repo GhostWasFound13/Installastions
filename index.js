@@ -57,7 +57,7 @@ const voice = new AoiVoice(client, {
 
 });
 
-voice.bindExecutor(bot.functionManager.interpreter);
+voice.bindExecutor(client.functionManager.interpreter);
 voice.addEvent(PlayerEvents.TRACK_START);
 voice.addEvent(PlayerEvents.TRACK_END);
 voice.addEvent(PlayerEvents.QUEUE_END);
@@ -71,7 +71,7 @@ voice.addPlugin(PluginName.Filter, new Filter({
 }));
 // control of handler in /handler/handler.js \\
 const handler = new Handler({
-  bot: client,
+  client: client,
   readyLog: true // To log ready or not
 },
   __dirname
