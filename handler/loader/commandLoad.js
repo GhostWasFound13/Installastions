@@ -2,7 +2,7 @@ const { resolve } = require('path');
 const config = require('../config.js');
 const {readdirSync} = require('fs');
 
-const loadCommands = async (bot, basePath, path) => {
+const loadCommands = async (client, basePath, path) => {
   const exPath = resolve(basePath, path) + '/';
   const validTypes = Object.getOwnPropertyNames(bot.cmd);
   const folders = readdirSync(exPath, { withFileTypes: true }).map((dirent) => dirent.name);
@@ -44,7 +44,7 @@ const loadCommands = async (bot, basePath, path) => {
         }
 
         try {
-          bot.cmd.createCommand(cmd);
+          client.cmd.createCommand(cmd);
           output.push(`│       ${config.loaded} ${cmd.name}${config.end}${(' ').repeat(28 - (cmd.name).length)}│`);
           total += 1;
         } catch (e) {
@@ -93,7 +93,7 @@ const loadCommands = async (bot, basePath, path) => {
           }
 
           try {
-            bot.cmd.createCommand(cmd);
+            client.cmd.createCommand(cmd);
             output.push(`│       ${config.loaded} ${cmd.name}${config.end}${(' ').repeat(28 - (cmd.name ? cmd.name : 'undefined').length)}│`);
             total += 1;
           } catch (e) {
