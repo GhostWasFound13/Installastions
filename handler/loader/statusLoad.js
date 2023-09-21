@@ -2,7 +2,7 @@ const { resolve } = require('path');
 const config = require('../config.js')
 
 
-const loadStatus = async (bot, basePath, path) => {
+const loadStatus = async (client, basePath, path) => {
 const file = require(resolve(basePath, path));
 let startTime = Date.now();
 const output = [];
@@ -14,7 +14,7 @@ let i = 1;
 for (let status of file.statuses) {
 let l;
 try {
-  bot.status({
+  client.status({
     text: status?.text,
      type: status?.type.toUpperCase(),
       time: status?.time
