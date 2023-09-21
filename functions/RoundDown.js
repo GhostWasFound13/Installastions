@@ -1,4 +1,4 @@
-function roundDown(d) {
+module.exports = async (d) => {
   const data = d.util.aoiFunc(d);
   const [number] = data.inside.splits;
 
@@ -13,4 +13,3 @@ function roundDown(d) {
     code: d.util.setCode(data),
   };
 }
-module.exports = roundDown;
