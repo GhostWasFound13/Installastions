@@ -2,7 +2,7 @@ const { resolve } = require('path');
 const config = require('../config.js')
 const { readdirSync } = require('fs')
 
-const loadEvents = async (bot, basePath, path) => {
+const loadEvents = async (client, basePath, path) => {
 const exPath = resolve(basePath, path) + '/'
 const events = []
   readdirSync(exPath).map((event)=> {
@@ -36,7 +36,7 @@ output.push(`│       - Event type not provided            │`)
   output.push(`│       - "${cmd.type}" is not valid event${(' ').repeat(14 - cmd.type.length)}│`)
 }
 } else {
-bot.cmd.createCommand(cmd)
+client.cmd.createCommand(cmd)
 total += 1;
 output.push(`│     ${config.green}• Loaded${config.end} ${event}${(' ').repeat(30 - event.length)}│\n│       - Type: on${(cmd.type).charAt(0).toUpperCase() + (cmd.type).slice(1)}${(' ').repeat(27 - ((cmd.type).charAt(0).toUpperCase() +(cmd.type).slice(1)).length)}│`)
  }
