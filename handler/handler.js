@@ -15,31 +15,31 @@ const {loadMusic} = require('./loader/MusicLoad.js')
 
 
 class Handler {
-  constructor(bot, basePath) {
-  this.bot = bot.bot;
+  constructor(client, basePath) {
+  this.client = client.client;
   this.basePath = basePath
-  const theme = bot.theme;
-  const style = bot.style;
+  const theme = client.theme;
+  const style = client.style;
   const platform = bot.device;
-  const ready = bot.readyLog
+  const ready = client.readyLog
 
   
 
 if ( ready ) { 
-  require('./handlers/onReady.js').onReady(this.bot)
+  require('./handlers/onReady.js').onReady(this.client)
   }
 }
 
   
 // VARIABLES //
 loadVariables(path) {
-loadVariables(this.bot, this.basePath, path)
+loadVariables(this.client, this.basePath, path)
   }
 
 
 // STATUS //
 loadStatus(path) {
-loadStatus(this.bot, this.basePath, path)
+loadStatus(this.client, this.basePath, path)
 }
 
 
@@ -47,24 +47,24 @@ loadStatus(this.bot, this.basePath, path)
   
 // COMMANDS //
 loadCommands(path) {
-loadCommands(this.bot, this.basePath, path)
+loadCommands(this.client, this.basePath, path)
 }
 
 // MUSIC COMMANDS //
   
 loadMusic(path) {
-loadMusic(this.bot, this.basePath, path)
+loadMusic(this.client, this.basePath, path)
 }
   
 // EVENTS //
 loadEvents(path) {
-loadEvents(this.bot, this.basePath, path)
+loadEvents(this.client, this.basePath, path)
 }
 
 
 // FUNCTIONS //
 loadFunctions(path) {
-loadFunctions(this.bot, this.basePath, path)
+loadFunctions(this.client, this.basePath, path)
 }
 
 
