@@ -20,7 +20,7 @@ class Handler {
   this.basePath = basePath
   const theme = client.theme;
   const style = client.style;
-  const platform = bot.device;
+  const platform = client.device;
   const ready = client.readyLog
 
   
@@ -53,7 +53,7 @@ loadCommands(this.client, this.basePath, path)
 // MUSIC COMMANDS //
   
 loadMusic(path) {
-loadMusic(this.client, this.basePath, path)
+loadMusic(this.voice, this.basePath, path)
 }
   
 // EVENTS //
