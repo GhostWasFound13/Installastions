@@ -2,7 +2,7 @@ const { resolve } = require('path');
 const config = require('../config.js');
 const {readdirSync} = require('fs');
 
-const loadMusic = async (client, basePath, path) => {
+const loadMusic = async (voice, basePath, path) => {
   const exPath = resolve(basePath, path) + '/';
   const validTypes = Object.getOwnPropertyNames(voice.cmds);
   const folders = readdirSync(exPath, { withFileTypes: true }).map((dirent) => dirent.name);
