@@ -2,7 +2,7 @@ const { resolve } = require('path');
 const config = require('../config.js');
 const { readdirSync } = require('fs');
 
-const loadFunctions = async (bot, basePath, path) => {
+const loadFunctions = async (client, basePath, path) => {
   const exPath = resolve(basePath, path) + '/';
   const funcs = [];
 
@@ -36,13 +36,13 @@ const loadFunctions = async (bot, basePath, path) => {
     try {
       if (o.type !== 'undefined' && o.code || o.type == 'djs' || o.type == 'aoi.js') {
         total += 1;
-if (o.type == 'djs') {   bot.functionManager.createFunction({
+if (o.type == 'djs') {   client.functionManager.createFunction({
           name: `$${f}`,
           type: o.type,
           code: o.code
         })
 } else if (o.type == 'aoi.js') {
-bot.functionManager.createFunction({
+cltent.functionManager.createFunction({
           name: `$${f}`,
           type: o.type,
           params: o.params,
