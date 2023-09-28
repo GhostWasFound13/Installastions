@@ -5,7 +5,7 @@
 # something: ${DATA}
 
 bot:
-  TOKEN: Your token
+  TOKEN: process.env.TOKEN,
   EMBED_COLOR: "#2b2d31"
   OWNER_ID: "Your id"
   LANGUAGE: en # You can set it to vi, en, th,...
@@ -30,9 +30,9 @@ lavalink:
   NODES:
     [
       {
-        url: "localhost:2333",
+        url: "eu.lavalink.alexanderof.xyz",
         name: "Lavalink_Server",
-        auth: "youshallnotpass",
+        auth: "lavalink",
         secure: false,
       },
     ]
