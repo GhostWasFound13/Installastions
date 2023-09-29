@@ -28,7 +28,7 @@ export default {
       <:next:1000472400049209385> mdjrny-v4 style, japanese style shrine on top of a misty mountain overgrown, hyper realistic, lush gnarly plants, 8 k, denoised, by greg rutkowski, tom bagshaw, james gurney cinematic lighting\n\n\
       <:next:1000472400049209385> mdjrny-v4 style, valley, fairytale treehouse village covered,, matte painting, highly detailed, dynamic lighting, cinematic, realism, realistic, photo real, sunset,detailed, high contrast, denoised, centered, michael whelan`)  
       .setFooter({
-        text: `©️ Project Razer`, 
+        text: `installastions v.0.5.0 is running progress`, 
         iconURL: ('https://i.imgur.com/Cbs7ljR.png')
     })
         interaction.reply({
