@@ -1,8 +1,6 @@
-<h6>began testing on replit</h6>
-v0.2.4 beta 
-fix some bug still not done
-Epic music command
-
+<h6>moving to typescript on discord.js</h6>
+moving to dev brach for v0.5.0 
+going to rework some kind of command needed L
 beta testing [progress]
 
 
