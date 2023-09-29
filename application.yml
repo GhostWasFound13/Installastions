@@ -5,7 +5,8 @@
 # something: ${DATA}
 
 bot:
-  TOKEN: process.env.TOKEN,
+  TOKEN: ${TOKEN}
+  # you can remove this to put TOKEN: your token or TOKEN: ${ToKeen} is for e
   EMBED_COLOR: "#2b2d31"
   OWNER_ID: "Your id"
   LANGUAGE: en # You can set it to vi, en, th,...
