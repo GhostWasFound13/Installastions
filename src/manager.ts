@@ -25,7 +25,6 @@ import { QuickDB } from "quick.db";
 import check_lavalink_server from "./lava_scrap/check_lavalink_server.js";
 import { WebServer } from "./webserver/index.js";
 import WebSocket from "ws";
-import { Configuration, OpenAIApi } from "openai";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -168,12 +167,6 @@ export class Manager extends Client {
         : this.config.lavalink.SHOUKAKU_OPTIONS
     );
 
-const configuration = new Configuration({
-  organization: process.env.OPEN_AI_ORG as string,
-  apiKey: process.env.OPEN_AI_KEY as string,
-});
-
-const openai = new OpenAIApi(configuration);
 
     if (this.config.features.AUTOFIX_LAVALINK) {
       check_lavalink_server(this);

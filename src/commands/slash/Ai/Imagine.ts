@@ -1,4 +1,4 @@
-import { CommandInteraction, SlashCommandBuilder, EmbedBuilder, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
+import { CommandInteraction, EmbedBuilder, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle, CommandInteractionOptionResolver } from "discord.js";
 import { Manager } from "../../../manager.js";
 
 export default {
@@ -19,7 +19,7 @@ export default {
     language: string
   ) => {
         await interaction.deferReply()
-        const prompt = interaction.options.getString("prompt")
+        const prompt = (interaction.options as CommandInteractionOptionResolver).getString("prompt");
         const Replicate = require('replicate')
         //const Replicate = (await import("replicate")).default
 
@@ -35,7 +35,7 @@ export default {
 
         console.log()
         
-        const row = new ActionRowBuilder()
+        const row = new ActionRowBuilder<ButtonBuilder>()
 			.addComponents(
                 new ButtonBuilder()
                 .setLabel(`Download`)
@@ -46,13 +46,12 @@ export default {
                 .setStyle(ButtonStyle.Link)
                 .setURL('https://paypal.me/officialrazer'))
             
-        const embed = new EmbedBuilder()
-        	.setTitle("**Your Prompt:**")
+        const embed = new EmbedBuilder()       	.setTitle("**Your Prompt:**")
             .setDescription(`**${prompt}**`)
             .setImage(`${output}`)
         	.setColor('#2f3136')
         	.setFooter({ text: `Requested by: ${interaction.user.username} | ©️ Project Razer `,
-                            iconURL: interaction.user.displayAvatarURL({ dynamic: true }),
+                            iconURL: "https://i.imgur.com/AfFp7pu.png",
                           })
 
         await interaction.editReply({ embeds: [embed], components: [row] })

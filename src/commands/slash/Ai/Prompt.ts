@@ -10,7 +10,7 @@ export default {
     client: Manager,
     language: string
   ) => {
-        const row = new ActionRowBuilder()
+        const row = new ActionRowBuilder<ButtonBuilder>()
         .addComponents(
             new ButtonBuilder()
         .setLabel("Visit for more Prompts")
