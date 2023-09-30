@@ -2,7 +2,7 @@ import {CommandInteraction, EmbedBuilder, ActionRowBuilder, ButtonBuilder, Butto
 import { Manager } from "../../../manager.js";
 
 export default {
-    name: 'prompts',
+    name: ['prompts'],
     description: 'some helpful prompts for you to get started',
      category: "Ai",
   run: async (
