@@ -72,6 +72,7 @@
     "pretty-ms": "^8.0.0",
     "quick.db": "^9.1.7",
     "recursive-readdir": "^2.2.3",
+    "replicate": "^0.18.1",
     "shoukaku": "^3.4.0",
     "slyrics": "^0.1.42",
     "stuffs": "^0.1.27",
