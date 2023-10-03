@@ -20,7 +20,7 @@ export default {
 
       let pembed = new EmbedBuilder()
       .setTitle("Here are some trending prompts")
-      .setColor('#2F3136')
+      .setColor(client.color)
       .setThumbnail('https://i.imgur.com/Cbs7ljR.png')
 	  .setDescription(`
       <:next:1000472400049209385> mdjrny-v4 style, magic spell book sitting on a table in the catacombs, hypermaximalist, insanely detailed and intricate, octane render, unreal engine, 8k, by greg rutkowski and Peter Mohrbacher and magali villeneuve\n\n\
