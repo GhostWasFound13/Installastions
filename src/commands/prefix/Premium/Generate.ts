@@ -1,5 +1,4 @@
-import { Message } from "discord.js";
-import { EmbedBuilder } from "discord.js";
+import { Message, EmbedBuilder } from "discord.js";
 import moment from "moment";
 import voucher_codes from "voucher-code-generator";
 import { Manager } from "../../../manager.js";
@@ -16,7 +15,7 @@ export default {
     message: Message,
     args: string[],
     language: string,
-    prefix: string
+    prefix: string,
   ) => {
     const plans = ["daily", "weekly", "monthly", "yearly"];
 
@@ -24,17 +23,29 @@ export default {
     const camount = args[1];
 
     if (!name || !plans.includes(name))
-      return message.channel.send(
-        `${client.i18n.get(language, "utilities", "arg_error", {
-          text: plans.join(", "),
-        })}`
-      );
+      return message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "utilities", "arg_error", {
+                text: plans.join(", "),
+              })}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     if (!camount)
-      return message.channel.send(
-        `${client.i18n.get(language, "utilities", "arg_error", {
-          text: "number",
-        })}`
-      );
+      return message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "utilities", "arg_error", {
+                text: "number",
+              })}`,
+            )
+            .setColor(client.color),
+        ],
+      });
 
     let codes = [];
 
@@ -79,7 +90,7 @@ export default {
           codes: codes.join("\n"),
           plan: plan,
           expires: moment(time).format("dddd, MMMM Do YYYY"),
-        })}`
+        })}`,
       )
       .setTimestamp()
       .setFooter({
