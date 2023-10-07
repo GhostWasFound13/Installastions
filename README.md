@@ -6,3 +6,7 @@ installastions is multiporse bot
 • advanced music command: to play some music 
 
 • multi language
+
+
+# credits
+rainXeon onwer of byteBlaze
