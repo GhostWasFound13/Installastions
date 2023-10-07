@@ -1,14 +1,5 @@
-<h6>moving to typescript on discord.js</h6>
-moving to dev brach for v0.5.0 
-going to rework some kind of command needed L
-beta testing [progress]
-
-
-ton of progress of music still not done 
 <h6>installastions</h6> 
-installastions is discord bot knows as old bot doge bot going scratch making it
-this will alot of work soon
-
+installastions is using byteBlaze source code from RainyXeon this code is fully modify ;-;
 <h6>What feature does installastions has?</h6>
 <kbd>✔</kbd> client setup<br>
 <kbd>[progress]</kbd> Moderation command support<br>
@@ -40,6 +31,12 @@ this will alot of work soon
 - [x] JSON
 
 
+## ⚙️ Guide
+For installation and config guide, please check out the wiki tab or [click here!](https://github.com/RainyXeon/Cylane/wiki)
+
+## 🛑 Super Requirements
+
+Java 11-13 **[Download JDK13](http://www.mediafire.com/file/m6gk7aoq96db8g0/file)** (i use this version) for LAVALINK!
 
 
 
