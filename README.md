@@ -15,10 +15,10 @@ this will alot of work soon
 <kbd>[progress</kbd> Playlist network<br>
 <kbd>✔</kbd>  Music System Command <br>
 <kbd>✔</kbd> Ai generator Image<br>
-<kbd>✔</kbd> Custom Filtersbr>
+<kbd>✔</kbd> Custom Filters<br>
 <kbd>✔</kbd>ContextMenuss<br>
 <kbd>🛠️</kbd> Games System Command<br>
-<kbd>✔</kbd>Auto restore lavalink (Get from lavalink.darrennathanael.com sources)<br>
+<kbd>✔</kbd>Auto restore lavalink (Get from https://lavalink.darrennathanael.com sources)<br>
 <kbd>✔</kbd> Play music from file<br>
 <kbd>✔</kbd> SlashCommand<br>
 <kbd>✔</kbd> Multi Language
