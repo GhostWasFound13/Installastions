@@ -30,9 +30,15 @@ export default {
     const id = value ? null : args[0];
 
     if (value == null || id == null)
-      return message.channel.send(
-        `${client.i18n.get(language, "playlist", "invalid")}`
-      );
+      return message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "playlist", "invalid")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
 
     if (id) info = await client.db.get(`playlist.pid_${id}`);
     if (value) {
@@ -58,13 +64,25 @@ export default {
         `${client.i18n.get(language, "playlist", "got_id_and_name")}`
       );
     if (!info)
-      return message.channel.send(
-        `${client.i18n.get(language, "playlist", "invalid")}`
-      );
+      return message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "playlist", "invalid")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     if (info.private && info.owner !== message.author.id) {
-      message.channel.send(
-        `${client.i18n.get(language, "playlist", "import_private")}`
-      );
+      message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "playlist", "import_private")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
       return;
     }
     const created = humanizeDuration(Date.now() - Number(info.created), {

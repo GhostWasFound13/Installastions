@@ -28,7 +28,7 @@ export default {
   run: async (
     interaction: CommandInteraction,
     client: Manager,
-    language: string
+    language: string,
   ) => {
     let db;
 
@@ -42,15 +42,23 @@ export default {
 
     if (!id && !mentions)
       return interaction.editReply({
-        content: `${client.i18n.get(language, "premium", "remove_no_params")}`,
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "premium", "remove_no_params")}`,
+            )
+            .setColor(client.color),
+        ],
       });
     if (id && mentions)
       return interaction.editReply({
-        content: `${client.i18n.get(
-          language,
-          "premium",
-          "remove_only_params"
-        )}`,
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "premium", "remove_only_params")}`,
+            )
+            .setColor(client.color),
+        ],
       });
     if (id && !mentions) db = await client.db.get(`premium.user_${id}`);
     if (mentions && !id)
@@ -58,9 +66,15 @@ export default {
 
     if (!db)
       return interaction.editReply({
-        content: `${client.i18n.get(language, "premium", "remove_404", {
-          userid: String(id),
-        })}`,
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "premium", "remove_404", {
+                userid: String(id),
+              })}`,
+            )
+            .setColor(client.color),
+        ],
       });
 
     if (db.isPremium) {
@@ -80,7 +94,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "premium", "remove_desc", {
             user: String(mentions),
-          })}`
+          })}`,
         )
         .setColor(client.color);
 
@@ -90,7 +104,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "premium", "remove_already", {
             user: String(mentions),
-          })}`
+          })}`,
         )
         .setColor(client.color);
 
