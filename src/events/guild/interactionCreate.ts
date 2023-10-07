@@ -10,7 +10,7 @@ import { Manager } from "../../manager.js";
 import {
   AutocompleteInteractionChoices,
   GlobalInteraction,
-  NoAutoInteraction,
+  ManualInteraction,
 } from "../../types/Interaction.js";
 import yts from "yt-search";
 
@@ -40,16 +40,16 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
 
     if (!client.is_db_connected)
       return client.logger.warn(
-        "The database is not yet connected so this event will temporarily not execute. Please try again later!"
+        "The database is not yet connected so this event will temporarily not execute. Please try again later!",
       );
 
     let guildModel = await client.db.get(
-      `language.guild_${interaction.guild.id}`
+      `language.guild_${interaction.guild.id}`,
     );
     if (!guildModel) {
       guildModel = await client.db.set(
         `language.guild_${interaction.guild.id}`,
-        client.config.bot.LANGUAGE
+        client.config.bot.LANGUAGE,
       );
     }
 
@@ -95,11 +95,11 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
     // Push Function
     async function AutoCompletePush(
       url: string,
-      choice: AutocompleteInteractionChoices[]
+      choice: AutocompleteInteractionChoices[],
     ) {
       const Random =
-        client.config.lavalink.DEFAULT[
-          Math.floor(Math.random() * client.config.lavalink.DEFAULT.length)
+        client.config.distube.DEFAULT[
+          Math.floor(Math.random() * client.config.distube.DEFAULT.length)
         ];
       const match = REGEX.some((match) => {
         return match.test(url) == true;
@@ -110,19 +110,12 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
           .respond(choice)
           .catch(() => {});
       } else {
-        if (client.lavalink_using.length == 0) {
-          choice.push({
-            name: `${client.i18n.get(language, "music", "no_node")}`,
-            value: `${client.i18n.get(language, "music", "no_node")}`,
-          });
-          return;
+        const res = (await yts(url || Random)).videos
+        for (let i = 0; i < 11; i++) {
+          const result = res[i];
+          choice.push({ name: result.title, value: result.url });
+          
         }
-        await client.manager.search(url || Random).then((result) => {
-          for (let i = 0; i < 10; i++) {
-            const x = result.tracks[i];
-            choice.push({ name: x.title, value: x.uri });
-          }
-        });
         await (interaction as AutocompleteInteraction)
           .respond(choice)
           .catch(() => {});
@@ -139,7 +132,7 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
       ) {
         let choice: AutocompleteInteractionChoices[] = [];
         const url = (interaction as CommandInteraction).options.get(
-          "search"
+          "search",
         )!.value;
         return AutoCompletePush(url as string, choice);
       } else if (
@@ -148,7 +141,7 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
       ) {
         let choice: AutocompleteInteractionChoices[] = [];
         const url = (interaction as CommandInteraction).options.get(
-          "add"
+          "add",
         )!.value;
         return AutoCompletePush(url as string, choice);
       }
@@ -166,9 +159,15 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
     client.logger.info(`${msg_cmd.join(" ")}`);
 
     if (command.owner && interaction.user.id != client.owner)
-      return (interaction as NoAutoInteraction).reply(
-        `${client.i18n.get(language, "interaction", "owner_only")}`
-      );
+      return (interaction as ManualInteraction).reply({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "owner_only")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
 
     try {
       if (command.premium) {
@@ -179,91 +178,123 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
               name: `${client.i18n.get(
                 language,
                 "nopremium",
-                "premium_author"
+                "premium_author",
               )}`,
               iconURL: client.user!.displayAvatarURL(),
             })
             .setDescription(
-              `${client.i18n.get(language, "nopremium", "premium_desc")}`
+              `${client.i18n.get(language, "nopremium", "premium_desc")}`,
             )
             .setColor(client.color)
             .setTimestamp();
 
-          return (interaction as NoAutoInteraction).reply({
-            content: " ",
-            embeds: [embed],
-          });
+          return (interaction as ManualInteraction).reply({ content: " ", embeds: [embed] });
         }
       }
     } catch (err) {
       client.logger.error(err);
-      return (interaction as NoAutoInteraction).reply({
-        content: `${client.i18n.get(language, "nopremium", "premium_error")}`,
+      return (interaction as ManualInteraction).reply({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "nopremium", "premium_error")}`,
+            )
+            .setColor(client.color),
+        ],
       });
     }
 
     if (
       !interaction.guild.members.me!.permissions.has(
-        PermissionsBitField.Flags.SendMessages
+        PermissionsBitField.Flags.SendMessages,
       )
     )
-      return interaction.user.dmChannel!.send(
-        `${client.i18n.get(language, "interaction", "no_perms")}`
-      );
+      return interaction.user.dmChannel!.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "no_perms")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     if (
       !interaction.guild.members.me!.permissions.has(
-        PermissionsBitField.Flags.ViewChannel
+        PermissionsBitField.Flags.ViewChannel,
       )
     )
       return;
     if (
       !interaction.guild.members.me!.permissions.has(
-        PermissionsBitField.Flags.EmbedLinks
+        PermissionsBitField.Flags.EmbedLinks,
       )
     )
-      return (interaction as NoAutoInteraction).reply(
-        `${client.i18n.get(language, "interaction", "no_perms")}`
-      );
+      return (interaction as ManualInteraction).reply({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "no_perms")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     if (!((interaction as CommandInteraction).commandName == "help")) {
       if (
         !interaction.guild.members.me!.permissions.has(
-          PermissionsBitField.Flags.Speak
+          PermissionsBitField.Flags.Speak,
         )
       )
-        return (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "interaction", "no_perms")}`
-        );
+        return (interaction as ManualInteraction).reply({
+          embeds: [
+            new EmbedBuilder()
+              .setDescription(
+                `${client.i18n.get(language, "interaction", "no_perms")}`,
+              )
+              .setColor(client.color),
+          ],
+        });
       if (
         !interaction.guild.members.me!.permissions.has(
-          PermissionsBitField.Flags.Connect
+          PermissionsBitField.Flags.Connect,
         )
       )
-        return (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "interaction", "no_perms")}`
-        );
+        return (interaction as ManualInteraction).reply({
+          embeds: [
+            new EmbedBuilder()
+              .setDescription(
+                `${client.i18n.get(language, "interaction", "no_perms")}`,
+              )
+              .setColor(client.color),
+          ],
+        });
       if (
         !interaction.guild.members.me!.permissions.has(
-          PermissionsBitField.Flags.ManageMessages
+          PermissionsBitField.Flags.ManageMessages,
         )
       )
-        return (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "interaction", "no_perms")}`
-        );
+        return (interaction as ManualInteraction).reply({
+          embeds: [
+            new EmbedBuilder()
+              .setDescription(
+                `${client.i18n.get(language, "interaction", "no_perms")}`,
+              )
+              .setColor(client.color),
+          ],
+        });
       if (
         !interaction.guild.members.me!.permissions.has(
-          PermissionsBitField.Flags.ManageChannels
+          PermissionsBitField.Flags.ManageChannels,
         )
       )
-        return await (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "interaction", "no_perms")}`
-        );
-    }
-
-    if (command.lavalink) {
-      if (client.lavalink_using.length == 0)
-        return (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "music", "no_node")}`
-        );
+        return await (interaction as ManualInteraction).reply({
+          embeds: [
+            new EmbedBuilder()
+              .setDescription(
+                `${client.i18n.get(language, "interaction", "no_perms")}`,
+              )
+              .setColor(client.color),
+          ],
+        });
     }
 
     if (!command) return;
@@ -275,12 +306,18 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
           level: "error",
           message: error,
         });
-        return (interaction as NoAutoInteraction).editReply({
-          content: `${client.i18n.get(
-            language,
-            "interaction",
-            "error"
-          )}\n ${error}`,
+        return (interaction as ManualInteraction).editReply({
+          embeds: [
+            new EmbedBuilder()
+              .setDescription(
+                `${client.i18n.get(
+                  language,
+                  "interaction",
+                  "error",
+                )}\n ${error}`,
+              )
+              .setColor(client.color),
+          ],
         });
       }
     }
