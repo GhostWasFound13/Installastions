@@ -166,9 +166,15 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
     client.logger.info(`${msg_cmd.join(" ")}`);
 
     if (command.owner && interaction.user.id != client.owner)
-      return (interaction as NoAutoInteraction).reply(
-        `${client.i18n.get(language, "interaction", "owner_only")}`
-      );
+      return (interaction as NoAutoInteraction).reply({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "owner_only")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
 
     try {
       if (command.premium) {
@@ -198,7 +204,13 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
     } catch (err) {
       client.logger.error(err);
       return (interaction as NoAutoInteraction).reply({
-        content: `${client.i18n.get(language, "nopremium", "premium_error")}`,
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "nopremium", "premium_error")}`,
+            )
+            .setColor(client.color),
+        ],
       });
     }
 
@@ -207,9 +219,15 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
         PermissionsBitField.Flags.SendMessages
       )
     )
-      return interaction.user.dmChannel!.send(
-        `${client.i18n.get(language, "interaction", "no_perms")}`
-      );
+          return interaction.user.dmChannel!.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "no_perms")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     if (
       !interaction.guild.members.me!.permissions.has(
         PermissionsBitField.Flags.ViewChannel
@@ -230,33 +248,57 @@ export default async (client: Manager, interaction: GlobalInteraction) => {
           PermissionsBitField.Flags.Speak
         )
       )
-        return (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "interaction", "no_perms")}`
-        );
+        return (interaction as NoAutoInteraction).reply({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "no_perms")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
       if (
         !interaction.guild.members.me!.permissions.has(
           PermissionsBitField.Flags.Connect
         )
       )
-        return (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "interaction", "no_perms")}`
-        );
+        return (interaction as NoAutoInteraction).reply({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "no_perms")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
       if (
         !interaction.guild.members.me!.permissions.has(
           PermissionsBitField.Flags.ManageMessages
         )
       )
-        return (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "interaction", "no_perms")}`
-        );
+        return (interaction as NoAutoInteraction).reply({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "no_perms")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
       if (
         !interaction.guild.members.me!.permissions.has(
           PermissionsBitField.Flags.ManageChannels
         )
       )
-        return await (interaction as NoAutoInteraction).reply(
-          `${client.i18n.get(language, "interaction", "no_perms")}`
-        );
+        return await (interaction as NoAutoInteraction).reply({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "interaction", "no_perms")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     }
 
     if (command.lavalink) {
