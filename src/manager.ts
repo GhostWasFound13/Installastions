@@ -25,6 +25,7 @@ import { QuickDB } from "quick.db";
 import check_lavalink_server from "./lava_scrap/check_lavalink_server.js";
 import { WebServer } from "./webserver/index.js";
 import WebSocket from "ws";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 winstonLogger.info("Booting client...");
@@ -165,6 +166,7 @@ export class Manager extends Client {
         ? { reconnectTries: 0, restTimeout: 3000 }
         : this.config.lavalink.SHOUKAKU_OPTIONS
     );
+
 
     if (this.config.features.AUTOFIX_LAVALINK) {
       check_lavalink_server(this);

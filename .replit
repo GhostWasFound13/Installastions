@@ -1,4 +1,4 @@
-run = "tsx src/index.ts"
+run = "npm start"
 entrypoint = "src/index.ts"
 hidden = [".config", "package-lock.json", "tsconfig.json"]
 
