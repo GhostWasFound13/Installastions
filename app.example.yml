@@ -5,8 +5,7 @@
 # something: ${DATA}
 
 bot:
-  TOKEN: ${TOKEN}
-  # you can remove this to put TOKEN: your token or TOKEN: ${ToKeen} is for e
+  TOKEN: Your token
   EMBED_COLOR: "#2b2d31"
   OWNER_ID: "Your id"
   LANGUAGE: en # You can set it to vi, en, th,...
@@ -31,9 +30,9 @@ lavalink:
   NODES:
     [
       {
-        url: "eu.lavalink.alexanderof.xyz",
+        url: "localhost:2333",
         name: "Lavalink_Server",
-        auth: "lavalink",
+        auth: "youshallnotpass",
         secure: false,
       },
     ]
@@ -72,10 +71,10 @@ features:
   AUTOFIX_LAVALINK: true # Fix the lavalink server when the current is down
 
   WEB_SERVER:
-    enable: true # Must enable this before using ws
+    enable: false # Must enable this before using ws
     port: 3000
     websocket:
-      enable: true
+      enable: false
       host: "0.0.0.0" # Default is 0.0.0.0
       secret: "-19023454588-0934825" # You must add your secret key to use ws. A secret key is anything you want
       auth: false
