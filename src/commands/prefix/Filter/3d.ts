@@ -30,16 +30,14 @@ export default {
     const player = client.manager.players.get(message.guild!.id);
     if (!player)
       return msg.edit({
-      embeds: [
-        new EmbedBuilder()
-          .setDescription(
-            `${client.i18n.get(language, "noplayer", "no_player", {
-              name: "3d",
-            })}`,
-          )
-          .setColor(client.color),
-      ],
-    });
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "noplayer", "no_player")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     const { channel } = message.member!.voice;
     if (
       !channel ||
