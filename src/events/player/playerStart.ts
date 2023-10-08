@@ -53,7 +53,7 @@ export default async (
 
   const TotalDuration = QueueDuration(player);
 
-  if (client.websocket && client.config.features.WEBSOCKET.enable) {
+  if (client.websocket && client.config.features.WEB_SERVER.websocket.enable) {
     let webqueue = [];
 
     player.queue.forEach((track) => {
