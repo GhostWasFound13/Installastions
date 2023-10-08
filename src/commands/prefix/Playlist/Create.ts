@@ -107,7 +107,7 @@ export default {
                 "playlist",
                 "create_limit_playlist",
                 {
-                  limit: client.config.bot.LIMIT_PLAYLIST,
+                  limit: String(client.config.bot.LIMIT_PLAYLIST);
                 },
               )}`,
             )
