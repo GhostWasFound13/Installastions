@@ -43,17 +43,15 @@ export default {
       !channel ||
       message.member!.voice.channel !== message.guild!.members.me!.voice.channel
     )
-        return msg.edit({
-      embeds: [
-        new EmbedBuilder()
-          .setDescription(
-            `${client.i18n.get(language, "noplayer", "no_voice", {
-              name: "3d",
-            })}`,
-          )
-          .setColor(client.color),
-      ],
-    });
+       return msg.edit({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "noplayer", "no_voice")}`,
+            )
+            .setColor(client.color),
+        ],
+      }); 
     
     const data = {
       op: "filters",
