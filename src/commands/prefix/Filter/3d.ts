@@ -16,17 +16,11 @@ export default {
     language: string,
     prefix: string
   ) => {
-    const msg = await message.channel.send({
-      embeds: [
-        new EmbedBuilder()
-          .setDescription(
-            `${client.i18n.get(language, "filters", "filter_loading", {
-              name: "3d",
-            })}`,
-          )
-          .setColor(client.color),
-      ],
-    });
+    const msg = await message.channel.send(
+      `${client.i18n.get(language, "filters", "filter_loading", {
+        name: "3d",
+      })}`
+    );
     const player = client.manager.players.get(message.guild!.id);
     if (!player)
       return msg.edit({
