@@ -3,6 +3,7 @@ moving to dev brach for v0.5.0
 going to rework some kind of command needed L
 beta testing [progress]
 
+ this is stable version contain so much bug i font want to fix all te bug the issue is variable its so stupid how the bug goes
 
 ton of progress of music still not done 
 <h6>installastions</h6> 
