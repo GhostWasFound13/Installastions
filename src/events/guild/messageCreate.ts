@@ -50,10 +50,17 @@ export default async (client: Manager, message: Message) => {
         ${client.i18n.get(language, "help", "prefix", {
           prefix: `\`${PREFIX}\``,
         })}
-        ${client.i18n.get(language, "help", "intro4")}
+        ${client.i18n.get(language, "help", "prefix", {
+          prefix: `\`${PREFIX}\``,
+        })}
+        ${client.i18n.get(language, "help", "help1", {
+          help: `\`${PREFIX}help\` / \`/help\``,
+        })}
+        ${client.i18n.get(language, "help", "help2", {
+          botinfo: `\`${PREFIX}status\` / \`/status\``,
+        })}
         ${client.i18n.get(language, "help", "ver", {
-          botver: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
-            .version,
+          botver: client.metadata.version,
         })}
         ${client.i18n.get(language, "help", "djs", {
           djsver: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
@@ -63,12 +70,11 @@ export default async (client: Manager, message: Message) => {
           codename: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
             .name,
         })}
-        ${client.i18n.get(language, "help", "lavalink", { aver: "v3.0-beta" })}
-        ${client.i18n.get(language, "help", "help1", {
-          help: `\`${PREFIX}help\` / \`/help\``,
+       ${client.i18n.get(language, "help", "lavalink", {
+          aver: client.metadata.autofix,
         })}
-        ${client.i18n.get(language, "help", "help2", {
-          botinfo: `\`${PREFIX}status\` / \`/status\``,
+      ${client.i18n.get(language, "help", "codename", {
+          codename: client.metadata.codename,
         })}
         `);
     await message.channel.send({ embeds: [mention_embed] });
