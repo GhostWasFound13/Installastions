@@ -16,12 +16,17 @@ export default {
     language: string,
     prefix: string
   ) => {
-    const msg = await message.channel.send(
-      `${client.i18n.get(language, "filters", "filter_loading", {
-        name: "3d",
-      })}`
-    );
-
+    const msg = await message.channel.send({
+      embeds: [
+        new EmbedBuilder()
+          .setDescription(
+            `${client.i18n.get(language, "filters", "filter_loading", {
+              name: "3d",
+            })}`,
+          )
+          .setColor(client.color),
+      ],
+    });
     const player = client.manager.players.get(message.guild!.id);
     if (!player)
       return msg.edit(`${client.i18n.get(language, "noplayer", "no_player")}`);
@@ -30,8 +35,18 @@ export default {
       !channel ||
       message.member!.voice.channel !== message.guild!.members.me!.voice.channel
     )
-      return msg.edit(`${client.i18n.get(language, "noplayer", "no_voice")}`);
-
+        return msg.edit({
+      embeds: [
+        new EmbedBuilder()
+          .setDescription(
+            `${client.i18n.get(language, "noplayer", "no_voice", {
+              name: "3d",
+            })}`,
+          )
+          .setColor(client.color),
+      ],
+    });
+    
     const data = {
       op: "filters",
       guildId: message.guild!.id,
