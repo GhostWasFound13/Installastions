@@ -1,30 +1,39 @@
-import { EmbedBuilder, CommandInteraction, GuildManager } from "discord.js";
-import formatDuration from "../../../structures/FormatDuration.js";
-import { QueueDuration } from "../../../structures/QueueDuration.js";
 import { Manager } from "../../../manager.js";
+import {
+  EmbedBuilder,
+  PermissionsBitField,
+  ActionRowBuilder,
+  ButtonBuilder,
+  Message,
+  Embed,
+} from "discord.js";
+import FormatDuration from "../../../structures/FormatDuration.js";
+import { QueueDuration } from "../../../structures/QueueDuration.js";
+
 // Main code
 export default {
-  name: ["nowplaying"],
+  name: "nowplaying",
   description: "Display the song currently playing.",
   category: "Music",
   run: async (
-    interaction: CommandInteraction,
     client: Manager,
-    language: string
+    message: Message,
+    args: string[],
+    language: string,
+    prefix: string
   ) => {
-    await interaction.deferReply({ ephemeral: false });
     const realtime = client.config.lavalink.NP_REALTIME;
-    const msg = await interaction.editReply(
+    const msg = await message.channel.send(
       `${client.i18n.get(language, "music", "np_loading")}`
     );
-    const player = client.manager.players.get(interaction.guild!.id);
+    const player = client.manager.players.get(message.guild!.id);
     if (!player)
       return msg.edit(`${client.i18n.get(language, "noplayer", "no_player")}`);
 
     const song = player.queue.current;
     const position = player.shoukaku.position;
-    const CurrentDuration = formatDuration(position);
-    const TotalDuration = formatDuration(song!.length);
+    const CurrentDuration = FormatDuration(position);
+    const TotalDuration = FormatDuration(song!.length);
     const Thumbnail =
       `https://img.youtube.com/vi/${song!.identifier}/maxresdefault.jpg` ||
       `https://cdn.discordapp.com/avatars/${client.user!.id}/${
@@ -66,7 +75,7 @@ export default {
         },
         {
           name: `${client.i18n.get(language, "player", "duration_title")}`,
-          value: `${formatDuration(song!.length)}`,
+          value: `${FormatDuration(song!.length)}`,
           inline: true,
         },
         {
@@ -75,7 +84,7 @@ export default {
             "player",
             "total_duration_title"
           )}`,
-          value: `${formatDuration(QueueDuration(player))}`,
+          value: `${FormatDuration(QueueDuration(player))}`,
           inline: true,
         },
         {
@@ -103,14 +112,14 @@ export default {
     const NEmbed = await msg.edit({ content: " ", embeds: [embeded] });
     var interval = null;
 
-    if (realtime === "true") {
+    if (realtime) {
       interval = setInterval(async () => {
         if (!player.playing) return;
-        const CurrentDuration = formatDuration(position);
+        const CurrentDuration = FormatDuration(position);
         const Part = Math.floor((position / song!.length!) * 30);
         const Emoji = player.playing ? "🔴 |" : "⏸ |";
 
-        (embeded as any).fields[6] = {
+        (embeded as unknown as Embed).fields[6] = {
           name: `${client.i18n.get(language, "music", "np_current_duration", {
             current_duration: CurrentDuration,
             total_duration: TotalDuration,
@@ -122,7 +131,7 @@ export default {
 
         if (NEmbed) NEmbed.edit({ content: " ", embeds: [embeded] });
       }, 5000);
-    } else if (realtime === "false") {
+    } else if (!realtime) {
       if (!player.playing) return;
       if (NEmbed) NEmbed.edit({ content: " ", embeds: [embeded] });
     }
