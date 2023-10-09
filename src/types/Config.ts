@@ -20,7 +20,7 @@ export interface Features {
   AUTO_DEPLOY:      boolean;
   AUTOFIX_LAVALINK: AutofixLavalink;
   WEB_SERVER:       WebServer;
-  DEV_ID:           any[];
+  DEV_ID:           string[];
 }
 
 export interface AutofixLavalink {
