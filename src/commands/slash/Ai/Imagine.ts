@@ -41,15 +41,15 @@ export default {
                 .setLabel(`Download`)
                 .setStyle(ButtonStyle.Link)
                 .setURL(`${output}`),
-               new ButtonBuilder()
+            /*   new ButtonBuilder()
                 .setLabel(`Support Us`)
                 .setStyle(ButtonStyle.Link)
                 .setURL('https://paypal.me/officialrazer'))
-            
+            */
         const embed = new EmbedBuilder()       	.setTitle("**Your Prompt:**")
             .setDescription(`**${prompt}**`)
             .setImage(`${output}`)
-        	.setColor('#2f3136')
+        	.setColor(client.color)
         	.setFooter({ text: `Requested by: ${interaction.user.username} | ©️ Project Razer `,
                             iconURL: "https://i.imgur.com/AfFp7pu.png",
                           })

@@ -26,19 +26,32 @@ export default {
         `${client.i18n.get(language, "music", "number_invalid")}`
       );
 
-    const player = client.manager.players.get(message.guild!.id);
+       const player = client.manager.players.get(message.guild!.id);
     if (!player)
-      return message.channel.send(
-        `${client.i18n.get(language, "noplayer", "no_player")}`
-      );
+      return msg.edit({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "noplayer", "no_player")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     const { channel } = message.member!.voice;
     if (
       !channel ||
       message.member!.voice.channel !== message.guild!.members.me!.voice.channel
     )
-      return message.channel.send(
-        `${client.i18n.get(language, "noplayer", "no_voice")}`
-      );
+       return msg.edit({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "noplayer", "no_voice")}`,
+            )
+            .setColor(client.color),
+        ],
+      }); 
+    
 
     if (!value) {
       const data = {
@@ -66,13 +79,13 @@ export default {
 
       const msg1 = await message.channel.send(
         `${client.i18n.get(language, "filters", "filter_loading", {
-          name: client.commands.get("bassboost").config.name,
+          name: "bassboost",
         })}`
       );
       const embed = new EmbedBuilder()
         .setDescription(
           `${client.i18n.get(language, "filters", "filter_on", {
-            name: client.commands.get("bassboost").config.name,
+            name: "bassboost",
           })}`
         )
         .setColor(client.color);

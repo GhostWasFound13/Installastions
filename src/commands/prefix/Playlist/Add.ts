@@ -26,9 +26,15 @@ export default {
   ) => {
     const value = args[0] ? args[0] : null;
     if (value == null || !value)
-      return message.channel.send(
-        `${client.i18n.get(language, "playlist", "invalid")}`
-      );
+      return message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "playlist", "invalid")}`,
+            )
+            .setColor(client.color),
+        ],
+      });
     const input = args[1];
 
     const PlaylistName = value!.replace(/_/g, " ");
@@ -118,7 +124,7 @@ export default {
     if (LimitTrack > client.config.bot.LIMIT_TRACK) {
       message.channel.send(
         `${client.i18n.get(language, "playlist", "add_limit_track", {
-          limit: client.config.bot.LIMIT_TRACK,
+          limit: String(client.config.bot.LIMIT_TRACK);
         })}`
       );
       TrackAdd.length = 0;

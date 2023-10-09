@@ -20,8 +20,10 @@ export default {
 
       let pembed = new EmbedBuilder()
       .setTitle("Here are some trending prompts")
-      .setColor('#2F3136')
-      .setThumbnail('https://i.imgur.com/Cbs7ljR.png')
+
+      .setColor(client.color)
+    
+    .setThumbnail('https://i.imgur.com/Cbs7ljR.png')
 	  .setDescription(`
       <:next:1000472400049209385> mdjrny-v4 style, magic spell book sitting on a table in the catacombs, hypermaximalist, insanely detailed and intricate, octane render, unreal engine, 8k, by greg rutkowski and Peter Mohrbacher and magali villeneuve\n\n\
       <:next:1000472400049209385> mdjrny-v4 style, photo of a gorgeous blonde female in the style of stefan kostic, realistic, half body shot, sharp focus, 8 k high definition, insanely detailed, intricate, elegant, art by stanley lau and artgerm, extreme blur cherry blossoms background\n\n\
