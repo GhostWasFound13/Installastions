@@ -8,6 +8,10 @@ export default {
   category: "Filter",
   usage: "",
   aliases: [],
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: false,
 
   run: async (
     client: Manager,
@@ -16,19 +20,25 @@ export default {
     language: string,
     prefix: string
   ) => {
-    const msg = await message.channel.send(
-      `${client.i18n.get(language, "filters", "filter_loading", {
-        name: "chipmunk",
-      })}`
-    );
+    const msg = await message.channel.send({
+      embeds: [
+        new EmbedBuilder()
+          .setDescription(
+            `${client.i18n.get(language, "filters", "filter_loading", {
+              name: "china",
+            })}`
+          )
+          .setColor(client.color),
+      ],
+    });
 
-       const player = client.manager.players.get(message.guild!.id);
+    const player = client.manager.players.get(message.guild!.id);
     if (!player)
       return msg.edit({
         embeds: [
           new EmbedBuilder()
             .setDescription(
-              `${client.i18n.get(language, "noplayer", "no_player")}`,
+              `${client.i18n.get(language, "noplayer", "no_player")}`
             )
             .setColor(client.color),
         ],
@@ -38,16 +48,16 @@ export default {
       !channel ||
       message.member!.voice.channel !== message.guild!.members.me!.voice.channel
     )
-       return msg.edit({
+      return msg.edit({
         embeds: [
           new EmbedBuilder()
             .setDescription(
-              `${client.i18n.get(language, "noplayer", "no_voice")}`,
+              `${client.i18n.get(language, "noplayer", "no_voice")}`
             )
             .setColor(client.color),
         ],
-      }); 
-    
+      });
+
     const data = {
       op: "filters",
       guildId: message.guild!.id,

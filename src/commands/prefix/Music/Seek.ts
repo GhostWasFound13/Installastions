@@ -10,6 +10,10 @@ export default {
   category: "Music",
   usage: "<time_format. Ex: 999:59>",
   aliases: [],
+  owner: false,
+  premium: false,
+  lavalink: true,
+  isManager: false,
 
   run: async (
     client: Manager,
@@ -23,15 +27,9 @@ export default {
 
     console.log(time_regex.test(time), time.split(/:/));
     if (!time_regex.test(time))
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "music", "seek_invalid")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "music", "seek_invalid")}`
+      );
     else {
       const [m, s] = time.split(/:/);
       const min = Number(m) * 60;
@@ -40,49 +38,22 @@ export default {
       console.log(value);
     }
 
-    const msg = await message.channel.send({
-      embeds: [
-        new EmbedBuilder()
-          .setDescription(`${client.i18n.get(language, "music", "seek_loading")}`)
-          .setColor(client.color),
-      ],
-    });
+    const msg = await message.channel.send(
+      `${client.i18n.get(language, "music", "seek_loading")}`
+    );
 
     const player = client.manager.players.get(message.guild!.id);
     if (!player)
-     return msg.edit({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "noplayer", "no_player")}`,
-            )
-            .setColor(client.color),
-        ],
-      }); 
+      return msg.edit(`${client.i18n.get(language, "noplayer", "no_player")}`);
     const { channel } = message.member!.voice;
     if (
       !channel ||
       message.member!.voice.channel !== message.guild!.members.me!.voice.channel
     )
-      return msg.edit({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "noplayer", "no_voice")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
-    if (value * 1000 >= player.queue.current!.length! || value < 0)      
-     return msg.edit({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "music", "seek_beyond")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return msg.edit(`${client.i18n.get(language, "noplayer", "no_voice")}`);
+
+    if (value * 1000 >= player.queue.current!.length! || value < 0)
+      return msg.edit(`${client.i18n.get(language, "music", "seek_beyond")}`);
     await player.seek(value * 1000);
 
     const song_position = player.shoukaku.position;

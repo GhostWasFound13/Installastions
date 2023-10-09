@@ -12,37 +12,25 @@ export default {
   category: "Utils",
   aliases: ["setup-channel"],
   usage: "<create or delete>",
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: true,
 
   run: async (
     client: Manager,
     message: Message,
     args: string[],
     language: string,
-    prefix: string,
+    prefix: string
   ) => {
     let option = ["create", "delete"];
-    if (!message.member!.permissions.has(PermissionsBitField.Flags.ManageGuild))
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "utilities", "lang_perm")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
     if (!args[0] || !option.includes(args[0]))
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "utilities", "arg_error", {
-                text: "(create or delete)",
-              })}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "utilities", "arg_error", {
+          text: "(create or delete)",
+        })}`
+      );
 
     const choose = args[0];
 
@@ -61,7 +49,7 @@ export default {
       const queueMsg = `${client.i18n.get(
         language,
         "setup",
-        "setup_queuemsg",
+        "setup_queuemsg"
       )}`;
 
       const playEmbed = new EmbedBuilder()
@@ -70,22 +58,22 @@ export default {
           name: `${client.i18n.get(
             language,
             "setup",
-            "setup_playembed_author",
+            "setup_playembed_author"
           )}`,
         })
         .setImage(
           `https://cdn.discordapp.com/avatars/${client.user!.id}/${
             client.user!.avatar
-          }.jpeg?size=300`,
+          }.jpeg?size=300`
         )
         .setDescription(
-          `${client.i18n.get(language, "setup", "setup_playembed_desc")}`,
+          `${client.i18n.get(language, "setup", "setup_playembed_desc")}`
         )
         .setFooter({
           text: `${client.i18n.get(
             language,
             "setup",
-            "setup_playembed_footer",
+            "setup_playembed_footer"
           )}`,
         });
 
@@ -117,7 +105,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "setup", "setup_msg", {
             channel: textChannel.name,
-          })}`,
+          })}`
         )
         .setColor(client.color);
       return message.channel.send({ embeds: [embed] });
@@ -125,34 +113,34 @@ export default {
 
     if (choose === "delete") {
       const SetupChannel = await client.db.get(
-        `setup.guild_${message.guild!.id}`,
+        `setup.guild_${message.guild!.id}`
       );
 
       const embed_none = new EmbedBuilder()
         .setDescription(
           `${client.i18n.get(language, "setup", "setup_deleted", {
             channel: String(undefined),
-          })}`,
+          })}`
         )
         .setColor(client.color);
 
       if (!SetupChannel) return message.channel.send({ embeds: [embed_none] });
 
       const fetchedTextChannel = message.guild!.channels.cache.get(
-        SetupChannel.channel,
+        SetupChannel.channel
       );
       const fetchedVoiceChannel = message.guild!.channels.cache.get(
-        SetupChannel.voice,
+        SetupChannel.voice
       );
       const fetchedCategory = message.guild!.channels.cache.get(
-        SetupChannel.category,
+        SetupChannel.category
       );
 
       const embed = new EmbedBuilder()
         .setDescription(
           `${client.i18n.get(language, "setup", "setup_deleted", {
             channel: fetchedTextChannel?.name as string,
-          })}`,
+          })}`
         )
         .setColor(client.color);
       if (!SetupChannel) return message.channel.send({ embeds: [embed] });

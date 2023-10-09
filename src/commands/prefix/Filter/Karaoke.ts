@@ -3,8 +3,8 @@ import delay from "delay";
 import { Manager } from "../../../manager.js";
 
 export default {
-  name: "reset",
-  description: "Reset filter",
+  name: "karaoke",
+  description: "Turning on karaoke filter",
   category: "Filter",
   usage: "",
   aliases: [],
@@ -24,7 +24,9 @@ export default {
       embeds: [
         new EmbedBuilder()
           .setDescription(
-            `${client.i18n.get(language, "filters", "reset_loading")}`
+            `${client.i18n.get(language, "filters", "filter_loading", {
+              name: "karaoke",
+            })}`
           )
           .setColor(client.color),
       ],
@@ -55,20 +57,28 @@ export default {
             .setColor(client.color),
         ],
       });
-
     const data = {
       op: "filters",
       guildId: message.guild!.id,
+      karaoke: {
+        level: 1.0,
+        monoLevel: 1.0,
+        filterBand: 220.0,
+        filterWidth: 100.0,
+      },
     };
 
     await player["send"](data);
-    await player.setVolume(100);
 
-    const resetted = new EmbedBuilder()
-      .setDescription(`${client.i18n.get(language, "filters", "reset_on")}`)
+    const embed = new EmbedBuilder()
+      .setDescription(
+        `${client.i18n.get(language, "filters", "filter_on", {
+          name: "karaoke",
+        })}`
+      )
       .setColor(client.color);
 
     await delay(2000);
-    msg.edit({ content: " ", embeds: [resetted] });
+    msg.edit({ content: " ", embeds: [embed] });
   },
 };

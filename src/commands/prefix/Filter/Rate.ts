@@ -12,6 +12,10 @@ export default {
   category: "Filter",
   usage: "",
   aliases: [],
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: false,
 
   run: async (
     client: Manager,
@@ -27,13 +31,13 @@ export default {
         `${client.i18n.get(language, "music", "number_invalid")}`
       );
 
-     const player = client.manager.players.get(message.guild!.id);
+    const player = client.manager.players.get(message.guild!.id);
     if (!player)
-      return msg.edit({
+      return message.channel.send({
         embeds: [
           new EmbedBuilder()
             .setDescription(
-              `${client.i18n.get(language, "noplayer", "no_player")}`,
+              `${client.i18n.get(language, "noplayer", "no_player")}`
             )
             .setColor(client.color),
         ],
@@ -43,25 +47,36 @@ export default {
       !channel ||
       message.member!.voice.channel !== message.guild!.members.me!.voice.channel
     )
-       return msg.edit({
+      return message.channel.send({
         embeds: [
           new EmbedBuilder()
             .setDescription(
-              `${client.i18n.get(language, "noplayer", "no_voice")}`,
+              `${client.i18n.get(language, "noplayer", "no_voice")}`
             )
             .setColor(client.color),
         ],
-      }); 
-    
+      });
 
     if (Number(value) < 0)
-      return message.channel.send(
-        `${client.i18n.get(language, "filters", "filter_greater")}`
-      );
+      return message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "filters", "filter_greater")}`
+            )
+            .setColor(client.color),
+        ],
+      });
     if (Number(value) > 10)
-      return message.channel.send(
-        `${client.i18n.get(language, "filters", "filter_less")}`
-      );
+      return message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "filters", "filter_less")}`
+            )
+            .setColor(client.color),
+        ],
+      });
 
     const data = {
       op: "filters",
@@ -71,11 +86,17 @@ export default {
 
     await player["send"](data);
 
-    const msg = await message.channel.send(
-      `${client.i18n.get(language, "filters", "rate_loading", {
-        amount: value,
-      })}`
-    );
+    const msg = await message.channel.send({
+      embeds: [
+        new EmbedBuilder()
+          .setDescription(
+            `${client.i18n.get(language, "filters", "rate_loading", {
+              amount: value,
+            })}`
+          )
+          .setColor(client.color),
+      ],
+    });
     const embed = new EmbedBuilder()
       .setDescription(
         `${client.i18n.get(language, "filters", "rate_on", {

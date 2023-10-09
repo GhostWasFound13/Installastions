@@ -11,6 +11,10 @@ export default {
   category: "Playlist",
   usage: "<playlist_name>",
   aliases: ["pl-view"],
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: false,
 
   run: async (
     client: Manager,
@@ -21,15 +25,9 @@ export default {
   ) => {
     const value = args[0] ? args[0] : null;
     if (value == null)
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "playlist", "invalid")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "playlist", "invalid")}`
+      );
     const PName = value!.replace(/_/g, " ");
 
     const fullList = await client.db.get("playlist");
@@ -43,25 +41,14 @@ export default {
     const playlist = fullList[pid[0]];
 
     if (!playlist)
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "playlist", "public_notfound")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "playlist", "public_notfound")}`
+      );
     if (playlist.owner !== message.author.id)
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "playlist", "public_owner")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "playlist", "public_owner")}`
+      );
+
     const Public = Object.keys(fullList)
       .filter(function (key) {
         return fullList[key].private == false && fullList[key].name == PName;
@@ -71,24 +58,13 @@ export default {
         return fullList[key];
       });
     if (Public !== null || undefined || false)
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "playlist", "public_already")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
-    const msg = await message.channel.send({
-      embeds: [
-        new EmbedBuilder()
-          .setDescription(
-            `${client.i18n.get(language, "playlist", "public_loading")}`,
-          )
-          .setColor(client.color),
-      ],
-    });
+      return message.channel.send(
+        `${client.i18n.get(language, "playlist", "public_already")}`
+      );
+
+    const msg = await message.channel.send(
+      `${client.i18n.get(language, "playlist", "public_loading")}`
+    );
 
     client.db.set(
       `playlist.pid_${playlist.id}.private`,

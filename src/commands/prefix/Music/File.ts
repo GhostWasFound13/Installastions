@@ -1,5 +1,6 @@
 import {
   Attachment,
+  Collection,
   EmbedBuilder,
   Message,
   PermissionsBitField,
@@ -14,7 +15,10 @@ export default {
   category: "Music",
   usage: "",
   aliases: ["file", "f"],
+  owner: false,
+  premium: false,
   lavalink: true,
+  isManager: false,
 
   run: async (
     client: Manager,

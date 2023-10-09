@@ -16,6 +16,10 @@ export default {
   category: "Playlist",
   usage: "<playlist_name>",
   aliases: ["pl-sq", "pl-save-queue", "pl-save"],
+  owner: false,
+  premium: false,
+  lavalink: true,
+  isManager: false,
 
   run: async (
     client: Manager,
@@ -26,15 +30,9 @@ export default {
   ) => {
     const value = args[0] ? args[0] : null;
     if (value == null)
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "playlist", "invalid")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "playlist", "invalid")}`
+      );
     const Plist = value!.replace(/_/g, " ");
     const fullList = await client.db.get("playlist");
 
@@ -46,53 +44,30 @@ export default {
 
     const playlist = fullList[pid[0]];
 
-  if (!playlist)
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "playlist", "savequeue_notfound")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+    if (!playlist)
+      return message.channel.send(
+        `${client.i18n.get(language, "playlist", "savequeue_notfound")}`
+      );
     if (playlist.owner !== message.author.id)
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "playlist", "savequeue_owner")}`,
-            )
-            .setColor(client.color),
-        ],
-      });  
+      return message.channel.send(
+        `${client.i18n.get(language, "playlist", "savequeue_owner")}`
+      );
+
     const player = client.manager.players.get(message.guild!.id);
     if (!player)
-     return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "noplayer", "no_player")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
- 
+      return message.channel.send(
+        `${client.i18n.get(language, "noplayer", "no_player")}`
+      );
 
     const { channel } = message.member!.voice;
     if (
       !channel ||
       message.member!.voice.channel !== message.guild!.members.me!.voice.channel
     )
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "noplayer", "no_voice")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "noplayer", "no_voice")}`
+      );
+
     const queue = player.queue.map((track) => track);
     const current = player.queue.current;
 

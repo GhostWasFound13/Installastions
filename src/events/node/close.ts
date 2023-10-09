@@ -11,4 +11,4 @@ export default async (
   client.logger.debug(
     `Lavalink ${name}: Closed, Code ${code}, Reason ${reason || "No reason"}`
   );
-  
+};

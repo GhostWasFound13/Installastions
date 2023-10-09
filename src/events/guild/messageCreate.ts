@@ -9,14 +9,14 @@ export default async (client: Manager, message: Message) => {
 
   if (!client.is_db_connected)
     return client.logger.warn(
-      "The database is not yet connected so this event will temporarily not execute. Please try again later!",
+      "The database is not yet connected so this event will temporarily not execute. Please try again later!"
     );
 
   let guildModel = await client.db.get(`language.guild_${message.guild!.id}`);
   if (!guildModel) {
     guildModel = await client.db.set(
       `language.guild_${message.guild!.id}`,
-      client.config.bot.LANGUAGE,
+      client.config.bot.LANGUAGE
     );
   }
 
@@ -50,9 +50,6 @@ export default async (client: Manager, message: Message) => {
         ${client.i18n.get(language, "help", "prefix", {
           prefix: `\`${PREFIX}\``,
         })}
-        ${client.i18n.get(language, "help", "prefix", {
-          prefix: `\`${PREFIX}\``,
-        })}
         ${client.i18n.get(language, "help", "help1", {
           help: `\`${PREFIX}help\` / \`/help\``,
         })}
@@ -66,14 +63,10 @@ export default async (client: Manager, message: Message) => {
           djsver: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
             .dependencies["discord.js"],
         })}
-        ${client.i18n.get(language, "help", "codename", {
-          codename: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
-            .name,
-        })}
-       ${client.i18n.get(language, "help", "lavalink", {
+        ${client.i18n.get(language, "help", "lavalink", {
           aver: client.metadata.autofix,
         })}
-      ${client.i18n.get(language, "help", "codename", {
+        ${client.i18n.get(language, "help", "codename", {
           codename: client.metadata.codename,
         })}
         `);
@@ -83,49 +76,50 @@ export default async (client: Manager, message: Message) => {
   const escapeRegex = (str: string) =>
     str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const prefixRegex = new RegExp(
-    `^(<@!?${client.user!.id}>|${escapeRegex(PREFIX)})\\s*`,
+    `^(<@!?${client.user!.id}>|${escapeRegex(PREFIX)})\\s*`
   );
   if (!prefixRegex.test(message.content)) return;
   const [matchedPrefix] = message.content.match(
-    prefixRegex,
+    prefixRegex
   ) as RegExpMatchArray;
   const args = message.content.slice(matchedPrefix.length).trim().split(/ +/g);
   const cmd = args.shift()!.toLowerCase();
 
   const command =
-    client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd) as string);
+    client.commands.get(cmd) ||
+    client.commands.get(client.aliases.get(cmd) as string);
   if (!command) return;
 
   if (
     !message.guild!.members.me!.permissions.has(
-      PermissionsBitField.Flags.SendMessages,
+      PermissionsBitField.Flags.SendMessages
     )
   )
     return await message.author.dmChannel!.send({
       embeds: [
         new EmbedBuilder()
           .setDescription(
-            `${client.i18n.get(language, "interaction", "no_perms")}`,
+            `${client.i18n.get(language, "interaction", "no_perms")}`
           )
           .setColor(client.color),
       ],
     });
   if (
     !message.guild!.members.me!.permissions.has(
-      PermissionsBitField.Flags.ViewChannel,
+      PermissionsBitField.Flags.ViewChannel
     )
   )
     return;
   if (
     !message.guild!.members.me!.permissions.has(
-      PermissionsBitField.Flags.EmbedLinks,
+      PermissionsBitField.Flags.EmbedLinks
     )
   )
     return await message.channel.send({
       embeds: [
         new EmbedBuilder()
           .setDescription(
-            `${client.i18n.get(language, "interaction", "no_perms")}`,
+            `${client.i18n.get(language, "interaction", "no_perms")}`
           )
           .setColor(client.color),
       ],
@@ -136,7 +130,21 @@ export default async (client: Manager, message: Message) => {
       embeds: [
         new EmbedBuilder()
           .setDescription(
-            `${client.i18n.get(language, "interaction", "owner_only")}`,
+            `${client.i18n.get(language, "interaction", "owner_only")}`
+          )
+          .setColor(client.color),
+      ],
+    });
+
+  if (
+    command.isManager &&
+    !message.member!.permissions.has(PermissionsBitField.Flags.ManageGuild)
+  )
+    return message.channel.send({
+      embeds: [
+        new EmbedBuilder()
+          .setDescription(
+            `${client.i18n.get(language, "utilities", "lang_perm")}`
           )
           .setColor(client.color),
       ],
@@ -152,7 +160,7 @@ export default async (client: Manager, message: Message) => {
             iconURL: client.user!.displayAvatarURL(),
           })
           .setDescription(
-            `${client.i18n.get(language, "nopremium", "premium_desc")}`,
+            `${client.i18n.get(language, "nopremium", "premium_desc")}`
           )
           .setColor(client.color)
           .setTimestamp();
@@ -166,8 +174,18 @@ export default async (client: Manager, message: Message) => {
       embeds: [
         new EmbedBuilder()
           .setDescription(
-            `${client.i18n.get(language, "nopremium", "premium_error")}`,
+            `${client.i18n.get(language, "nopremium", "premium_error")}`
           )
+          .setColor(client.color),
+      ],
+    });
+  }
+
+  if (command.lavalink && client.lavalink_using.length == 0) {
+    return message.channel.send({
+      embeds: [
+        new EmbedBuilder()
+          .setDescription(`${client.i18n.get(language, "music", "no_node")}`)
           .setColor(client.color),
       ],
     });
@@ -175,18 +193,15 @@ export default async (client: Manager, message: Message) => {
 
   if (command) {
     try {
-      client.logger.info(`[COMMAND] used by ${message.author.globalName} from ${message.guild!.name} (${message.guild!.id})`,)
       command.run(client, message, args, language, PREFIX);
     } catch (error) {
       client.logger.error(error);
       message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "interaction", "error")}\n ${error}`,
-            )
-            .setColor(client.color),
-        ],
+        content: `${client.i18n.get(
+          language,
+          "interaction",
+          "error"
+        )}\n ${error}`,
       });
     }
   }

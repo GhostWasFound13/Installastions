@@ -3,8 +3,8 @@ import delay from "delay";
 import { Manager } from "../../../manager.js";
 
 export default {
-  name: ["filter", "3d"],
-  description: "Turning on 3d filter",
+  name: ["karaoke"],
+  description: "Turning on karaoke filter",
   category: "Filter",
   owner: false,
   premium: false,
@@ -19,7 +19,7 @@ export default {
 
     const msg = await interaction.editReply(
       `${client.i18n.get(language, "filters", "filter_loading", {
-        name: "3d",
+        name: "karaoke",
       })}`
     );
 
@@ -37,7 +37,12 @@ export default {
     const data = {
       op: "filters",
       guildId: interaction.guild!.id,
-      rotation: { rotationHz: 0.2 },
+      karaoke: {
+        level: 1.0,
+        monoLevel: 1.0,
+        filterBand: 220.0,
+        filterWidth: 100.0,
+      },
     };
 
     await player["send"](data);
@@ -45,7 +50,7 @@ export default {
     const embed = new EmbedBuilder()
       .setDescription(
         `${client.i18n.get(language, "filters", "filter_on", {
-          name: "3d",
+          name: "karaoke",
         })}`
       )
       .setColor(client.color);

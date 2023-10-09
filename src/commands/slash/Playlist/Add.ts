@@ -15,6 +15,10 @@ export default {
   name: ["playlist", "add"],
   description: "Add song to a playlist",
   category: "Playlist",
+  owner: false,
+  premium: false,
+  lavalink: true,
+  isManager: false,
   options: [
     {
       name: "name",
@@ -145,7 +149,7 @@ export default {
         if (LimitTrack > client.config.bot.LIMIT_TRACK) {
           interaction.followUp(
             `${client.i18n.get(language, "playlist", "add_limit_track", {
-              limit: string(client.config.bot.LIMIT_TRACK),
+              limit: String(client.config.bot.LIMIT_TRACK),
             })}`
           );
           TrackAdd.length = 0;

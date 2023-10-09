@@ -16,6 +16,10 @@ export default {
   category: "Playlist",
   usage: "<playlist_name> <url_or_name>",
   aliases: ["pl-add"],
+  owner: false,
+  premium: false,
+  lavalink: true,
+  isManager: false,
 
   run: async (
     client: Manager,
@@ -26,15 +30,9 @@ export default {
   ) => {
     const value = args[0] ? args[0] : null;
     if (value == null || !value)
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "playlist", "invalid")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "playlist", "invalid")}`
+      );
     const input = args[1];
 
     const PlaylistName = value!.replace(/_/g, " ");
@@ -124,7 +122,7 @@ export default {
     if (LimitTrack > client.config.bot.LIMIT_TRACK) {
       message.channel.send(
         `${client.i18n.get(language, "playlist", "add_limit_track", {
-          limit: String(client.config.bot.LIMIT_TRACK);
+          limit: String(client.config.bot.LIMIT_TRACK),
         })}`
       );
       TrackAdd.length = 0;

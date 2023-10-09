@@ -5,16 +5,19 @@ export default {
   name: "premium-remove",
   description: "Remove premium from members!",
   category: "Premium",
-  owner: true,
   usage: "<mention or id>",
   aliases: ["prm"],
+  owner: true,
+  premium: false,
+  lavalink: false,
+  isManager: false,
 
   run: async (
     client: Manager,
     message: Message,
     args: string[],
     language: string,
-    prefix: string,
+    prefix: string
   ) => {
     let db;
 
@@ -24,23 +27,15 @@ export default {
 
     if (!id && !mentions)
       return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "premium", "remove_no_params")}`,
-            )
-            .setColor(client.color),
-        ],
+        content: `${client.i18n.get(language, "premium", "remove_no_params")}`,
       });
     if (id && mentions)
       return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "premium", "remove_only_params")}`,
-            )
-            .setColor(client.color),
-        ],
+        content: `${client.i18n.get(
+          language,
+          "premium",
+          "remove_only_params"
+        )}`,
       });
 
     if (id && !mentions) db = await client.db.get(`premium.user_${id}`);
@@ -49,15 +44,9 @@ export default {
 
     if (!db)
       return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "premium", "remove_404", {
-                userid: id as string,
-              })}`,
-            )
-            .setColor(client.color),
-        ],
+        content: `${client.i18n.get(language, "premium", "remove_404", {
+          userid: id as string,
+        })}`,
       });
 
     if (db.isPremium) {
@@ -77,7 +66,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "premium", "remove_desc", {
             user: mentions?.username as string,
-          })}`,
+          })}`
         )
         .setColor(client.color);
       message.channel.send({ embeds: [embed] });
@@ -86,7 +75,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "premium", "remove_already", {
             user: mentions?.username as string,
-          })}`,
+          })}`
         )
         .setColor(client.color);
 
