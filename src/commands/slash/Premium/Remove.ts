@@ -11,6 +11,9 @@ export default {
   description: "Remove premium from members!",
   category: "Premium",
   owner: true,
+  premium: false,
+  lavalink: false,
+  isManager: false,
   options: [
     {
       name: "target",
@@ -28,7 +31,7 @@ export default {
   run: async (
     interaction: CommandInteraction,
     client: Manager,
-    language: string,
+    language: string
   ) => {
     let db;
 
@@ -42,23 +45,15 @@ export default {
 
     if (!id && !mentions)
       return interaction.editReply({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "premium", "remove_no_params")}`,
-            )
-            .setColor(client.color),
-        ],
+        content: `${client.i18n.get(language, "premium", "remove_no_params")}`,
       });
     if (id && mentions)
       return interaction.editReply({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "premium", "remove_only_params")}`,
-            )
-            .setColor(client.color),
-        ],
+        content: `${client.i18n.get(
+          language,
+          "premium",
+          "remove_only_params"
+        )}`,
       });
     if (id && !mentions) db = await client.db.get(`premium.user_${id}`);
     if (mentions && !id)
@@ -66,15 +61,9 @@ export default {
 
     if (!db)
       return interaction.editReply({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "premium", "remove_404", {
-                userid: String(id),
-              })}`,
-            )
-            .setColor(client.color),
-        ],
+        content: `${client.i18n.get(language, "premium", "remove_404", {
+          userid: String(id),
+        })}`,
       });
 
     if (db.isPremium) {
@@ -94,7 +83,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "premium", "remove_desc", {
             user: String(mentions),
-          })}`,
+          })}`
         )
         .setColor(client.color);
 
@@ -104,7 +93,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "premium", "remove_already", {
             user: String(mentions),
-          })}`,
+          })}`
         )
         .setColor(client.color);
 

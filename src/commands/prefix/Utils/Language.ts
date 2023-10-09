@@ -9,50 +9,31 @@ export default {
   usage: "<language>",
   category: "Utils",
   description: "Change the language for the bot",
-  accessableby: "Members",
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: true,
 
   run: async (
     client: Manager,
     message: Message,
     args: string[],
     language: string,
-    prefix: string,
+    prefix: string
   ) => {
     const languages = client.i18n.getLocales();
-    if (!message.member!.permissions.has(PermissionsBitField.Flags.ManageGuild))
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "utilities", "lang_perm")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
     if (!args[0])
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "utilities", "provide_lang", {
-                languages: languages.join(", "),
-              })}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "utilities", "provide_lang", {
+          languages: languages.join(", "),
+        })}`
+      );
     if (!languages.includes(args[0]))
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "utilities", "provide_lang", {
-                languages: languages.join(", "),
-              })}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "utilities", "provide_lang", {
+          languages: languages.join(", "),
+        })}`
+      );
 
     const newLang = await client.db.get(`language.guild_${message.guild!.id}`);
     if (!newLang) {
@@ -61,7 +42,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "utilities", "lang_set", {
             language: args[0],
-          })}`,
+          })}`
         )
         .setColor(client.color);
 
@@ -72,7 +53,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "utilities", "lang_change", {
             language: args[0],
-          })}`,
+          })}`
         )
         .setColor(client.color);
 

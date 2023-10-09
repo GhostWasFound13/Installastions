@@ -10,6 +10,10 @@ export default {
   category: "Playlist",
   usage: "<number>",
   aliases: ["pl-all"],
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: false,
 
   run: async (
     client: Manager,
@@ -20,15 +24,9 @@ export default {
   ) => {
     const number = args[0] ? args[0] : null;
     if (number && isNaN(+number))
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "music", "number_invalid")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "music", "number_invalid")}`
+      );
 
     const playlists: PlaylistInterface[] = [];
     const fullList = await client.db.get("playlist");
@@ -101,13 +99,7 @@ export default {
     } else {
       if (isNaN(+number))
         return message.channel.send({
-          embeds: [
-            new EmbedBuilder()
-              .setDescription(
-                `${client.i18n.get(language, "playlist", "view_notnumber")}`,
-              )
-              .setColor(client.color),
-          ],
+          content: `${client.i18n.get(language, "playlist", "view_notnumber")}`,
         });
       if (Number(number) > pagesNum)
         return message.channel.send({

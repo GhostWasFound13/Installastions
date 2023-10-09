@@ -10,11 +10,16 @@ import {
 } from "discord.js";
 import ms from "pretty-ms";
 import { Manager } from "../../../manager.js";
+import { SetupInfoChannel } from "../../../types/Setup.js";
 
 export default {
   name: ["settings", "status"],
   description: "Create bot status channel",
   category: "Utils",
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: true,
   options: [
     {
       name: "type",
@@ -39,14 +44,6 @@ export default {
     language: string
   ) => {
     await interaction.deferReply({ ephemeral: false });
-    if (
-      !(interaction.member!.permissions as Readonly<PermissionsBitField>).has(
-        PermissionsBitField.Flags.ManageGuild
-      )
-    )
-      return interaction.editReply(
-        `${client.i18n.get(language, "utilities", "lang_perm")}`
-      );
     if (
       (interaction.options as CommandInteractionOptionResolver).getString(
         "type"
@@ -186,7 +183,7 @@ export default {
             .setTimestamp()
             .setColor(client.color);
 
-          SetupChannel.forEach(async (g: any) => {
+          SetupChannel.forEach(async (g: SetupInfoChannel) => {
             const fetch_channel = await client.channels.fetch(g.channel);
             const text_channel = fetch_channel! as TextChannel;
             const interval_text = await text_channel.messages!.fetch(g.statmsg);

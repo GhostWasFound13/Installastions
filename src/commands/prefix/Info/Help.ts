@@ -16,6 +16,10 @@ export default {
   category: "Info",
   usage: "+ <commamnd_name>",
   aliases: ["h"],
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: false,
   run: async (
     client: Manager,
     message: Message,
@@ -59,7 +63,13 @@ export default {
                 ? `\`${prefix}${command.name} ${command.usage}\``
                 : "No Usage"
             }
-            **Accessible by:** ${command.accessableby || "Members"}
+            **Accessible by:** ${
+              command.isManager
+                ? "Guild Manager"
+                : command.owner
+                ? "Owner"
+                : "Members"
+            }
             **Aliases:** ${
               command.aliases && command.aliases.length !== 0
                 ? command.aliases.join(", ")
@@ -90,17 +100,18 @@ export default {
             ${client.i18n.get(language, "help", "prefix", {
               prefix: `\`${prefix}\``,
             })}
-            ${client.i18n.get(language, "help", "intro4")}
-            ${client.i18n.get(language, "help", "lavalink", {
-              aver: "v3.0-beta",
-            })}
             ${client.i18n.get(language, "help", "ver", {
-              botver: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
-                .version,
+              botver: client.metadata.version,
             })}
             ${client.i18n.get(language, "help", "djs", {
               djsver: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
                 .dependencies["discord.js"],
+            })}
+            ${client.i18n.get(language, "help", "lavalink", {
+              aver: client.metadata.autofix,
+            })}
+            ${client.i18n.get(language, "help", "codename", {
+              codename: client.metadata.codename,
             })}
             `
       )

@@ -8,6 +8,7 @@ import {
 } from "discord.js";
 import ms from "pretty-ms";
 import { Manager } from "../../../manager.js";
+import { SetupInfoChannel } from "../../../types/Setup.js";
 
 export default {
   name: "status-channel",
@@ -15,37 +16,25 @@ export default {
   category: "Utils",
   aliases: ["sc"],
   usage: "<create or delete>",
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: true,
 
   run: async (
     client: Manager,
     message: Message,
     args: string[],
     language: string,
-    prefix: string,
+    prefix: string
   ) => {
     let option = ["create", "delete"];
-    if (!message.member!.permissions.has(PermissionsBitField.Flags.ManageGuild))
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "utilities", "lang_perm")}`,
-            )
-            .setColor(client.color),
-        ],
-      });
     if (!args[0] || !option.includes(args[0]))
-      return message.channel.send({
-        embeds: [
-          new EmbedBuilder()
-            .setDescription(
-              `${client.i18n.get(language, "utilities", "arg_error", {
-                text: "(create or delete)",
-              })}`,
-            )
-            .setColor(client.color),
-        ],
-      });
+      return message.channel.send(
+        `${client.i18n.get(language, "utilities", "arg_error", {
+          text: "(create or delete)",
+        })}`
+      );
 
     const choose = args[0];
 
@@ -77,9 +66,9 @@ export default {
           {
             name: "Memory",
             value: `\`\`\`${(process.memoryUsage().rss / 1024 / 1024).toFixed(
-              2,
+              2
             )} MB RSS\n${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(
-              2,
+              2
             )} MB Heap\`\`\``,
             inline: true,
           },
@@ -127,7 +116,7 @@ export default {
       if (!interval_info) {
         const interval_online = setInterval(async () => {
           const SetupChannel = await client.db.get(
-            `setup.guild_${message.guild!.id}.enable`,
+            `setup.guild_${message.guild!.id}.enable`
           );
           if (!SetupChannel) return;
 
@@ -186,7 +175,7 @@ export default {
             .setTimestamp()
             .setColor(client.color);
 
-          SetupChannel.forEach(async (g: any) => {
+          SetupChannel.forEach(async (g: SetupInfoChannel) => {
             const fetch_channel = await client.channels.fetch(g.channel);
             const text_channel = fetch_channel! as TextChannel;
             const interval_text = await text_channel.messages!.fetch(g.statmsg);
@@ -202,7 +191,7 @@ export default {
         .setDescription(
           `${client.i18n.get(language, "setup", "setup_msg", {
             channel: textChannel.name,
-          })}`,
+          })}`
         )
         .setColor(client.color);
       return message.channel.send({ embeds: [embed] });
@@ -210,31 +199,31 @@ export default {
 
     if (choose === "delete") {
       const SetupChannel = await client.db.get(
-        `setup.guild_${message.guild!.id}`,
+        `setup.guild_${message.guild!.id}`
       );
 
       const embed_none = new EmbedBuilder()
         .setDescription(
           `${client.i18n.get(language, "setup", "setup_deleted", {
             channel: String(undefined),
-          })}`,
+          })}`
         )
         .setColor(client.color);
 
       if (!SetupChannel) return message.channel.send({ embeds: [embed_none] });
 
       const fetchedTextChannel = message.guild!.channels.cache.get(
-        SetupChannel.channel,
+        SetupChannel.channel
       );
       const fetchedCategory = message.guild!.channels.cache.get(
-        SetupChannel.category,
+        SetupChannel.category
       );
 
       const embed = new EmbedBuilder()
         .setDescription(
           `${client.i18n.get(language, "setup", "setup_deleted", {
             channel: fetchedTextChannel!.name,
-          })}`,
+          })}`
         )
         .setColor(client.color);
       await message.channel.send({ embeds: [embed] });

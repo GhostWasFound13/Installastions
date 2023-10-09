@@ -15,6 +15,10 @@ export default {
   name: ["help"],
   description: "Displays all commands that the bot has.",
   category: "Info",
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: false,
   run: async (
     interaction: CommandInteraction,
     client: Manager,
@@ -39,17 +43,18 @@ export default {
             ${client.i18n.get(language, "help", "intro2")}
             ${client.i18n.get(language, "help", "intro3")}
             ${client.i18n.get(language, "help", "prefix", { prefix: `\`/\`` })}
-            ${client.i18n.get(language, "help", "intro4")}
             ${client.i18n.get(language, "help", "ver", {
-              botver: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
-                .version,
+              botver: client.metadata.version,
             })}
             ${client.i18n.get(language, "help", "djs", {
               djsver: JSON.parse(await fs.readFileSync("package.json", "utf-8"))
                 .dependencies["discord.js"],
             })}
             ${client.i18n.get(language, "help", "lavalink", {
-              aver: "v3.0-beta",
+              aver: client.metadata.autofix,
+            })}
+            ${client.i18n.get(language, "help", "codename", {
+              codename: client.metadata.codename,
             })}
             `
       )
