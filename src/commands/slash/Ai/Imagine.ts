@@ -41,11 +41,11 @@ export default {
                 .setLabel(`Download`)
                 .setStyle(ButtonStyle.Link)
                 .setURL(`${output}`),
-            /*   new ButtonBuilder()
+               new ButtonBuilder()
                 .setLabel(`Support Us`)
                 .setStyle(ButtonStyle.Link)
                 .setURL('https://paypal.me/officialrazer'))
-            */
+            
         const embed = new EmbedBuilder()       	.setTitle("**Your Prompt:**")
             .setDescription(`**${prompt}**`)
             .setImage(`${output}`)
