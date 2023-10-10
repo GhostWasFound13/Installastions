@@ -74,7 +74,7 @@ features:
     reconnectTries: 5
     restTimeout: 3000
   WEB_SERVER:
-    enable: true # Must enable this before using ws
+    enable: false # Must enable this before using ws
     port: 3000
     websocket:
       enable: true
