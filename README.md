@@ -1,9 +1,9 @@
 <h6>installastions</h6> 
 installastions is using byteBlaze source code from RainyXeon this code is fully modify ;-;
 <h6>What feature does installastions has?</h6>
-<kbd>✔</kbd> client setup<br>
-<kbd>[progress]</kbd> Moderation command support<br>
-<kbd>[progress</kbd> Playlist network<br>
+<kbd>✔</kbd>full typescript productions<br>
+<kbd>[progress]</kbd> Moderation system<br>
+<kbd>✔</kbd> Playlist network<br>
 <kbd>✔</kbd>  Music System Command <br>
 <kbd>✔</kbd> Ai generator Image<br>
 <kbd>✔</kbd> Custom Filters<br>
