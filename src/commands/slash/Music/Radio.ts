@@ -31,29 +31,30 @@ export default {
     language: string
   ) => {
     await interaction.deferReply({ ephemeral: false });
-    const msg = await interaction.editReply(
-      `${client.i18n.get(language, "music", "radio_loading")}`
-    );
     const value = (
       interaction.options as CommandInteractionOptionResolver
     ).getInteger("number");
-    const { channel } = (interaction.member as GuildMember).voice;
+    const msg = await interaction.editReply({
+      embeds: [
+        new EmbedBuilder()
+          .setDescription(
+            `${client.i18n.get(language, "music", "radio_loading")}`
+          )
+          .setColor(client.color),
+      ],
+    });
+
+    const { channel } = (interaction.member as GuildMember)!.voice;
     if (!channel)
-      return msg.edit(
-        `${client.i18n.get(language, "music", "search_invoice")}`
-      );
-    if (
-      !interaction
-        .guild!.members.cache.get(client.user!.id)!
-        .permissions.has(PermissionsBitField.Flags.Connect)
-    )
-      return msg.edit(`${client.i18n.get(language, "music", "radio_join")}`);
-    if (
-      !interaction
-        .guild!.members.cache.get(client.user!.id)!
-        .permissions.has(PermissionsBitField.Flags.Speak)
-    )
-      return msg.edit(`${client.i18n.get(language, "music", "radio_speak")}`);
+      return msg.edit({
+        embeds: [
+          new EmbedBuilder()
+            .setDescription(
+              `${client.i18n.get(language, "noplayer", "no_voice")}`
+            )
+            .setColor(client.color),
+        ],
+      });
 
     const resultsEmbed = new EmbedBuilder()
       .setTitle(`${client.i18n.get(language, "radio", "available_radio")}`) //
