@@ -1,5 +1,8 @@
 <h6>installastions</h6> 
 installastions is using byteBlaze source code from RainyXeon this code is fully modify ;-;
+
+<h6> image generator under testing</h6>
+for while i need to fix the command i could not make dist folder while running npm run build going to test it first until goimg to fix some of the bug api error or something
 <h6>What feature does installastions has?</h6>
 <kbd>✔</kbd>full typescript productions<br>
 <kbd>[progress]</kbd> Moderation system<br>
