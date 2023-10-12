@@ -1,9 +1,15 @@
 import { KazagumoPlayer, KazagumoTrack } from "kazagumo";
 import { Manager } from "../../manager.js";
-import { ButtonStyle, TextChannel } from "discord.js";
+import {
+  AttachmentBuilder,
+  ButtonComponent,
+  ButtonStyle,
+  TextChannel,
+} from "discord.js";
 import { EmbedBuilder, ActionRowBuilder, ButtonBuilder } from "discord.js";
 import formatduration from "../../structures/FormatDuration.js";
 import { QueueDuration } from "../../structures/QueueDuration.js";
+import { musicCard } from "musicard";
 
 export default async (
   client: Manager,
@@ -106,40 +112,39 @@ export default async (
 
   if (Control === "disable") return;
 
+  const card = new musicCard()
+    .setName(String(song?.title))
+    .setAuthor(String(song?.author))
+    .setColor(String(client.color))
+    .setTheme("classic")
+    .setBrightness(50)
+    .setThumbnail(
+      track.thumbnail
+        ? track.thumbnail
+        : `https://img.youtube.com/vi/${track.identifier}/hqdefault.jpg`
+    )
+    .setProgress(10)
+    .setStartTime("0:00")
+    .setEndTime(formatduration(song!.length));
+
+  const cardBuffer = await card.build();
+
+  const attachment = new AttachmentBuilder(cardBuffer, {
+    name: "musiccard.png",
+  });
+
   const embeded = new EmbedBuilder()
-    .setAuthor({
-      name: `${client.i18n.get(language, "player", "track_title")}`,
-      iconURL: `${client.i18n.get(language, "player", "track_icon")}`,
-    })
-    .setDescription(`**[${track.title}](${track.uri})**`)
+    .setImage(`attachment://${attachment.name}`)
     .addFields([
       {
-        name: `${client.i18n.get(language, "player", "author_title")}`,
-        value: `${song!.author}`,
-        inline: true,
-      },
-      {
-        name: `${client.i18n.get(language, "player", "request_title")}`,
-        value: `${song!.requester}`,
-        inline: true,
-      },
-      {
-        name: `${client.i18n.get(language, "player", "duration_title")}`,
-        value: `${formatduration(song!.length)}`,
-        inline: true,
-      },
-      {
         name: `${client.i18n.get(language, "player", "download_title")}`,
-        value: `**[${
-          song!.title
-        } - y2mate.com](https://www.y2mate.com/youtube/${song!.identifier})**`,
+        value: `**[${song?.title} y2mate.com](https://www.y2mate.com/youtube/${
+          song!.identifier
+        })**`,
         inline: false,
       },
     ])
     .setColor(client.color)
-    .setThumbnail(
-      `https://img.youtube.com/vi/${track.identifier}/hqdefault.jpg`
-    )
     .setFooter({
       text: `${client.i18n.get(language, "player", "queue_title")} ${
         player.queue.length + 1
@@ -149,56 +154,83 @@ export default async (
 
   const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
     new ButtonBuilder()
-      .setCustomId("pause")
-      .setEmoji("⏯")
-      .setStyle(ButtonStyle.Success),
+      .setCustomId("stop")
+      .setEmoji(client.icons.stop)
+      .setStyle(ButtonStyle.Secondary),
 
     new ButtonBuilder()
       .setCustomId("replay")
-      .setEmoji("⬅")
-      .setStyle(ButtonStyle.Primary),
+      .setEmoji(client.icons.previous)
+      .setStyle(ButtonStyle.Secondary),
 
     new ButtonBuilder()
-      .setCustomId("stop")
-      .setEmoji("✖")
-      .setStyle(ButtonStyle.Danger),
+      .setCustomId("pause")
+      .setEmoji(client.icons.pause)
+      .setStyle(ButtonStyle.Secondary),
 
     new ButtonBuilder()
       .setCustomId("skip")
-      .setEmoji("➡")
-      .setStyle(ButtonStyle.Primary),
+      .setEmoji(client.icons.skip)
+      .setStyle(ButtonStyle.Secondary),
 
     new ButtonBuilder()
       .setCustomId("loop")
-      .setEmoji("🔄")
-      .setStyle(ButtonStyle.Success),
+      .setEmoji(client.icons.loop)
+      .setStyle(ButtonStyle.Secondary),
   ]);
 
   const row2 = new ActionRowBuilder<ButtonBuilder>().addComponents([
     new ButtonBuilder()
       .setCustomId("shuffle")
-      .setEmoji("🔀")
-      .setStyle(ButtonStyle.Success),
+      .setEmoji(client.icons.shuffle)
+      .setStyle(ButtonStyle.Secondary),
 
     new ButtonBuilder()
       .setCustomId("voldown")
-      .setEmoji("🔉")
-      .setStyle(ButtonStyle.Primary),
+      .setEmoji(client.icons.voldown)
+      .setStyle(ButtonStyle.Secondary),
 
     new ButtonBuilder()
       .setCustomId("clear")
-      .setEmoji("🗑")
-      .setStyle(ButtonStyle.Danger),
+      .setEmoji(client.icons.delete)
+      .setStyle(ButtonStyle.Secondary),
 
     new ButtonBuilder()
       .setCustomId("volup")
-      .setEmoji("🔊")
-      .setStyle(ButtonStyle.Primary),
+      .setEmoji(client.icons.volup)
+      .setStyle(ButtonStyle.Secondary),
 
     new ButtonBuilder()
       .setCustomId("queue")
-      .setEmoji("📋")
-      .setStyle(ButtonStyle.Success),
+      .setEmoji(client.icons.queue)
+      .setStyle(ButtonStyle.Secondary),
+  ]);
+
+  const edited_row = new ActionRowBuilder<ButtonBuilder>().addComponents([
+    new ButtonBuilder()
+      .setCustomId("stop")
+      .setEmoji(client.icons.stop)
+      .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+      .setCustomId("replay")
+      .setEmoji(client.icons.previous)
+      .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+      .setCustomId("pause")
+      .setEmoji(client.icons.play)
+      .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+      .setCustomId("skip")
+      .setEmoji(client.icons.skip)
+      .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+      .setCustomId("loop")
+      .setEmoji(client.icons.loop)
+      .setStyle(ButtonStyle.Secondary),
   ]);
 
   const playing_channel = (await client.channels.cache.get(
@@ -208,6 +240,7 @@ export default async (
   const nplaying = await playing_channel.send({
     embeds: [embeded],
     components: [row, row2],
+    files: [attachment],
   });
 
   const collector = await nplaying.createMessageComponentCollector({
@@ -232,6 +265,7 @@ export default async (
   collector.on("collect", async (message: any) => {
     const id = message.customId;
     if (id === "pause") {
+      ButtonComponent;
       if (!player) {
         collector.stop();
       }
@@ -239,6 +273,20 @@ export default async (
       const uni = player.paused
         ? `${client.i18n.get(language, "player", "switch_pause")}`
         : `${client.i18n.get(language, "player", "switch_resume")}`;
+
+      console.log();
+
+      await message.message.components[0].components[2].data.emoji;
+
+      player.paused
+        ? nplaying.edit({
+            embeds: [embeded],
+            components: [edited_row, row2],
+          })
+        : nplaying.edit({
+            embeds: [embeded],
+            components: [row, row2],
+          });
 
       if (
         client.websocket &&
