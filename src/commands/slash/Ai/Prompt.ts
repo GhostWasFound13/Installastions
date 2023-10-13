@@ -5,6 +5,10 @@ export default {
     name: ['prompts'],
     description: 'some helpful prompts for you to get started',
      category: "Ai",
+     owner: false,
+     premium: false,
+     lavalink: false,
+     isManager: false,
   run: async (
     interaction: CommandInteraction,
     client: Manager,
