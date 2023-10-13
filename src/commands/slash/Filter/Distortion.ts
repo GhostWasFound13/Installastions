@@ -6,6 +6,10 @@ export default {
   name: ["filter", "distortion"],
   description: "Turning on distortion filter",
   category: "Filter",
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: false,
   run: async (
     interaction: CommandInteraction,
     client: Manager,
