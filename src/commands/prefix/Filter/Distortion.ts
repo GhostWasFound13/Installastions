@@ -8,7 +8,10 @@ export default {
   category: "Filter",
   usage: "",
   aliases: [],
-
+  owner: false,
+  premium: false,
+  lavalink: false,
+  isManager: false,
   run: async (
     client: Manager,
     message: Message,
