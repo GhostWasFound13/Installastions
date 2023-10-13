@@ -131,13 +131,6 @@ export class Manager extends Client {
       ? SafeModeIcons
       : NormalModeIcons;
 
-    process.on("unhandledRejection", (error) =>
-      this.logger.log({ level: "error", message: String(error) })
-    );
-    process.on("uncaughtException", (error) =>
-      this.logger.log({ level: "error", message: String(error) })
-    );
-
     if (
       this.config.features.WEB_SERVER.websocket.enable &&
       (!this.config.features.WEB_SERVER.websocket.secret ||
@@ -198,6 +191,7 @@ export class Manager extends Client {
       WebServer(this);
     }
     const loadFile = [
+      "loadPlugin.js",
       "loadEvents.js",
       "loadNodeEvents.js",
       "loadPlayer.js",
