@@ -5,6 +5,10 @@ export default {
     name: ["imagine"],
     description: "Generate art in your dreams!",
       category: "Ai",
+      owner: false,
+      premium: false,
+      lavalink: false,
+     isManager: false,
     options: [
         {
             name: "prompt",
