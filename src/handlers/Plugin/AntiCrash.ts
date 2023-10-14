@@ -1,7 +1,7 @@
-import { Manager } from "../manager.js";
+import { Manager } from "../../manager.js";
 
 
-export default (client: manager) => {
+export default (client: Manager) => {
  process.on("unhandledRejection", (error) =>
       client.logger.log({ level: "error", message: String(error) })
     );

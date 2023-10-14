@@ -25,7 +25,7 @@ export default {
  
         const embed = new EmbedBuilder()
         .setColor('#2f3136')
-        .setTitle(`${target.tag} got bonked!`)
+        .setTitle(`user got bonked!`)
         .setImage(`${image}`)
         .setFooter({ text: `aw man that hurts.`})
  
