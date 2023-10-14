@@ -4,8 +4,8 @@ import logger from '../../plugins/logger';
 import fetch from "node-fetch";
 import { translate as gTranslate } from "@vitalets/google-translate-api";
 /**
-* author @GhostWasFound13 modify the code
-* made by author by https://github.com/saiteja-madha/discord-js-bot/
+* @author GhostWasFound13 modify the code
+* @made by author by https://github.com/saiteja-madha/discord-js-bot/
 */
 export default class HttpUtils {
   /**
