@@ -6,6 +6,12 @@ import {
   ModalSubmitInteraction,
   ApplicationCommandType,
   PermissionFlagsBits,
+  InteractionCollector,
+  StringSelectMenuInteraction,
+  UserSelectMenuInteraction,
+  RoleSelectMenuInteraction,
+  MentionableSelectMenuInteraction,
+  ChannelSelectMenuInteraction,
 } from "discord.js";
 import { Manager } from "../manager.js";
 import { ApplicationCommandOptionType } from "discord-api-types/v10";

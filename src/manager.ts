@@ -200,7 +200,6 @@ export class Manager extends Client {
       WebServer(this);
     }
     const loadFile = [
-      "loadPlugin.js",
       "loadEvents.js",
       "loadNodeEvents.js",
       "loadPlayer.js",

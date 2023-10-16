@@ -4,7 +4,7 @@
 // # You will be responsible for this when changing any content in the file.
 
 export const client_metadata = {
-  version: "0.5.0-devTesting",
+  version: "2.3.3",
   autofix: "3.0.1-beta",
-  codename: "Hatsuharu",
+  codename: "hatsuharu (AzurLane)",
 };
