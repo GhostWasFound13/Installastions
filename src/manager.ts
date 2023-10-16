@@ -62,6 +62,7 @@ export class Manager extends Client {
   premiums: Collection<string, PremiumUser>;
   interval: Collection<string, NodeJS.Timer>;
   sent_queue: Collection<string, boolean>;
+  nplaying_msg: Collection<string, string>;
   aliases: Collection<string, string>;
   websocket?: WebSocket;
   ws_message?: Collection<string, WsCommand>;
@@ -124,12 +125,20 @@ export class Manager extends Client {
     this.interval = new Collection();
     this.sent_queue = new Collection();
     this.aliases = new Collection();
+    this.nplaying_msg = new Collection();
     this.is_db_connected = false;
 
     // Icons setup
     this.icons = this.config.bot.SAFE_ICONS_MODE
       ? SafeModeIcons
       : NormalModeIcons;
+
+    process.on("unhandledRejection", (error) =>
+      this.logger.log({ level: "error", message: String(error) })
+    );
+    process.on("uncaughtException", (error) =>
+      this.logger.log({ level: "error", message: String(error) })
+    );
 
     if (
       this.config.features.WEB_SERVER.websocket.enable &&
