@@ -1,6 +1,6 @@
 import { CommandInteraction, EmbedBuilder, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle, CommandInteractionOptionResolver } from "discord.js";
 import { Manager } from "../../../manager.js";
-
+import models from '../../../plugins/models.js';
 export default {
     name: ["imagine"],
     description: "Generate art in your dreams!",
@@ -15,7 +15,14 @@ export default {
             description: "Your prompt to generate the art",
             type: ApplicationCommandOptionType.String,
             required: true
-        }
+        },
+	    {
+	name: 'model',
+        description: 'The image model',
+        type: ApplicationCommandOptionType.String,
+        choices: models,
+        required: false,
+		    {
     ],
     run: async (
     interaction: CommandInteraction,
@@ -24,18 +31,15 @@ export default {
   ) => {
         await interaction.deferReply()
         const prompt = (interaction.options as CommandInteractionOptionResolver).getString("prompt");
-        const Replicate = require('replicate')
+        const model = (interaction.options as CommandInteractionOptionResolver).getString("model") || models[0].value;
+	//const Replicate = require('replicate')
         //const Replicate = (await import("replicate")).default
-
+          const { default: Replicate } = await import('replicate');
         const replicate = new Replicate({
             auth: process.env.imageApi,
         });
 
-        const output = await replicate.run("stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf", {
-            input: {
-                prompt: prompt
-            }
-        })
+        const output = await replicate.run(model, { input: { prompt } });
 
         console.log()
         
@@ -59,6 +63,5 @@ export default {
                           })
 
         await interaction.editReply({ embeds: [embed], components: [row] })
-	    
-    }
+				    }
 }
