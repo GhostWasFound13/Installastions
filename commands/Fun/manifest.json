@@ -1,0 +1,42 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "v5.8_1.20r1 More Tools Addon RP",
+		"description": "This add-on was posted on §amcpedl.com §f| Downloading this add-on from other sites may contain malware, spyware or keylogger! §cYoutube.com/c/SoriPop §bTwitter @sori662_pop §aCreator MCPEDL:SorYPMod",
+		"uuid": "4315677f-08d3-456d-b982-d3d21f39dbd2",
+		"version": [
+			5,
+			8,
+			12
+		],
+		"min_engine_version": [
+			1,
+			18,
+			0
+		]
+	},
+	"metadata": {
+		"authors": [ "SorYPMod" ],
+		"url": "https://mcpedl.com/more-tools-addon/"
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "feadca4b-9f4c-4106-9f90-c4b50a595e0e",
+			"version": [
+				5,
+				8,
+				12
+			]
+		},
+  "dependencies": [
+		{
+			"version": [
+        5,
+        8,
+        12],
+			"uuid": "c84d5910-8a27-4c7b-b776-918eaa0686f5"
+		}
+	]  
+    ]
+}
