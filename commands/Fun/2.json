@@ -1540,6 +1540,742 @@
 		"sandwich": {
 			"textures": "textures/items/sandwich"
 		},
+		
+    "fireres_sword": {
+      "textures": "textures/items/potion_swords/fireres_sword"
+    },
+    "harm_sword": {
+      "textures": "textures/items/potion_swords/harm_sword"
+    },
+    "healing_sword": {
+      "textures": "textures/items/potion_swords/healing_sword"
+    },
+    "invisibility_sword": {
+      "textures": "textures/items/potion_swords/invisibility_sword"
+    },
+    "leaping_sword": {
+      "textures": "textures/items/potion_swords/leaping_sword"
+    },
+    "nightvision_sword": {
+      "textures": "textures/items/potion_swords/nightvision_sword"
+    },
+    "poison_sword": {
+      "textures": "textures/items/potion_swords/poison_sword"
+    },
+    "regen_sword": {
+      "textures": "textures/items/potion_swords/regen_sword"
+    },
+    "slow_sword": {
+      "textures": "textures/items/potion_swords/slow_sword"
+    },
+    "slowfalling_sword": {
+      "textures": "textures/items/potion_swords/slowfalling_sword"
+    },
+    "strenght_sword": {
+      "textures": "textures/items/potion_swords/strenght_sword"
+    },
+    "swift_sword": {
+      "textures": "textures/items/potion_swords/swift_sword"
+    },
+    "turtlemaster_sword": {
+      "textures": "textures/items/potion_swords/turtlemaster_sword"
+    },
+    "waterbreathing_sword": {
+      "textures": "textures/items/potion_swords/waterbreathing_sword"
+    },
+    "weakness_sword": {
+      "textures": "textures/items/potion_swords/weakness_sword"
+    },
+    "wither_sword_2": {
+      "textures": "textures/items/potion_swords/wither_sword_2"
+    },
+    "andesite_axe": {
+      "textures": "textures/items/andesite_axe" // andesite Tools
+    },
+    "andesite_hoe": {
+      "textures": "textures/items/andesite_hoe"
+    },
+    "andesite_pickaxe": {
+      "textures": "textures/items/andesite_pickaxe"
+    },
+    "andesite_shovel": {
+      "textures": "textures/items/andesite_shovel"
+    },
+    "andesite_sword": {
+      "textures": "textures/items/andesite_sword"
+    },
+    "bamboo_axe": {
+      "textures": "textures/items/bamboo_axe" // bamboo Tools
+    },
+    "bamboo_hoe": {
+      "textures": "textures/items/bamboo_hoe"
+    },
+    "bamboo_pickaxe": {
+      "textures": "textures/items/bamboo_pickaxe"
+    },
+    "bamboo_shovel": {
+      "textures": "textures/items/bamboo_shovel"
+    },
+    "bamboo_sword": {
+      "textures": "textures/items/bamboo_sword"
+    },
+    "bedrock_axe": {
+      "textures": "textures/items/bedrock_axe" // bedrock Tools
+    },
+    "bedrock_hoe": {
+      "textures": "textures/items/bedrock_hoe"
+    },
+    "bedrock_pickaxe": {
+      "textures": "textures/items/bedrock_pickaxe"
+    },
+    "bedrock_shovel": {
+      "textures": "textures/items/bedrock_shovel"
+    },
+    "bedrock_sword": {
+      "textures": "textures/items/bedrock_sword"
+    },
+    "blaze_axe": {
+      "textures": "textures/items/blaze_axe" // blaze Tools
+    },
+    "blaze_hoe": {
+      "textures": "textures/items/blaze_hoe"
+    },
+    "blaze_pickaxe": {
+      "textures": "textures/items/blaze_pickaxe"
+    },
+    "blaze_shovel": {
+      "textures": "textures/items/blaze_shovel"
+    },
+    "blaze_sword": {
+      "textures": "textures/items/blaze_sword"
+    },
+    "bone_axe": {
+      "textures": "textures/items/bone_axe" // bone Tools
+    },
+    "bone_hoe": {
+      "textures": "textures/items/bone_hoe"
+    },
+    "bone_pickaxe": {
+      "textures": "textures/items/bone_pickaxe"
+    },
+    "bone_shovel": {
+      "textures": "textures/items/bone_shovel"
+    },
+    "bone_sword": {
+      "textures": "textures/items/bone_sword"
+    },
+    "cactus_axe": {
+      "textures": "textures/items/cactus_axe" // cactus Tools
+    },
+    "cactus_hoe": {
+      "textures": "textures/items/cactus_hoe"
+    },
+    "cactus_pickaxe": {
+      "textures": "textures/items/cactus_pickaxe"
+    },
+    "cactus_shovel": {
+      "textures": "textures/items/cactus_shovel"
+    },
+    "cactus_sword": {
+      "textures": "textures/items/cactus_sword"
+    },
+    "cake_axe": {
+      "textures": "textures/items/cake_axe" // cake Tools
+    },
+    "cake_hoe": {
+      "textures": "textures/items/cake_hoe"
+    },
+    "cake_pickaxe": {
+      "textures": "textures/items/cake_pickaxe"
+    },
+    "cake_shovel": {
+      "textures": "textures/items/cake_shovel"
+    },
+    "cake_sword": {
+      "textures": "textures/items/cake_sword"
+    },
+    "chain_axe": {
+      "textures": "textures/items/chain_axe" // chain Tools
+    },
+    "chain_hoe": {
+      "textures": "textures/items/chain_hoe"
+    },
+    "chain_pickaxe": {
+      "textures": "textures/items/chain_pickaxe"
+    },
+    "chain_shovel": {
+      "textures": "textures/items/chain_shovel"
+    },
+    "chain_sword": {
+      "textures": "textures/items/chain_sword"
+    },
+    "chorusfruit_axe": {
+      "textures": "textures/items/chorusfruit_axe" // chorusfruit Tools
+    },
+    "chorusfruit_hoe": {
+      "textures": "textures/items/chorusfruit_hoe"
+    },
+    "chorusfruit_pickaxe": {
+      "textures": "textures/items/chorusfruit_pickaxe"
+    },
+    "chorusfruit_shovel": {
+      "textures": "textures/items/chorusfruit_shovel"
+    },
+    "chorusfruit_sword": {
+      "textures": "textures/items/chorusfruit_sword"
+    },
+    "clay_axe": {
+      "textures": "textures/items/clay_axe" // clay Tools
+    },
+    "clay_hoe": {
+      "textures": "textures/items/clay_hoe"
+    },
+    "clay_pickaxe": {
+      "textures": "textures/items/clay_pickaxe"
+    },
+    "clay_shovel": {
+      "textures": "textures/items/clay_shovel"
+    },
+    "clay_sword": {
+      "textures": "textures/items/clay_sword"
+    },
+    "cobblestone_axe": {
+      "textures": "textures/items/cobblestone_axe" // cobblestone Tools
+    },
+    "cobblestone_hoe": {
+      "textures": "textures/items/cobblestone_hoe"
+    },
+    "cobblestone_pickaxe": {
+      "textures": "textures/items/cobblestone_pickaxe"
+    },
+    "cobblestone_shovel": {
+      "textures": "textures/items/cobblestone_shovel"
+    },
+    "cobblestone_sword": {
+      "textures": "textures/items/cobblestone_sword"
+    },
+    "cookie_axe": {
+      "textures": "textures/items/cookie_axe" // cookie Tools
+    },
+    "cookie_hoe": {
+      "textures": "textures/items/cookie_hoe"
+    },
+    "cookie_pickaxe": {
+      "textures": "textures/items/cookie_pickaxe"
+    },
+    "cookie_shovel": {
+      "textures": "textures/items/cookie_shovel"
+    },
+    "cookie_sword": {
+      "textures": "textures/items/cookie_sword"
+    },
+    "crimson_axe": {
+      "textures": "textures/items/crimson_axe" // crimson Tools
+    },
+    "crimson_hoe": {
+      "textures": "textures/items/crimson_hoe"
+    },
+    "crimson_pickaxe": {
+      "textures": "textures/items/crimson_pickaxe"
+    },
+    "crimson_shovel": {
+      "textures": "textures/items/crimson_shovel"
+    },
+    "crimson_sword": {
+      "textures": "textures/items/crimson_sword"
+    },
+    "diorite_axe": {
+      "textures": "textures/items/diorite_axe" // diorite Tools
+    },
+    "diorite_hoe": {
+      "textures": "textures/items/diorite_hoe"
+    },
+    "diorite_pickaxe": {
+      "textures": "textures/items/diorite_pickaxe"
+    },
+    "diorite_shovel": {
+      "textures": "textures/items/diorite_shovel"
+    },
+    "diorite_sword": {
+      "textures": "textures/items/diorite_sword"
+    },
+    "dirt_axe": {
+      "textures": "textures/items/dirt_axe" // dirt Tools
+    },
+    "dirt_hoe": {
+      "textures": "textures/items/dirt_hoe"
+    },
+    "dirt_pickaxe": {
+      "textures": "textures/items/dirt_pickaxe"
+    },
+    "dirt_shovel": {
+      "textures": "textures/items/dirt_shovel"
+    },
+    "dirt_sword": {
+      "textures": "textures/items/dirt_sword"
+    },
+    "ender_axe": {
+      "textures": "textures/items/ender_axe" // ender Tools
+    },
+    "ender_hoe": {
+      "textures": "textures/items/ender_hoe"
+    },
+    "ender_pickaxe": {
+      "textures": "textures/items/ender_pickaxe"
+    },
+    "ender_shovel": {
+      "textures": "textures/items/ender_shovel"
+    },
+    "ender_sword": {
+      "textures": "textures/items/ender_sword"
+    },
+    "fire_charge_axe": {
+      "textures": "textures/items/fire_charge_axe" // fire charge Tools
+    },
+    "fire_charge_hoe": {
+      "textures": "textures/items/fire_charge_hoe"
+    },
+    "fire_charge_pickaxe": {
+      "textures": "textures/items/fire_charge_pickaxe"
+    },
+    "fire_charge_shovel": {
+      "textures": "textures/items/fire_charge_shovel"
+    },
+    "fire_charge_sword": {
+      "textures": "textures/items/fire_charge_sword"
+    },
+    "flint_axe": {
+      "textures": "textures/items/flint_axe" // flint Tools
+    },
+    "flint_hoe": {
+      "textures": "textures/items/flint_hoe"
+    },
+    "flint_pickaxe": {
+      "textures": "textures/items/flint_pickaxe"
+    },
+    "flint_shovel": {
+      "textures": "textures/items/flint_shovel"
+    },
+    "flint_sword": {
+      "textures": "textures/items/flint_sword"
+    },
+    "granite_axe": {
+      "textures": "textures/items/granite_axe" // granite Tools
+    },
+    "granite_hoe": {
+      "textures": "textures/items/granite_hoe"
+    },
+    "granite_pickaxe": {
+      "textures": "textures/items/granite_pickaxe"
+    },
+    "granite_shovel": {
+      "textures": "textures/items/granite_shovel"
+    },
+    "granite_sword": {
+      "textures": "textures/items/granite_sword"
+    },
+    "hay_axe": {
+      "textures": "textures/items/hay_axe" // Hay Tools
+    },
+    "hay_hoe": {
+      "textures": "textures/items/hay_hoe"
+    },
+    "hay_pickaxe": {
+      "textures": "textures/items/hay_pickaxe"
+    },
+    "hay_shovel": {
+      "textures": "textures/items/hay_shovel"
+    },
+    "hay_sword": {
+      "textures": "textures/items/hay_sword"
+    },
+    "heart_of_the_sea_axe": {
+      "textures": "textures/items/heart_of_the_sea_axe" // heart of the sea Tools
+    },
+    "heart_of_the_sea_hoe": {
+      "textures": "textures/items/heart_of_the_sea_hoe"
+    },
+    "heart_of_the_sea_pickaxe": {
+      "textures": "textures/items/heart_of_the_sea_pickaxe"
+    },
+    "heart_of_the_sea_shovel": {
+      "textures": "textures/items/heart_of_the_sea_shovel"
+    },
+    "heart_of_the_sea_sword": {
+      "textures": "textures/items/heart_of_the_sea_sword"
+    },
+    "honeycomb_axe": {
+      "textures": "textures/items/honeycomb_axe" // honeycomb Tools
+    },
+    "honeycomb_hoe": {
+      "textures": "textures/items/honeycomb_hoe"
+    },
+    "honeycomb_pickaxe": {
+      "textures": "textures/items/honeycomb_pickaxe"
+    },
+    "honeycomb_shovel": {
+      "textures": "textures/items/honeycomb_shovel"
+    },
+    "honeycomb_sword": {
+      "textures": "textures/items/honeycomb_sword"
+    },
+    "ice_axe": {
+      "textures": "textures/items/ice_axe" // ice Tools
+    },
+    "ice_hoe": {
+      "textures": "textures/items/ice_hoe"
+    },
+    "ice_pickaxe": {
+      "textures": "textures/items/ice_pickaxe"
+    },
+    "ice_shovel": {
+      "textures": "textures/items/ice_shovel"
+    },
+    "ice_sword": {
+      "textures": "textures/items/ice_sword"
+    },
+    "lava_axe": {
+      "textures": "textures/items/lava_axe" // lava Tools
+    },
+    "lava_hoe": {
+      "textures": "textures/items/lava_hoe"
+    },
+    "lava_pickaxe": {
+      "textures": "textures/items/lava_pickaxe"
+    },
+    "lava_shovel": {
+      "textures": "textures/items/lava_shovel"
+    },
+    "lava_sword": {
+      "textures": "textures/items/lava_sword"
+    },
+    "leaf_axe": {
+      "textures": "textures/items/leaf_axe" // leaf Tools
+    },
+    "leaf_hoe": {
+      "textures": "textures/items/leaf_hoe"
+    },
+    "leaf_pickaxe": {
+      "textures": "textures/items/leaf_pickaxe"
+    },
+    "leaf_shovel": {
+      "textures": "textures/items/leaf_shovel"
+    },
+    "leaf_sword": {
+      "textures": "textures/items/leaf_sword"
+    },
+    "leather_axe": {
+      "textures": "textures/items/leather_axe" // leather Tools
+    },
+    "leather_hoe": {
+      "textures": "textures/items/leather_hoe"
+    },
+    "leather_pickaxe": {
+      "textures": "textures/items/leather_pickaxe"
+    },
+    "leather_shovel": {
+      "textures": "textures/items/leather_shovel"
+    },
+    "leather_sword": {
+      "textures": "textures/items/leather_sword"
+    },
+    "melon_axe": {
+      "textures": "textures/items/melon_axe" // melon Tools
+    },
+    "melon_hoe": {
+      "textures": "textures/items/melon_hoe"
+    },
+    "melon_pickaxe": {
+      "textures": "textures/items/melon_pickaxe"
+    },
+    "melon_shovel": {
+      "textures": "textures/items/melon_shovel"
+    },
+    "milk_axe": {
+      "textures": "textures/items/milk_axe" // milk Tools
+    },
+    "milk_hoe": {
+      "textures": "textures/items/milk_hoe"
+    },
+    "milk_pickaxe": {
+      "textures": "textures/items/milk_pickaxe"
+    },
+    "milk_shovel": {
+      "textures": "textures/items/milk_shovel"
+    },
+    "milk_sword": {
+      "textures": "textures/items/milk_sword"
+    },
+    "moss_axe": {
+      "textures": "textures/items/moss_axe" // moss Tools
+    },
+    "moss_hoe": {
+      "textures": "textures/items/moss_hoe"
+    },
+    "moss_pickaxe": {
+      "textures": "textures/items/moss_pickaxe"
+    },
+    "moss_shovel": {
+      "textures": "textures/items/moss_shovel"
+    },
+    "moss_sword": {
+      "textures": "textures/items/moss_sword"
+    },
+    "mossycobblestone_axe": {
+      "textures": "textures/items/mossycobblestone_axe" // mossycobblestone Tools
+    },
+    "mossycobblestone_hoe": {
+      "textures": "textures/items/mossycobblestone_hoe"
+    },
+    "mossycobblestone_pickaxe": {
+      "textures": "textures/items/mossycobblestone_pickaxe"
+    },
+    "mossycobblestone_shovel": {
+      "textures": "textures/items/mossycobblestone_shovel"
+    },
+    "mossycobblestone_sword": {
+      "textures": "textures/items/mossycobblestone_sword"
+    },
+    "netherbrick_axe": {
+      "textures": "textures/items/netherbrick_axe" // netherbrick Tools
+    },
+    "netherbrick_hoe": {
+      "textures": "textures/items/netherbrick_hoe"
+    },
+    "netherbrick_pickaxe": {
+      "textures": "textures/items/netherbrick_pickaxe"
+    },
+    "netherbrick_shovel": {
+      "textures": "textures/items/netherbrick_shovel"
+    },
+    "netherbrick_sword": {
+      "textures": "textures/items/netherbrick_sword"
+    },
+    "netherite_scrap_axe": {
+      "textures": "textures/items/netherite_scrap_axe" // netherite scrap Tools
+    },
+    "netherite_scrap_hoe": {
+      "textures": "textures/items/netherite_scrap_hoe"
+    },
+    "netherite_scrap_pickaxe": {
+      "textures": "textures/items/netherite_scrap_pickaxe"
+    },
+    "netherite_scrap_shovel": {
+      "textures": "textures/items/netherite_scrap_shovel"
+    },
+    "netherite_scrap_sword": {
+      "textures": "textures/items/netherite_scrap_sword"
+    },
+    "red_sand_axe": {
+      "textures": "textures/items/red_sand_axe" // red sand Tools
+    },
+    "red_sand_hoe": {
+      "textures": "textures/items/red_sand_hoe"
+    },
+    "red_sand_pickaxe": {
+      "textures": "textures/items/red_sand_pickaxe"
+    },
+    "red_sand_shovel": {
+      "textures": "textures/items/red_sand_shovel"
+    },
+    "red_sand_sword": {
+      "textures": "textures/items/red_sand_sword"
+    },
+    "rotten_axe": {
+      "textures": "textures/items/rotten_axe" // rotten Tools
+    },
+    "rotten_hoe": {
+      "textures": "textures/items/rotten_hoe"
+    },
+    "rotten_pickaxe": {
+      "textures": "textures/items/rotten_pickaxe"
+    },
+    "rotten_shovel": {
+      "textures": "textures/items/rotten_shovel"
+    },
+    "rotten_sword": {
+      "textures": "textures/items/rotten_sword"
+    },
+    "sand_axe": {
+      "textures": "textures/items/sand_axe" // sand Tools
+    },
+    "sand_hoe": {
+      "textures": "textures/items/sand_hoe"
+    },
+    "sand_pickaxe": {
+      "textures": "textures/items/sand_pickaxe"
+    },
+    "sand_shovel": {
+      "textures": "textures/items/sand_shovel"
+    },
+    "sand_sword": {
+      "textures": "textures/items/sand_sword"
+    },
+    "sculk_axe": {
+      "textures": "textures/items/sculk_axe" // sculk Tools
+    },
+    "sculk_hoe": {
+      "textures": "textures/items/sculk_hoe"
+    },
+    "sculk_pickaxe": {
+      "textures": "textures/items/sculk_pickaxe"
+    },
+    "sculk_shovel": {
+      "textures": "textures/items/sculk_shovel"
+    },
+    "sculk_sword": {
+      "textures": "textures/items/sculk_sword"
+    },
+    "soulsand_axe": {
+      "textures": "textures/items/soulsand_axe" // soulsand Tools
+    },
+    "soulsand_hoe": {
+      "textures": "textures/items/soulsand_hoe"
+    },
+    "soulsand_pickaxe": {
+      "textures": "textures/items/soulsand_pickaxe"
+    },
+    "soulsand_shovel": {
+      "textures": "textures/items/soulsand_shovel"
+    },
+    "soulsand_sword": {
+      "textures": "textures/items/soulsand_sword"
+    },
+    "sponge_axe": {
+      "textures": "textures/items/sponge_axe" // sponge Tools
+    },
+    "sponge_hoe": {
+      "textures": "textures/items/sponge_hoe"
+    },
+    "sponge_pickaxe": {
+      "textures": "textures/items/sponge_pickaxe"
+    },
+    "sponge_shovel": {
+      "textures": "textures/items/sponge_shovel"
+    },
+    "sponge_sword": {
+      "textures": "textures/items/sponge_sword"
+    },
+    "stone2_axe": {
+      "textures": "textures/items/stone2_axe" // stone2 Tools
+    },
+    "stone2_hoe": {
+      "textures": "textures/items/stone2_hoe"
+    },
+    "stone2_pickaxe": {
+      "textures": "textures/items/stone2_pickaxe"
+    },
+    "stone2_shovel": {
+      "textures": "textures/items/stone2_shovel"
+    },
+    "stone2_sword": {
+      "textures": "textures/items/stone2_sword"
+    },
+    "tnt_axe": {
+      "textures": "textures/items/tnt_axe" // tnt Tools
+    },
+    "tnt_hoe": {
+      "textures": "textures/items/tnt_hoe"
+    },
+    "tnt_pickaxe": {
+      "textures": "textures/items/tnt_pickaxe"
+    },
+    "tnt_shovel": {
+      "textures": "textures/items/tnt_shovel"
+    },
+    "tnt_sword": {
+      "textures": "textures/items/tnt_sword"
+    },
+    "totem_axe": {
+      "textures": "textures/items/totem_axe" // totem Tools
+    },
+    "totem_hoe": {
+      "textures": "textures/items/totem_hoe"
+    },
+    "totem_pickaxe": {
+      "textures": "textures/items/totem_pickaxe"
+    },
+    "totem_shovel": {
+      "textures": "textures/items/totem_shovel"
+    },
+    "totem_sword": {
+      "textures": "textures/items/totem_sword"
+    },
+    "turtle_axe": {
+      "textures": "textures/items/turtle_axe" // turtle Tools
+    },
+    "turtle_hoe": {
+      "textures": "textures/items/turtle_hoe"
+    },
+    "turtle_pickaxe": {
+      "textures": "textures/items/turtle_pickaxe"
+    },
+    "turtle_shovel": {
+      "textures": "textures/items/turtle_shovel"
+    },
+    "turtle_sword": {
+      "textures": "textures/items/turtle_sword"
+    },
+    "warped_axe": {
+      "textures": "textures/items/warped_axe" // warped Tools
+    },
+    "warped_hoe": {
+      "textures": "textures/items/warped_hoe"
+    },
+    "warped_pickaxe": {
+      "textures": "textures/items/warped_pickaxe"
+    },
+    "warped_shovel": {
+      "textures": "textures/items/warped_shovel"
+    },
+    "warped_sword": {
+      "textures": "textures/items/warped_sword"
+    },
+    "water_axe": {
+      "textures": "textures/items/water_axe" // water Tools
+    },
+    "water_hoe": {
+      "textures": "textures/items/water_hoe"
+    },
+    "water_pickaxe": {
+      "textures": "textures/items/water_pickaxe"
+    },
+    "water_shovel": {
+      "textures": "textures/items/water_shovel"
+    },
+    "water_sword": {
+      "textures": "textures/items/water_sword"
+    },
+    "web_axe": {
+      "textures": "textures/items/web_axe" // web Tools
+    },
+    "web_hoe": {
+      "textures": "textures/items/web_hoe"
+    },
+    "web_pickaxe": {
+      "textures": "textures/items/web_pickaxe"
+    },
+    "web_shovel": {
+      "textures": "textures/items/web_shovel"
+    },
+    "web_sword": {
+      "textures": "textures/items/web_sword"
+    },
+    "wither_axe": {
+      "textures": "textures/items/wither_axe" // wither Tools
+    },
+    "wither_hoe": {
+      "textures": "textures/items/wither_hoe"
+    },
+    "wither_pickaxe": {
+      "textures": "textures/items/wither_pickaxe"
+    },
+    "wither_shovel": {
+      "textures": "textures/items/wither_shovel"
+    },
+    "wither_sword": {
+      "textures": "textures/items/wither_sword"
+    }
 		"redstone_helmet": {
 			"textures": [
 				"textures/items/redstone_helmet"
