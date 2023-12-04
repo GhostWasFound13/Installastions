@@ -50,21 +50,6 @@
     "wither_sword_2": {
       "textures": "textures/items/potion_swords/wither_sword_2"
     },
-    "amethyst_axe": {
-      "textures": "textures/items/amethyst_axe" // amethyst Tools
-    },
-    "amethyst_hoe": {
-      "textures": "textures/items/amethyst_hoe"
-    },
-    "amethyst_pickaxe": {
-      "textures": "textures/items/amethyst_pickaxe"
-    },
-    "amethyst_shovel": {
-      "textures": "textures/items/amethyst_shovel"
-    },
-    "amethyst_sword": {
-      "textures": "textures/items/amethyst_sword"
-    },
     "andesite_axe": {
       "textures": "textures/items/andesite_axe" // andesite Tools
     },
@@ -109,21 +94,6 @@
     },
     "bedrock_sword": {
       "textures": "textures/items/bedrock_sword"
-    },
-    "blackstone_axe": {
-      "textures": "textures/items/blackstone_axe" // blackstone Tools
-    },
-    "blackstone_hoe": {
-      "textures": "textures/items/blackstone_hoe"
-    },
-    "blackstone_pickaxe": {
-      "textures": "textures/items/blackstone_pickaxe"
-    },
-    "blackstone_shovel": {
-      "textures": "textures/items/blackstone_shovel"
-    },
-    "blackstone_sword": {
-      "textures": "textures/items/blackstone_sword"
     },
     "blaze_axe": {
       "textures": "textures/items/blaze_axe" // blaze Tools
@@ -230,21 +200,6 @@
     "clay_sword": {
       "textures": "textures/items/clay_sword"
     },
-    "coal_axe": {
-      "textures": "textures/items/coal_axe" // coal Tools
-    },
-    "coal_hoe": {
-      "textures": "textures/items/coal_hoe"
-    },
-    "coal_pickaxe": {
-      "textures": "textures/items/coal_pickaxe"
-    },
-    "coal_shovel": {
-      "textures": "textures/items/coal_shovel"
-    },
-    "coal_sword": {
-      "textures": "textures/items/coal_sword"
-    },
     "cobblestone_axe": {
       "textures": "textures/items/cobblestone_axe" // cobblestone Tools
     },
@@ -275,21 +230,6 @@
     "cookie_sword": {
       "textures": "textures/items/cookie_sword"
     },
-    "copper_axe": {
-      "textures": "textures/items/copper_axe" // copper Tools
-    },
-    "copper_hoe": {
-      "textures": "textures/items/copper_hoe"
-    },
-    "copper_pickaxe": {
-      "textures": "textures/items/copper_pickaxe"
-    },
-    "copper_shovel": {
-      "textures": "textures/items/copper_shovel"
-    },
-    "copper_sword": {
-      "textures": "textures/items/copper_sword"
-    },
     "crimson_axe": {
       "textures": "textures/items/crimson_axe" // crimson Tools
     },
@@ -304,21 +244,6 @@
     },
     "crimson_sword": {
       "textures": "textures/items/crimson_sword"
-    },
-    "crying_obsidian_axe": {
-      "textures": "textures/items/crying_obsidian_axe" // crying obsidian Tools
-    },
-    "crying_obsidian_hoe": {
-      "textures": "textures/items/crying_obsidian_hoe"
-    },
-    "crying_obsidian_pickaxe": {
-      "textures": "textures/items/crying_obsidian_pickaxe"
-    },
-    "crying_obsidian_shovel": {
-      "textures": "textures/items/crying_obsidian_shovel"
-    },
-    "crying_obsidian_sword": {
-      "textures": "textures/items/crying_obsidian_sword"
     },
     "deepslate_axe": {
       "textures": "textures/items/deepslate_axe" // deepslate Tools
@@ -365,21 +290,6 @@
     "dirt_sword": {
       "textures": "textures/items/dirt_sword"
     },
-    "emerald_axe": {
-      "textures": "textures/items/emerald_axe" // emerald Tools
-    },
-    "emerald_hoe": {
-      "textures": "textures/items/emerald_hoe"
-    },
-    "emerald_pickaxe": {
-      "textures": "textures/items/emerald_pickaxe"
-    },
-    "emerald_shovel": {
-      "textures": "textures/items/emerald_shovel"
-    },
-    "emerald_sword": {
-      "textures": "textures/items/emerald_sword"
-    },
     "ender_axe": {
       "textures": "textures/items/ender_axe" // ender Tools
     },
@@ -394,21 +304,6 @@
     },
     "ender_sword": {
       "textures": "textures/items/ender_sword"
-    },
-    "endstone_axe": {
-      "textures": "textures/items/endstone_axe" // endstone Tools
-    },
-    "endstone_hoe": {
-      "textures": "textures/items/endstone_hoe"
-    },
-    "endstone_pickaxe": {
-      "textures": "textures/items/endstone_pickaxe"
-    },
-    "endstone_shovel": {
-      "textures": "textures/items/endstone_shovel"
-    },
-    "endstone_sword": {
-      "textures": "textures/items/endstone_sword"
     },
     "fire_charge_axe": {
       "textures": "textures/items/fire_charge_axe" // fire charge Tools
@@ -439,36 +334,6 @@
     },
     "flint_sword": {
       "textures": "textures/items/flint_sword"
-    },
-    "glass_axe": {
-      "textures": "textures/items/glass_axe" // glass Tools
-    },
-    "glass_hoe": {
-      "textures": "textures/items/glass_hoe"
-    },
-    "glass_pickaxe": {
-      "textures": "textures/items/glass_pickaxe"
-    },
-    "glass_shovel": {
-      "textures": "textures/items/glass_shovel"
-    },
-    "glass_sword": {
-      "textures": "textures/items/glass_sword"
-    },
-    "glowstone_axe": {
-      "textures": "textures/items/glowstone_axe" // glowstone Tools
-    },
-    "glowstone_hoe": {
-      "textures": "textures/items/glowstone_hoe"
-    },
-    "glowstone_pickaxe": {
-      "textures": "textures/items/glowstone_pickaxe"
-    },
-    "glowstone_shovel": {
-      "textures": "textures/items/glowstone_shovel"
-    },
-    "glowstone_sword": {
-      "textures": "textures/items/glowstone_sword"
     },
     "granite_axe": {
       "textures": "textures/items/granite_axe" // granite Tools
@@ -545,21 +410,6 @@
     "ice_sword": {
       "textures": "textures/items/ice_sword"
     },
-    "lapis_axe": {
-      "textures": "textures/items/lapis_axe" // lapis Tools
-    },
-    "lapis_hoe": {
-      "textures": "textures/items/lapis_hoe"
-    },
-    "lapis_pickaxe": {
-      "textures": "textures/items/lapis_pickaxe"
-    },
-    "lapis_shovel": {
-      "textures": "textures/items/lapis_shovel"
-    },
-    "lapis_sword": {
-      "textures": "textures/items/lapis_sword"
-    },
     "lava_axe": {
       "textures": "textures/items/lava_axe" // lava Tools
     },
@@ -604,36 +454,6 @@
     },
     "leather_sword": {
       "textures": "textures/items/leather_sword"
-    },
-    "magma_axe": {
-      "textures": "textures/items/magma_axe" // magma Tools
-    },
-    "magma_hoe": {
-      "textures": "textures/items/magma_hoe"
-    },
-    "magma_pickaxe": {
-      "textures": "textures/items/magma_pickaxe"
-    },
-    "magma_shovel": {
-      "textures": "textures/items/magma_shovel"
-    },
-    "magma_sword": {
-      "textures": "textures/items/magma_sword"
-    },
-    "magma_cream_axe": {
-      "textures": "textures/items/magma_cream_axe" // magma cream Tools
-    },
-    "magma_cream_hoe": {
-      "textures": "textures/items/magma_cream_hoe"
-    },
-    "magma_cream_pickaxe": {
-      "textures": "textures/items/magma_cream_pickaxe"
-    },
-    "magma_cream_shovel": {
-      "textures": "textures/items/magma_cream_shovel"
-    },
-    "magma_cream_sword": {
-      "textures": "textures/items/magma_cream_sword"
     },
     "melon_axe": {
       "textures": "textures/items/melon_axe" // melon Tools
@@ -725,66 +545,6 @@
     "netherite_scrap_sword": {
       "textures": "textures/items/netherite_scrap_sword"
     },
-    "netherrack_axe": {
-      "textures": "textures/items/netherrack_axe" // netherrack Tools
-    },
-    "netherrack_hoe": {
-      "textures": "textures/items/netherrack_hoe"
-    },
-    "netherrack_pickaxe": {
-      "textures": "textures/items/netherrack_pickaxe"
-    },
-    "netherrack_shovel": {
-      "textures": "textures/items/netherrack_shovel"
-    },
-    "netherrack_sword": {
-      "textures": "textures/items/netherrack_sword"
-    },
-    "obsidian_axe": {
-      "textures": "textures/items/obsidian_axe" // obsidian Tools
-    },
-    "obsidian_hoe": {
-      "textures": "textures/items/obsidian_hoe"
-    },
-    "obsidian_pickaxe": {
-      "textures": "textures/items/obsidian_pickaxe"
-    },
-    "obsidian_shovel": {
-      "textures": "textures/items/obsidian_shovel"
-    },
-    "obsidian_sword": {
-      "textures": "textures/items/obsidian_sword"
-    },
-    "prismarine_axe": {
-      "textures": "textures/items/prismarine_axe" // prismarine Tools
-    },
-    "prismarine_hoe": {
-      "textures": "textures/items/prismarine_hoe"
-    },
-    "prismarine_pickaxe": {
-      "textures": "textures/items/prismarine_pickaxe"
-    },
-    "prismarine_shovel": {
-      "textures": "textures/items/prismarine_shovel"
-    },
-    "prismarine_sword": {
-      "textures": "textures/items/prismarine_sword"
-    },
-    "quartz_axe": {
-      "textures": "textures/items/quartz_axe" // quartz Tools
-    },
-    "quartz_hoe": {
-      "textures": "textures/items/quartz_hoe"
-    },
-    "quartz_pickaxe": {
-      "textures": "textures/items/quartz_pickaxe"
-    },
-    "quartz_shovel": {
-      "textures": "textures/items/quartz_shovel"
-    },
-    "quartz_sword": {
-      "textures": "textures/items/quartz_sword"
-    },
     "red_sand_axe": {
       "textures": "textures/items/red_sand_axe" // red sand Tools
     },
@@ -799,21 +559,6 @@
     },
     "red_sand_sword": {
       "textures": "textures/items/red_sand_sword"
-    },
-    "redstone_axe": {
-      "textures": "textures/items/redstone_axe" // redstone Tools
-    },
-    "redstone_hoe": {
-      "textures": "textures/items/redstone_hoe"
-    },
-    "redstone_pickaxe": {
-      "textures": "textures/items/redstone_pickaxe"
-    },
-    "redstone_shovel": {
-      "textures": "textures/items/redstone_shovel"
-    },
-    "redstone_sword": {
-      "textures": "textures/items/redstone_sword"
     },
     "rotten_axe": {
       "textures": "textures/items/rotten_axe" // rotten Tools
@@ -859,36 +604,6 @@
     },
     "sculk_sword": {
       "textures": "textures/items/sculk_sword"
-    },
-    "slime_axe": {
-      "textures": "textures/items/slime_axe" // slime Tools
-    },
-    "slime_hoe": {
-      "textures": "textures/items/slime_hoe"
-    },
-    "slime_pickaxe": {
-      "textures": "textures/items/slime_pickaxe"
-    },
-    "slime_shovel": {
-      "textures": "textures/items/slime_shovel"
-    },
-    "slime_sword": {
-      "textures": "textures/items/slime_sword"
-    },
-    "snow_axe": {
-      "textures": "textures/items/snow_axe" // snow Tools
-    },
-    "snow_hoe": {
-      "textures": "textures/items/snow_hoe"
-    },
-    "snow_pickaxe": {
-      "textures": "textures/items/snow_pickaxe"
-    },
-    "snow_shovel": {
-      "textures": "textures/items/snow_shovel"
-    },
-    "snow_sword": {
-      "textures": "textures/items/snow_sword"
     },
     "soulsand_axe": {
       "textures": "textures/items/soulsand_axe" // soulsand Tools
