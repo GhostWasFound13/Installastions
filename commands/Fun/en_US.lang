@@ -1,3 +1,306 @@
+##bridge-file-version: #4
+##sorypmod
+pack.name= more Stuff Mod
+pack.description=Food Add-on by Stratospheer!
+
+## Equipment
+tile.sp:churn.name=Churn
+item.sp:churn_item=Churn
+tile.sp:pot.name=Cooking Pot
+item.sp:pot_item=Cooking Pot
+tile.sp:frying_pan.name=Skillet
+item.sp:frying_pan_item=Skillet
+item.sp:kitchen_knife=Kitchen Knife
+item.sp:diamond_kitchen_knife=Diamond Kitchen Knife
+item.sp:netherite_kitchen_knife=Netherite Kitchen Knife
+item.sp:paper_plate=Paper Plate
+item.sp:dirty_paper_plate=Dirty Paper Plate
+item.sp:clay_plate=Clay Plate
+item.sp:ceramic_plate=Ceramic Plate
+tile.sp:ceramic_plate_block.name=Ceramic Plate
+tile.sp:jar_block.name=Glass Jar
+item.sp:glass_jar=Glass Jar
+item.sp:drinking_glass=Drinking Glass
+item.sp:clay_mug=Clay Mug
+item.sp:ceramic_mug=Ceramic Mug
+tile.sp:toaster.name=Toaster
+tile.sp:chopping_board.name=Chopping Board
+tile.sp:mortar_and_pestle.name=Mortar and Pestle
+tile.sp:blender.name=Blender
+tile.sp:stove.name=Stove
+tile.sp:book_stand.name=Book Stand
+tile.sp:fertile_soil.name=Sp' Soil
+tile.sp:crop_pot.name=Copper Crop Pot
+
+## Bushes
+tile.sp:crop_bush.name=Forest Bush
+tile.sp:taiga_bush.name=Taiga Bush
+tile.sp:tropical_bush.name=Tropical Bush
+tile.sp:torrid_bush.name=Torrid Bush
+item.sp:crop_bush_item=Forest Bush
+item.sp:taiga_bush_item=Taiga Bush
+item.sp:tropical_bush_item=Tropical Bush
+item.sp:torrid_bush_item=Torrid Bush
+
+## Maple
+tile.sp:maple_leaves.name=Maple Leaves
+tile.sp:maple_leaf_pile.name=Maple Leaf Pile
+tile.sp:maple_log.name=Maple Log
+tile.sp:maple_wood.name=Maple Wood
+tile.sp:stripped_maple_log.name=Stripped Maple Log
+tile.sp:stripped_maple_wood.name=Stripped Maple Wood
+tile.sp:maple_planks.name=Maple Planks
+tile.sp:maple_slab.name=Maple Slab
+tile.sp:maple_stairs.name=Maple Stairs
+item.sp:maple_door_item=Maple Door
+tile.sp:maple_door.name=Maple Door
+tile.sp:maple_trapdoor.name=Maple Trapdoor
+tile.sp:maple_fence.name=Maple Fence
+tile.sp:maple_fence_gate.name=Maple Fence Gate
+item.sp:maple_leaf=Maple Leaf
+
+## Saplings
+tile.sp:maple_sapling.name=Maple Sapling
+tile.sp:orange_sapling.name=Orange Sapling
+tile.sp:banana_sapling.name=Banana Sapling
+tile.sp:apple_sapling=Apple Sapling
+tile.sp:vanilla_sapling.name=Vanilla Sapling
+tile.sp:coffee_bean_sapling.name=Coffee Bean Sapling
+tile.sp:coconut_sapling.name=Coconut Sapling
+item.sp:maple_sapling_item=Maple Sapling
+item.sp:orange_sapling_item=Orange Sapling
+item.sp:banana_sapling_item=Banana Sapling
+item.sp:apple_sapling_item=Apple Sapling
+item.sp:vanilla_sapling_item=Vanilla Sapling
+item.sp:coffee_bean_sapling_item=Coffee Bean Sapling
+item.sp:coconut_sapling_item=Coconut Sapling
+
+## Crops
+tile.sp:tomato_crop.name=Tomato Crop
+tile.sp:lettuce_crop.name=Lettuce Crop
+tile.sp:banana_crop.name=Banana Crop
+tile.sp:orange_crop.name=Orange Crop
+tile.sp:apple_crop.name=Apple Crop
+tile.sp:vanilla_crop.name=Vanilla Crop
+tile.sp:tea_crop.name=Tea Crop
+tile.sp:coffee_crop.name=Coffee Beans
+tile.sp:rice_crop.name=Rice Crop
+tile.sp:chilli_pepper_crop.name=Chili Pepper Crop
+tile.sp:coconut_crop.name=Coconut Crop
+tile.sp:corn_crop.name=Corn Crop
+item.sp:tomato=Tomato
+item.sp:tomato_seeds=Tomato Seeds
+item.sp:lettuce=Lettuce
+item.sp:lettuce_seeds=Lettuce Seeds
+item.sp:rice=Rice
+item.sp:rice_seeds=Rice Seeds
+item.sp:chilli_pepper=Chili Pepper
+item.sp:coconut=Coconut
+item.sp:cracked_coconut=Cracked Coconut
+item.sp:corn=Raw Corn
+item.sp:corn_on_the_cob=Corn on the Cob
+item.sp:orange=Orange
+item.sp:banana=Banana
+item.sp:vanilla_bean=Vanilla Bean
+item.sp:vanilla=Vanilla
+item.sp:tea_leaf=Tea Leaf
+item.sp:coconut_helmet=Coconut Helmet
+
+item.sp:coffee_beans=Coffee Beans
+
+## Jars
+tile.sp:jam_jar_block.name=Jelly
+tile.sp:marmalade_jar_block.name=Marmalade
+tile.sp:maple_syrup_jar_block.name=Maple Syrup
+item.sp:jam=Jelly
+item.sp:marmalade=Marmalade
+item.sp:maple_syrup=Maple Syrup
+
+## Base Ingredients
+tile.sp:salt_ore.name=Salt Ore
+item.sp:salt=Salt
+item.sp:flour=Flour
+item.sp:cocoa_powder=Cocoa Powder
+item.sp:dough=Dough
+item.sp:cookie_dough=Cookie Dough
+item.sp:butter=Butter
+item.sp:cheese=Cheese
+item.sp:cheese_block_item=Cheese Block
+tile.sp:cheese_block.name=Cheese Block
+item.sp:batter=Batter
+item.sp:pasta=Pasta
+item.sp:fried_egg=Fried Egg
+
+## Potato Related
+item.sp:buttered_potato=Buttered Potato
+item.sp:mashed_potato=Mashed Potato
+item.sp:fries=French Fries
+item.sp:hash_brown=Hash Brown
+
+## Dough + Batter Related
+item.sp:baguette=Baguette
+item.sp:banana_bread=Banana Bread
+item.sp:bread_slice=Bread Slice
+item.sp:chip_butty=Chip Butty
+item.sp:toast=Toast
+item.sp:buttered_toast=Buttered Toast
+item.sp:jam_on_toast=Jelly on Toast
+item.sp:cheese_toastie=Grilled Cheese
+item.sp:marmalade_on_toast=Marmalade on Toast
+item.sp:pancake=Pancake
+item.sp:buttered_pancake=Buttered Pancake
+item.sp:jam_pancake=Jelly Pancake
+item.sp:maple_syrup_pancake=Maple Syrup Pancake
+item.sp:raw_donut=Raw Donut
+item.sp:donut=Donut
+item.sp:chocolate_donut=Chocolate Donut
+item.sp:chocolate_sprinkled_donut=Chocolate Sprinkled Donut
+item.sp:waffle=Waffle
+item.sp:jam_waffle=Jelly Waffle
+item.sp:maple_syrup_waffle=Maple Syrup Waffle
+item.sp:tortilla=Tortilla
+item.sp:tortilla_chip=Tortilla Chip
+
+## Meats
+item.sp:bacon=Raw Bacon
+item.sp:cooked_bacon=Cooked Bacon
+item.sp:sausage=Raw Sausage
+item.sp:cooked_sausage=Cooked Sausage
+item.sp:chicken_wing=Raw Chicken Wing
+item.sp:cooked_chicken_wing=Cooked Chicken Wing
+item.sp:chicken_slices=Chicken Slices
+item.sp:chicken_nuggets=Chicken Nuggets
+item.sp:pepperoni=Pepperoni
+
+## Pizza
+item.sp:raw_cheese_pizza=Raw Cheese Pizza
+item.sp:cheese_pizza=Cheese Pizza
+item.sp:pepperoni_pizza=Pepperoni Pizza
+item.sp:sausage_pizza=Sausage Pizza
+item.sp:meat_feast_pizza=Meat Feast Pizza
+item.sp:cheese_pizza_slice=Cheese Pizza Slice
+item.sp:pepperoni_pizza_slice=Pepperoni Pizza Slice
+item.sp:sausage_pizza_slice=Sausage Pizza Slice
+item.sp:meat_feast_pizza_slice=Meat Feast Pizza Slice
+
+## Bowl Meals
+item.sp:tomato_soup=Tomato Soup
+item.sp:salad=Tomato Salad
+item.sp:chicken_soup=Chicken-Noodle Soup
+item.sp:beef_stew=Beef Stew
+item.sp:mutton_curry=Mutton Curry
+item.sp:popcorn_kernel_bowl=Bowl of Popcorn Kernels
+item.sp:popcorn_bowl=Bowl of Popcorn
+item.sp:nacho_cheese_dip=Nacho Cheese Dip
+item.sp:nacho_salsa_dip=Nacho Salsa Dip
+item.sp:crisp_bowl=Bowl of Salted Chips
+item.sp:banana_split=Banana Split
+item.sp:ramen=Ramen
+item.sp:spider_eye_soup=Spider Eye Soup
+item.sp:mac_and_cheese=Mac and Cheese
+
+## Plate Meals
+item.sp:fish_and_chips=Fish and Chips
+item.sp:fish_and_chips2=Fish and Chips
+item.sp:bangers_and_mash=Bangers and Mash
+item.sp:bangers_and_mash2=Bangers and Mash
+item.sp:bacon_and_eggs=Bacon and Eggs
+item.sp:bacon_and_eggs2=Bacon and Eggs
+item.sp:steak_and_chips=Steak and Fries
+item.sp:steak_and_chips2=Steak and Fries
+item.sp:nuggets_and_fries=Nuggets and Fries
+item.sp:nuggets_and_fries2=Nuggets and Fries
+item.sp:spaghetti_bolognese=Spaghetti
+item.sp:spaghetti_bolognese2=Spaghetti
+item.sp:pizza_dinner=Pizza Dinner
+item.sp:pizza_dinner2=Pizza Dinner
+item.sp:chicken_and_waffles=Chicken and Waffles
+item.sp:chicken_and_waffles2=Chicken and Waffles
+item.sp:milk_and_cookies=Milk and Cookies
+item.sp:milk_and_cookies2=Milk and Cookies
+item.sp:roast_chicken=Roast Chicken
+item.sp:roast_chicken2=Roast Chicken
+
+## Pies + Cakes
+tile.sp:apple_pie.name=Apple Pie
+item.sp:apple_pie_item=Apple Pie
+item.sp:apple_pie_slice=Apple Pie Slice
+tile.sp:pumpkin_pie.name=Pumpkin Pie
+item.sp:pumpkin_pie_item=Pumpkin Pie
+item.sp:pumpkin_pie_slice=Pumpkin Pie Slice
+tile.sp:shepherds_pie.name=Shepherd's Pie
+item.sp:shepherds_pie_item=Shepherd's Pie
+item.sp:shepherds_pie_slice=Shepherd's Pie Slice
+
+tile.sp:chocolate_cake.name=Chocolate Cake
+item.sp:chocolate_cake_item=Chocolate Cake
+item.sp:chocolate_cake_slice=Chocolate Cake Slice
+tile.sp:cheese_cake.name=Cheesecake
+item.sp:cheese_cake_item=Cheesecake
+item.sp:cheese_cake_slice=Cheesecake Slice
+tile.sp:christmas_cake.name=Christmas Cake
+item.sp:christmas_cake_item=Christmas Cake
+item.sp:christmas_cake_slice=Christmas Cake Slice
+
+## Hand-Based Meals
+item.sp:bacon_sandwich=Bacon Sandwich
+item.sp:blt=BLT
+item.sp:sausage_sandwich=Sausage Sandwich
+item.sp:hotdog=Hotdog
+item.sp:corn_dog=Corn Dog
+item.sp:cheeseburger=Cheeseburger
+item.sp:deluxe_burger=Deluxe Burger
+item.sp:taco=Taco
+item.sp:nugget_wrap=Nugget Wrap
+item.sp:burrito=Burrito
+item.sp:lasagne=Lasagna
+item.sp:cornish_pasty=Cornish Pasty
+item.sp:maki_sushi=Maki Sushi
+item.sp:nigiri_sushi=Nigiri Sushi
+item.sp:fish_finger=Fish Stick
+item.sp:fish_finger_sandwich=Fish Stick Sandwich
+item.sp:meatball_sandwich=Meatball Sub
+item.sp:candy_floss=Cotton Candy
+
+## Treat Related
+item.sp:marshmallow=Marshmallow
+item.sp:candy_cane=Candy Cane
+item.sp:chocolate_bar=Chocolate Bar
+item.sp:chocolate_orange=Chocolate Orange
+item.sp:chocolate_banana=Chocolate Banana
+item.sp:smore=S'more
+item.sp:crispy_rice_bar=Crispy Rice Bar
+item.sp:yule_log=Yule Log
+item.sp:sweet_berry_muffin=Sweet Berry Muffin
+item.sp:chocolate_muffin=Chocolate Muffin
+item.sp:pain_au_chocolat=Pain au chocolat
+
+## Ice Cream
+item.sp:ice_cream_cone=Ice Cream Cone
+item.sp:ice_cream=Vanilla Ice Cream
+item.sp:chocolate_ice_cream=Chocolate Ice Cream
+item.sp:sweet_berry_ice_cream=Sweet Berry Ice Cream
+item.sp:cookie_dough_ice_cream=Cookie Dough Ice Cream
+item.sp:ice_cream_sandwich=Ice Cream Sandwich
+
+## Cold Drinks
+item.sp:water_glass=Glass of Water
+item.sp:milk_glass=Glass of Milk
+item.sp:apple_juice=Apple Juice
+item.sp:orange_juice=Orange Juice
+item.sp:carrot_juice=Carrot Juice
+item.sp:beet_juice=Beet Juice
+item.sp:melon_smoothie=Melon Smoothie
+item.sp:banana_smoothie=Banana Smoothie
+item.sp:fruit_smoothie=Fruit Smoothie
+item.sp:cookies_and_cream_smoothie=Cookies and Cream Smoothie
+item.sp:coconut_smoothie=Coconut Smoothie
+item.sp:vanilla_milkshake=Vanilla Milkshake
+item.sp:sweet_berry_milkshake=Sweet Berry Milkshake
+item.sp:chocolate_milkshake=Chocolate Milkshake
+item.sp:cookie_dough_milkshake=Cookie Dough Milkshake
+item.sp:bubbly_water=Boiling Water
+item.sp:cola_glass=Glass of Soda
 
 
 
